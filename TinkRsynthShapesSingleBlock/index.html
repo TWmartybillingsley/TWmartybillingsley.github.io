@@ -5,6 +5,8 @@
 
     	<script src="d3.js"></script>
     	<script src="screenJavascript.js"></script>
+
+    	<title>TinkRworks Draw Shapes</title>
     </head>
     <body onload="drawStartingState()">
 
@@ -51,7 +53,7 @@
 
 			<div id="instructions2" class="instructions">
 				Draw origin point:  
-				<input type="checkbox" id="originPointCheckbox" checked>
+				<input type="checkbox" id="originPointCheckbox" checked tabindex="-1">
 			</div>
 
 			<div id="drawButton" class="drawButton" onclick="drawShape()"><div id="drawButtonText">Draw!</div></div>
@@ -65,51 +67,51 @@
     			<!-- contains the colors block: shared among all draw blocks -->
     			<!-- y location of colors block changes depending on draw block type -->
 		    	<div class="colorsDiv" id="colorInputs"> 
-		    		<input type="number" id="sharedRed" class="numberinput" min="0" max="255" value="0" />
-		    		<input type="number" id="sharedGreen" class="numberinput" min="0" max="255" value="0" />
-		    		<input type="number" id="sharedBlue" class="numberinput" min="0" max="255" value="0" />
+		    		<input type="number" id="sharedRed" class="numberinput" min="0" max="255" value="0" onclick="this.select()" tabindex="11"/>
+		    		<input type="number" id="sharedGreen" class="numberinput" min="0" max="255" value="0" onclick="this.select()" tabindex="12"/>
+		    		<input type="number" id="sharedBlue" class="numberinput" min="0" max="255" value="0" onclick="this.select()" tabindex="13"/>
 		    	</div>
 
 		    	<!-- contains one set of x,y: shared among all draw blocks -->
 		    	<!-- y location changes only for writeText -->
 		    	<div class="sharedXYdiv" id="sharedXYinputs"> 
-		    		<<input type="number" id="sharedX" class="numberinput" max="999" value="50" />
-		    		<input type="number" id="sharedY" class="numberinput" max="999" value="50" />
+		    		<<input type="number" id="sharedX" class="numberinput" max="999" value="50" onclick="this.select()" tabindex="1"/>
+		    		<input type="number" id="sharedY" class="numberinput" max="999" value="50" onclick="this.select()" tabindex="2"/>
 		    	</div>
 
 		    	<!-- true/false dropdown menu: shared between rect/oval/triangle -->
 		    	<!-- hidden for line/text, y loc shifts for triangle -->
-				<select name="sharedTF" id="sharedTF" class="TFinput" value="true">
+				<select name="sharedTF" id="sharedTF" class="TFinput" value="true" tabindex="10">
 				  <option value="true">True</option>
 				  <option value="false">False</option>
 				</select>
 
 				<!-- contains width/height inputs for rect/oval -->
 		    	<div class="widthHeightInputs" id="widthHeightInputs"> 
-		    		<<input type="number" id="rectOvalWidth" class="numberinput" max="999" min="0" value="50" />
-		    		<input type="number" id="rectOvalHeight" class="numberinput" max="999" min="0" value="50" />
+		    		<<input type="number" id="rectOvalWidth" class="numberinput" max="999" min="0" value="50" onclick="this.select()" tabindex="3"/>
+		    		<input type="number" id="rectOvalHeight" class="numberinput" max="999" min="0" value="50" onclick="this.select()" tabindex="4"/>
 		    	</div>
 
 		    	<!-- contains point 2 x,y inputs for line/triangle -->
 		    	<div class="point2xyInputs" id="point2xyInputs"> 
-		    		<<input type="number" id="point2x" class="numberinput" max="999" min="0" value="50" />
-		    		<input type="number" id="point2y" class="numberinput" max="999" min="0" value="50" />
+		    		<<input type="number" id="point2x" class="numberinput" max="999" min="0" value="50" onclick="this.select()" tabindex="5"/>
+		    		<input type="number" id="point2y" class="numberinput" max="999" min="0" value="50" onclick="this.select()" tabindex="6"/>
 		    	</div>
 
 		    	<!-- contains point 3 x,y inputs for triangle -->
 		    	<div class="point3xyInputs" id="point3xyInputs"> 
-		    		<<input type="number" id="point3x" class="numberinput" max="999" min="0" value="50" />
-		    		<input type="number" id="point3y" class="numberinput" max="999" min="0" value="50" />
+		    		<<input type="number" id="point3x" class="numberinput" max="999" min="0" value="50" onclick="this.select()" tabindex="7"/>
+		    		<input type="number" id="point3y" class="numberinput" max="999" min="0" value="50" onclick="this.select()" tabindex="8"/>
 		    	</div>
 
 		    	<!-- line thickness input -->
-		    	<input type="number" id="lineThickness" class="numberinput" max="999" min="0" value="5" />
+		    	<input type="number" id="lineThickness" class="numberinput" max="999" min="0" value="5" onclick="this.select()" tabindex="9"/>
 
 		    	<!-- text input for writeText -->
-		   		<input type="text" id="txttext" name="txttext" class="textInput" value="Hello, World!" />
+		   		<input type="text" id="txttext" name="txttext" class="textInput" value="Hello, World!" onclick="this.select()" tabindex="0"/>
 
 			   <!-- size input for writeText -->
-			   <select name="txtsize" id="txtsize" class="pulldownMenu">
+			   <select name="txtsize" id="txtsize" class="pulldownMenu" tabindex="14">
 					  <option value="7">X Small</option>
 					  <option value="9">Small</option>
 					  <option value="12">Medium</option>
@@ -127,6 +129,7 @@
 	    </div>
 
     </div>    <!-- end orangeMain -->
+    
 
     </body>
 </html>
