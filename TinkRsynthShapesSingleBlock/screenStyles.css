@@ -102,11 +102,11 @@ input::-webkit-inner-spin-button {
       }
 
 .svgWhiteBox{
-  width:680px;
+  width:675px;
   height: 515px;
   position: absolute;   /* position based on window */
-  left:700px;
-  top:150px;
+  left:660px;
+  top:145px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 1px 1px 5px #808080;
@@ -122,11 +122,11 @@ input::-webkit-inner-spin-button {
 /* Controls box: choose shape, origin point checkbox, draw button */
 #controls{
   width:550px;
-  height:170px;
+  height:175px;
   padding:20px;
   position: absolute;   /* position based on window */
-  left:45px;
-  top:150px;
+  left:35px;
+  top:145px;
   background-color: #FFFFFF;
   border-radius: 10px;
   box-shadow: 1px 1px 5px #808080;
@@ -274,8 +274,8 @@ input::-webkit-inner-spin-button {
   height:260px;
   padding:20px;
   position: absolute;   /* position based on window */
-  left:45px;
-  top:405px;
+  left:35px;
+  top:400px;
   background-color: #FFFFFF;
   border-radius: 10px;
   box-shadow: 1px 1px 5px #808080;
@@ -518,16 +518,6 @@ input::-webkit-inner-spin-button {
   z-index: 5;
   display: none; /* visible for writeText, otherwise hidden */
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
