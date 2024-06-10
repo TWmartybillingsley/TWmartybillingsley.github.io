@@ -1,0 +1,46 @@
+
+body{
+	margin-left: 30px;
+}
+
+#blocklyDiv{    /* these values also used in sketchJavascript.js when window is resized */
+	height: calc(100vh - 100px);  
+	width: calc(100vw - 40px);
+}
+
+
+.runButton{
+	margin-top: 30px;
+	padding: 10px;
+}
+
+.dot {
+  height: 25px;
+  width: 25px;
+  border: 2px black solid;
+  border-radius: 50%;
+  position:absolute;
+}
+
+.textbox{
+	width: 50px;
+}
+
+.svgWhiteBox{
+	width:320px;
+  height: 240px;
+  position: absolute;   /* position based on window */
+  left:700px;
+  top:10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #808080;
+  padding: 20px;
+  z-index: 10;
+}
+
+#svgDIV{
+  position: relative;   /* inside svgWhiteBox */
+  top: 0px;
+  left: 0px;
+}

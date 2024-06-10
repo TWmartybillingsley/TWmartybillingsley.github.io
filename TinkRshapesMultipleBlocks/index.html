@@ -1,6 +1,660 @@
+<!DOCTYPE html>
 <html>
-  <head></head>
-  <body>
-    test
-  </body>
+<head>
+	<title>Sketch Simulator, Block-based v1</title>
+	<!-- blockly scripts -->
+	<script src="google-blockly/blockly_compressed.js"></script>
+	<script src="google-blockly/blocks_compressed.js"></script>
+	<script src="google-blockly/javascript_compressed.js"></script>
+	<script src="google-blockly/msg/js/en.js"></script>
+
+	<!-- scripts for sketch -->
+	<script type="text/javascript" src="sketchjavascript.js"></script>
+	<!-- sketch blocks definitions and functions -->
+	<script src="blocks/sketchBlocks3.js"></script>
+	<script src="blocks/sketchFunctions3.js"></script>
+
+
+	<!-- functions for lights -->
+	<script type="text/javascript" src="lightsjavascript.js"></script>
+
+	<!-- lights blocks definitions and functions -->
+	<script src="blocks/lightBlocks3.js"></script>
+	<script src="blocks/lightFunctions3.js"></script>
+
+	<!-- slider widget -->
+	<script src="blocks/field_slider.js"></script>
+	<script src="blocks/sliderBlocks.js"></script>
+
+	<!-- d3 library for drawing SVGs -->
+	<script src="d3.js"></script>
+
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body onload="drawStartingState(); setScreenLoc()">
+
+	<!-- blockly needs a fixed-sized div -->
+	<div id="blocklyDiv"></div>
+	<!-- run the code -->
+	<input type="button" class="runButton" value="Run Code" onclick="runCode()">
+
+	<!-- DEBUG: show the code -->
+	<input type="button" class="runButton" value="Copy XML" onclick="copyXML()">
+
+	<!-- show the screen -->
+	<div class="svgWhiteBox" id="svgWhiteBox" draggable="true" ondragstart="startBoxDrag(this,event)" ondragend="endBoxDrag(this, event)" ondragover="drag_over(event)">
+   		<div id="svgDIV">
+    	</div>
+	</div>
+
+
+
+
+<!-- blockly blocks and scripts -->
+	
+	<xml id="toolbox" style="display: none">
+
+		<!--<block type="tw_pseudo_subroutine" deletable="false" movable="false" editable="false"></block>-->
+
+		<!-- sketch blocks, custom-made -->
+		<category name="Sketch" colour="#78cabb">
+
+			<block type="tw_color">
+				<value name="RED">
+		          	<block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		          <value name="GREEN">
+		            <block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		          <value name="BLUE">
+		            <block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+			</block>
+
+
+			<block type="tw_fill_new_color">
+		      <value name="RGB_COLOR">
+		        <block type="tw_color">
+		          <value name="RED">
+		          	<block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		          <value name="GREEN">
+		            <block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		          <value name="BLUE">
+		            <block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		        </block>
+		      </value>
+		    </block>
+
+		    <block type="tw_draw_rectangle">
+		      <value name="XY">
+		        <block type="tw_tuple">
+		          <value name="ARG0">
+		            <block type="math_number">
+		              <field name="NUM">50</field>
+		            </block>
+		          </value>
+		          <value name="ARG1">
+		            <block type="math_number">
+		              <field name="NUM">50</field>
+		            </block>
+		          </value>
+		        </block>
+		      </value>
+		      <value name="WIDTH_HEIGHT">
+		        <block type="tw_tuple">
+		          <value name="ARG0">
+		            <block type="math_number">
+		              <field name="NUM">50</field>
+		            </block>
+		          </value>
+		          <value name="ARG1">
+		            <block type="math_number">
+		              <field name="NUM">50</field>
+		            </block>
+		          </value>
+		        </block>
+		      </value>
+		      <value name="FILL?">
+		        <block type="tw_tf_input">
+		          <field name="TRUE_FALSE">TRUE</field>
+		        </block>
+		      </value>
+		      <value name="RGB_COLOR">
+		        <block type="tw_color">
+		          <value name="RED">
+		          	<block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		          <value name="GREEN">
+		            <block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		          <value name="BLUE">
+		            <block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		        </block>
+		      </value>
+		    </block>
+
+
+		    <block type="tw_draw_oval">
+		      <value name="XY">
+		        <block type="tw_tuple">
+		          <value name="ARG0">
+		            <block type="math_number">
+		              <field name="NUM">50</field>
+		            </block>
+		          </value>
+		          <value name="ARG1">
+		            <block type="math_number">
+		              <field name="NUM">50</field>
+		            </block>
+		          </value>
+		        </block>
+		      </value>
+		      <value name="WIDTH_HEIGHT">
+		        <block type="tw_tuple">
+		          <value name="ARG0">
+		            <block type="math_number">
+		              <field name="NUM">50</field>
+		            </block>
+		          </value>
+		          <value name="ARG1">
+		            <block type="math_number">
+		              <field name="NUM">50</field>
+		            </block>
+		          </value>
+		        </block>
+		      </value>
+		      <value name="FILL?">
+		        <block type="tw_tf_input">
+		          <field name="TRUE_FALSE">TRUE</field>
+		        </block>
+		      </value>
+		      <value name="RGB_COLOR">
+		        <block type="tw_color">
+		          <value name="RED">
+		          	<block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		          <value name="GREEN">
+		            <block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		          <value name="BLUE">
+		            <block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		        </block>
+		      </value>
+		    </block>
+
+
+		    <block type="tw_draw_triangle">
+		      <value name="CORNER1">
+		        <block type="tw_tuple">
+		          <value name="ARG0">
+		            <block type="math_number">
+		              <field name="NUM">100</field>
+		            </block>
+		          </value>
+		          <value name="ARG1">
+		            <block type="math_number">
+		              <field name="NUM">50</field>
+		            </block>
+		          </value>
+		        </block>
+		      </value>
+		      <value name="CORNER2">
+		        <block type="tw_tuple">
+		          <value name="ARG0">
+		            <block type="math_number">
+		              <field name="NUM">50</field>
+		            </block>
+		          </value>
+		          <value name="ARG1">
+		            <block type="math_number">
+		              <field name="NUM">100</field>
+		            </block>
+		          </value>
+		        </block>
+		      </value>
+		      <value name="CORNER3">
+		        <block type="tw_tuple">
+		          <value name="ARG0">
+		            <block type="math_number">
+		              <field name="NUM">150</field>
+		            </block>
+		          </value>
+		          <value name="ARG1">
+		            <block type="math_number">
+		              <field name="NUM">100</field>
+		            </block>
+		          </value>
+		        </block>
+		      </value>
+		      <value name="FILL">
+		        <block type="tw_tf_input">
+		          <field name="TRUE_FALSE">TRUE</field>
+		        </block>
+		      </value>
+		      <value name="RGB_COLOR">
+		        <block type="tw_color">
+		          <value name="RED">
+		          	<block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		          <value name="GREEN">
+		            <block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		          <value name="BLUE">
+		            <block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		        </block>
+		      </value>
+		    </block>
+
+
+		    <block type="tw_draw_line">
+		      <value name="POINT1">
+		       <block type="tw_tuple">
+		          <value name="ARG0">
+		            <block type="math_number">
+		              <field name="NUM">50</field>
+		            </block>
+		          </value>
+		          <value name="ARG1">
+		            <block type="math_number">
+		              <field name="NUM">50</field>
+		            </block>
+		          </value>
+		        </block>
+		      </value>
+		      <value name="POINT2">
+		        <block type="tw_tuple">
+		          <value name="ARG0">
+		            <block type="math_number">
+		              <field name="NUM">100</field>
+		            </block>
+		          </value>
+		          <value name="ARG1">
+		            <block type="math_number">
+		              <field name="NUM">100</field>
+		            </block>
+		          </value>
+		        </block>
+		      </value>
+		      <value name="THICKNESS">
+	            <block type="math_number">
+	              <field name="NUM">1</field>
+	            </block>
+	          </value>
+		      <value name="RGB_COLOR">
+		        <block type="tw_color">
+		          <value name="RED">
+		          	<block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		          <value name="GREEN">
+		            <block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		          <value name="BLUE">
+		            <block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		        </block>
+		      </value>
+		    </block>
+
+
+		    <block type="tw_write_text">
+		      <value name="TEXT">
+		        <block type="tw_text_input">
+		          <field name="TEXT_INPUT">Hello, World!</field>
+		        </block>
+		      </value>
+		      <value name="XY">
+		        <block type="tw_tuple">
+		          <value name="ARG0">
+		            <block type="math_number">
+		              <field name="NUM">50</field>
+		            </block>
+		          </value>
+		          <value name="ARG1">
+		            <block type="math_number">
+		              <field name="NUM">50</field>
+		            </block>
+		          </value>
+		        </block>
+		      </value>
+		      <value name="TEXT_SIZE">
+		        <block type="tw_text_size_input">
+		          <field name="TEXT_SIZE">x_small_text</field>
+		        </block>
+		      </value>
+		      <value name="RGB_COLOR">
+		        <block type="tw_color">
+		          <value name="RED">
+		          	<block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		          <value name="GREEN">
+		            <block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		          <value name="BLUE">
+		            <block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+		          </value>
+		        </block>
+		      </value>
+		    </block>
+
+
+		    <block type="tw_pseudo_subroutine">
+		      <value name="CODE_BLOCKS">
+		        
+		      </value>
+		    </block>
+
+
+		  </category>
+
+
+
+		<!-- lights, custom-made -->
+		<!-- not used for now
+		<category name="Lights" colour="#6da3a4">
+			<block type="pixelcolor">
+				<value name="RED">
+	      			<block type="num_slider_0_255"></block>
+	    		</value>
+	    		<value name="GREEN">
+	      			<block type="num_slider_0_255"></block>
+	    		</value>
+	    		<value name="BLUE">
+	      			<block type="num_slider_0_255"></block>
+	    		</value>
+			</block>
+
+			<block type="newlightstrand">
+				<value name="LIGHT_COUNT">
+	      			<block type="math_number">
+	        			<field name="NUM">5</field>
+	      			</block>
+	    		</value>
+			</block>
+
+			<block type="setmultiplepixels">
+				<value name="RGB_COLOR">
+					<block type="pixelcolor">
+						<value name="RED">
+	      					<block type="num_slider_0_255"></block>
+	    				</value>
+			    		<value name="GREEN">
+			      			<block type="num_slider_0_255"></block>
+			    		</value>
+			    		<value name="BLUE">
+			      			<block type="num_slider_0_255"></block>
+			    		</value>
+					</block>
+				</value>
+				<value name="START">
+	      			<block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+	    		</value>
+	    		<value name="END">
+	      			<block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+	    		</value>
+			</block>
+
+			<block type="setonepixel">
+				<value name="PIXEL_NUM">
+	      			<block type="math_number">
+	        			<field name="NUM">0</field>
+	      			</block>
+	    		</value>
+	    		<value name="RGB_COLOR">
+					<block type="pixelcolor">
+						<value name="RED">
+	      					<block type="num_slider_0_255"></block>
+	    				</value>
+			    		<value name="GREEN">
+			      			<block type="num_slider_0_255"></block>
+			    		</value>
+			    		<value name="BLUE">
+			      			<block type="num_slider_0_255"></block>
+			    		</value>
+					</block>
+				</value>
+			</block>
+
+			<block type="math_number"></block>
+			<block type="num_slider_0_255"></block>
+		</category>
+		-->
+
+		<!-- variables (import from Blockly workspace factory)-->
+		<!-- not used for now 
+		<category name="Variables" colour="#a55b80" custom="VARIABLE">
+		</category>
+		-->
+
+		<!-- loops -->
+		<!-- not used for now (fix timing)
+		<category name="Loops" colour="#5ba55b">
+		    <block type="repeat_loop">
+		      <value name="REPEAT_NUM_TIMES">
+		        <block type="math_number">
+	        		<field name="NUM">10</field>
+	      		</block>
+		      </value>
+		    </block>
+		   
+		</category>
+		-->
+
+		<!-- math (import from Blockly workspace factory)-->
+		<!-- not used for now (need to get at raw blocks for XML)
+		<category name="Math" colour="#5b67a5">
+		    <block type="math_number">
+		      <field name="NUM">0</field>
+		    </block>
+		    <block type="math_arithmetic">
+		      <field name="OP">ADD</field>
+		      <value name="A">
+		        <shadow type="math_number">
+		          <field name="NUM">1</field>
+		        </shadow>
+		      </value>
+		      <value name="B">
+		        <shadow type="math_number">
+		          <field name="NUM">1</field>
+		        </shadow>
+		      </value>
+		    </block>
+
+		    <block type="math_round">
+		      <field name="OP">ROUND</field>
+		      <value name="NUM">
+		        <shadow type="math_number">
+		          <field name="NUM">3.1</field>
+		        </shadow>
+		      </value>
+		    </block>
+
+		    <block type="math_random_int">
+		      <value name="FROM">
+		        <shadow type="math_number">
+		          <field name="NUM">1</field>
+		        </shadow>
+		      </value>
+		      <value name="TO">
+		        <shadow type="math_number">
+		          <field name="NUM">100</field>
+		        </shadow>
+		      </value>
+		    </block>
+		    
+		    <block type="math_random_float"/>
+			
+  		</category>
+  		-->
+
+  		<!-- time (import from Blockly workspace factory)-->
+  		<!-- not used for now (fix timing)
+  		<category colour="#5571A7" name="Time">
+		    <block type="delay_block">
+		      <value name="DELAY_MILLISECONDS">
+		        <block type="math_number">
+	        		<field name="NUM">1000</field>
+	      		</block>
+		      </value>
+		    </block>
+		</category>
+		-->
+
+	</xml>
+
+	<xml id="startBlocks" style="display: none">
+		<block type="tw_pseudo_subroutine" deletable="false" movable="true" editable="false"></block>
+	</xml>
+
+	<script>
+		// keep track of whether the user has been warned about disabled blocks
+		var disabledBlocksWarningIssued = false;
+
+		
+  		var workspace = Blockly.inject('blocklyDiv',
+      	{toolbox: document.getElementById('toolbox')});
+      	
+
+    	Blockly.Xml.appendDomToWorkspace(document.getElementById('startBlocks'), workspace);
+  		
+
+      	function makecode() {
+      		timeout_end_stack = '';
+      		var code = Blockly.JavaScript.workspaceToCode(workspace);
+      		code += timeout_end_stack;
+      		return code
+      	}
+
+
+      	function runCode() {
+      	
+      	// before running, clear color, shapes and text from screen
+      		removeAllClass("shape");
+      		removeAllClass("centerDot");
+      		resetScreenColor();
+
+      	// disable all blocks that aren't in the code ("pseudo-subroutine") block
+      		var disabledBlocks = false;
+      		var topBlocks = workspace.getTopBlocks();
+			for (var i = 0; i < topBlocks.length; i++) {
+			  var topBlock = topBlocks[i];
+			  if (topBlock.type !== "tw_pseudo_subroutine") {
+			    topBlock.setEnabled(false);
+			    // all blocks attached to that block should be disabled
+			    var b = topBlock;
+			    while (b.getNextBlock() != null){
+			    	b.getNextBlock().setEnabled(false);
+			    	b = b.getNextBlock();
+			    }
+			    disabledBlocks = true;
+			  }
+			}
+			// warn users about disabled blocks if this is the first time they are seeing them
+			if (disabledBlocks && !disabledBlocksWarningIssued){
+				alert('Blocks that are not in Code will be disabled. To use a block, drag it into the Code block, then right-click and choose Enable Block');
+				disabledBlocksWarningIssued = true;
+			}
+
+		// start the XML code
+			newXML();
+
+
+      	// Generate JavaScript code and run it.
+		// generate XML along the way
+      		window.LoopTrap = 1000;
+        	Blockly.JavaScript.INFINITE_LOOP_TRAP =
+          		'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+          	num_timeout_functions = 0;
+      		var code = makecode();
+	
+			// Old way of running code
+      		Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+      		try {
+        		eval(code);
+      		} catch (e) {
+        		alert(e);
+      		}
+
+      		// New way of running code
+      		//var myInterpreter = new Interpreter(code);
+			//myInterpreter.run(); 
+
+		// finish the XML code
+			finishXML();
+
+    	}
+
+    	function showCode() {
+      	// DEBUG: Generate JavaScript code and display it.
+      		window.LoopTrap = 1000;
+        	Blockly.JavaScript.INFINITE_LOOP_TRAP =
+          		'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+          	var code = makecode();
+			console.log(code) ;
+			alert(code);
+
+    	}
+
+    	function copyXML(){
+    		runCode();
+    		navigator.clipboard.writeText(xmlCompleteCode);
+    	}
+
+    	
+
+	</script>
+<!-- end of blockly blocks and scripts -->
+</body>
+
 </html>
