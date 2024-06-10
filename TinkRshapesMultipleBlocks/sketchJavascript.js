@@ -21,6 +21,7 @@ resizeGridVars()
 var globalDot = false;
 
 function resizeGridVars(){
+  console.log("running resizeGridVars()")
   factor = window.innerWidth/(3*rawScreenWidth)
   screenWidth = rawScreenWidth*factor
   screenHeight = rawScreenHeight*factor
@@ -342,6 +343,7 @@ function fillNewColor(r,g,b){
 //--------useful functions to change state of SVG
 
 function drawStartingState(){
+  console.log("running drawStartingState()")
   createSVG()
   createScreen()
   drawGrid()
