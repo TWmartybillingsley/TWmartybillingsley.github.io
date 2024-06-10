@@ -31,6 +31,7 @@ function resizeGridVars(){
   yOffset = 10*factor
 }
 
+
 window.addEventListener("resize", setScreenLoc);
 function setScreenLoc(){
   // runs on window resize
