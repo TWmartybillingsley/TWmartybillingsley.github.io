@@ -135,7 +135,8 @@ function drawVline(x){
     .attr("y2", screenHeight)
     .attr("class", "gridLine")
     .style("stroke", gridColor)
-    .style("stroke-width", 1);
+    .style("stroke-width", 1)
+    .attr("visibility", "visible");
 }
 
 function drawHline(y){
@@ -149,7 +150,8 @@ function drawHline(y){
     .attr("y2", y)
     .attr("class", "gridLine")
     .style("stroke", gridColor)
-    .style("stroke-width", 1);
+    .style("stroke-width", 1)
+    .attr("visibility", "visible");
 }
 
 // label the vertical lines along the x axis
@@ -161,9 +163,12 @@ function writeVtext(txt,pos){
     .attr("transform", `translate(${xOffset} ${yOffset})`)
     .attr("x", pos)  
     .attr("y", -5)  // just above the grid
+    .attr("class", "gridText")
     .attr("text-anchor", "middle")
     .style("font-family", "Roboto, sans-serif")
     .style("font-size", `${factor*5}px`)
+    .attr("visibility", "visible");
+    
 }
 
 // label the horizontal lines down the y axis
@@ -175,9 +180,11 @@ function writeHtext(txt,pos){
     .attr("transform", `translate(${xOffset} ${yOffset})`)
     .attr("x", -5)  // just to the left of the grid
     .attr("y", pos+3) // down a few pixels to center text on line
+    .attr("class", "gridText")
     .attr("text-anchor", "end")
     .style("font-family", "Roboto, sans-serif")
     .style("font-size", `${factor*5}px`)
+    .attr("visibility", "visible");
 }
 
 function drawGrid(){
@@ -377,6 +384,20 @@ function removeAllClass(whichClass){
 function resetScreenColor(){
   var screen = d3.select("#theScreen");
   screen.style("fill", "rgb(250,250,250")
+}
+
+function hideGrid(){
+  var textSelection = d3.selectAll(".gridText");
+  textSelection.attr("visibility", "hidden");
+  var lineSelection = d3.selectAll(".gridLine");
+  lineSelection.attr("visibility", "hidden");
+}
+
+function showGrid(){
+  var textSelection = d3.selectAll(".gridText");
+  textSelection.attr("visibility", "visible");
+  var lineSelection = d3.selectAll(".gridLine");
+  lineSelection.attr("visibility", "visible");
 }
 
 
