@@ -53,6 +53,10 @@ Blockly.JavaScript['tw_color'] = function(block) {
   var value_red = Blockly.JavaScript.valueToCode(block, 'RED', Blockly.JavaScript.ORDER_ATOMIC);
   var value_green = Blockly.JavaScript.valueToCode(block, 'GREEN', Blockly.JavaScript.ORDER_ATOMIC);
   var value_blue = Blockly.JavaScript.valueToCode(block, 'BLUE', Blockly.JavaScript.ORDER_ATOMIC);
+  // check neg nums
+  if (value_red[0] == "("){value_red=value_red.slice(1,-1)}
+  if (value_green[0] == "("){value_green=value_green.slice(1,-1)}
+  if (value_blue[0] == "("){value_blue=value_blue.slice(1,-1)}
   // Assemble javascript into code variable.
   var code = value_red+' '+value_green+' '+value_blue;  // return value is string -- must be sliced and split when received
   // TODO: Change ORDER_NONE to the correct strength.
@@ -200,6 +204,7 @@ Blockly.JavaScript['tw_draw_line'] = function(block) {
   var x2 = parseInt(xy2[0]);
   var y2 = parseInt(xy2[1]);
   var value_thickness = Blockly.JavaScript.valueToCode(block, 'THICKNESS', Blockly.JavaScript.ORDER_ATOMIC);
+  if (value_thickness[0]=="("){ value_thickness = value_thickness.slice(1,-1)}
   var thick = value_thickness;
   var value_color = Blockly.JavaScript.valueToCode(block, 'RGB_COLOR', Blockly.JavaScript.ORDER_ATOMIC);
   var rgb = value_color.slice(1,-1).split(' ') // get rid of parentheses and make into array
@@ -285,7 +290,10 @@ Blockly.JavaScript['tw_write_text'] = function(block) {
 Blockly.JavaScript['tw_tuple'] = function(block) {
   var value_arg0 = Blockly.JavaScript.valueToCode(block, 'ARG0', Blockly.JavaScript.ORDER_ATOMIC);
   var value_arg1 = Blockly.JavaScript.valueToCode(block, 'ARG1', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble javascript into code variable.
+  // deal with negative nums, which have parentheses around them
+  if (value_arg0[0]=="("){ value_arg0 = value_arg0.slice(1,-1)}
+  if (value_arg1[0]=="("){ value_arg1 = value_arg1.slice(1,-1)}
+  // Assemble javascript into code variable.
   var code = value_arg0+' '+value_arg1;  // return value is string -- must be sliced and split when received
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
@@ -307,8 +315,11 @@ Blockly.JavaScript['tw_tf_input'] = function(block) {
 
 Blockly.JavaScript['tw_text_input'] = function(block) {
   var text_text_input = block.getFieldValue('TEXT_INPUT');
-  // TODO: Assemble javascript into code variable.
-  var code = `"${text_text_input}"`;
+  // strip out any quote marks (these will mess up the code, which is a string)
+  text = text_text_input.replaceAll('"',' ');
+  text = text.replaceAll("'",' ');
+  // Assemble javascript into code variable.
+  var code = `"${text}"`;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
