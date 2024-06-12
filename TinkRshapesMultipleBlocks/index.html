@@ -34,13 +34,32 @@
 </head>
 <body onload="setScreenLoc()">
 
+	<!-- top bar -->
+	<div id="site-topbar">
+		<div class="button-bar">
+			<img src="images/rocket.png" class="app-icon" id="rocket-icon">
+
+			<div class="app-title">
+				Sketch Simulator
+			</div>
+			<!-- run the code -->
+			<div class="big-button" id="run-code" onclick="runCode()">Run Code</div>
+
+			<!-- copy XML -->
+			<div class="big-button" id="copy-xml" onclick="copyXML()">Copy XML</div>
+
+			<!-- hide/show grid -->
+			<div class="big-button" id="toggle-grid" onclick="toggleGrid()">Hide Grid</div>
+
+			<!-- show/hide origin -->
+			<div class="big-button" id="toggle-origin" onclick="toggleOrigin()">Show Origin</div>
+
+		</div>
+	</div>
+
 	<!-- blockly needs a fixed-sized div -->
 	<div id="blocklyDiv"></div>
-	<!-- run the code -->
-	<input type="button" class="runButton" value="Run Code" onclick="runCode()">
-
-	<!-- DEBUG: show the code -->
-	<input type="button" class="runButton" value="Copy XML" onclick="copyXML()">
+	
 
 	<!-- show the screen -->
 	<div class="svgWhiteBox" id="svgWhiteBox">

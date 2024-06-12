@@ -17,8 +17,14 @@ var gridColor = "rgba(100,100,100,0.2)"
 
 resizeGridVars()
 
+// global variables used to toggle state
 // show (or not) dot at x,y -- rect, oval, text
 var globalDot = false;
+var dotVisibility = "hidden";
+// show (or not) grid lines and numbers
+var gridVisibility = "visible";
+
+
 
 function resizeGridVars(){
   factor = window.innerWidth/(3*rawScreenWidth)
@@ -46,9 +52,9 @@ function setScreenLoc(){
   var bw = window.innerWidth-40
   var box = document.getElementById("svgWhiteBox")
   var w = screenWidth  + 20
-  var left = bw - w - 40
+  var left = bw - w - 60
   box.style.left = `${left}px`
-  box.style.top = `10px`
+  box.style.top = `110px`
 
   drawStartingState()
   runCode()
@@ -71,7 +77,7 @@ function setDivSizeLoc(){
   box.style.height=`${h}px`
 
   // set the location of svgWhiteBox based on blockly div
-  var left = bw - w - 40
+  var left = bw - w - 60
   box.style.left = `${left}px`
 
 }
@@ -134,7 +140,7 @@ function drawVline(x){
     .attr("class", "gridLine")
     .style("stroke", gridColor)
     .style("stroke-width", 1)
-    .attr("visibility", "visible");
+    .attr("visibility", `${gridVisibility}`);
 }
 
 function drawHline(y){
@@ -149,7 +155,7 @@ function drawHline(y){
     .attr("class", "gridLine")
     .style("stroke", gridColor)
     .style("stroke-width", 1)
-    .attr("visibility", "visible");
+    .attr("visibility", `${gridVisibility}`);
 }
 
 // label the vertical lines along the x axis
@@ -165,7 +171,7 @@ function writeVtext(txt,pos){
     .attr("text-anchor", "middle")
     .style("font-family", "Roboto, sans-serif")
     .style("font-size", `${factor*5}px`)
-    .attr("visibility", "visible");
+    .attr("visibility", `${gridVisibility}`);
     
 }
 
@@ -182,7 +188,7 @@ function writeHtext(txt,pos){
     .attr("text-anchor", "end")
     .style("font-family", "Roboto, sans-serif")
     .style("font-size", `${factor*5}px`)
-    .attr("visibility", "visible");
+    .attr("visibility", `${gridVisibility}`);
 }
 
 function drawGrid(){
@@ -225,18 +231,18 @@ function createRect(fakeX,fakeY,w,h,r,g,b,f){
     .style("stroke-width", 1*factor)
     .attr("class", "shape");
 
-  if(globalDot){
-    // add a dot of contrasting color at center x,y
-    // if no fill, dot will be border color
-    svgSelection.append("circle")
-      .attr("clip-path", "url(#screenClip)")
-      .attr("transform", `translate(${xOffset} ${yOffset})`)
-      .attr("cx", fakeX*factor)
-      .attr("cy", fakeY*factor)
-      .attr("r", 2*factor)
-      .style("fill", oppositeColor)
-      .attr("class", "centerDot");
-  }
+  // add a dot of contrasting color at center x,y
+  // if no fill, dot will be border color
+  svgSelection.append("circle")
+    .attr("clip-path", "url(#screenClip)")
+    .attr("transform", `translate(${xOffset} ${yOffset})`)
+    .attr("cx", fakeX*factor)
+    .attr("cy", fakeY*factor)
+    .attr("r", 2*factor)
+    .style("fill", oppositeColor)
+    .attr("class", "centerDot")
+    .attr("visibility", `${dotVisibility}`);
+  
 }
 
 // draw shape -- oval
@@ -262,18 +268,18 @@ function createOval(x,y,w,h,r,g,b,f){
     .style("stroke-width", 1*factor)
     .attr("class", "shape");
 
-  if (globalDot){
-    // add a dot of contrasting color at center x,y
-    
-    svgSelection.append("circle")
-      .attr("clip-path", "url(#screenClip)")
-      .attr("transform", `translate(${xOffset} ${yOffset})`)
-      .attr("cx", x*factor)
-      .attr("cy", y*factor)
-      .attr("r", 2*factor)
-      .style("fill", oppositeColor)
-      .attr("class", "centerDot");
-  }
+  // add a dot of contrasting color at center x,y
+  // if no fill, dot will be border color
+  svgSelection.append("circle")
+    .attr("clip-path", "url(#screenClip)")
+    .attr("transform", `translate(${xOffset} ${yOffset})`)
+    .attr("cx", x*factor)
+    .attr("cy", y*factor)
+    .attr("r", 2*factor)
+    .style("fill", oppositeColor)
+    .attr("class", "centerDot")
+    .attr("visibility", `${dotVisibility}`);
+  
 }
 
 // draw shape -- line
@@ -329,17 +335,16 @@ function createText(x,y,textContents,size,r,g,b){
     .text(textContents)
     .attr("class", "shape");
 
-  if(globalDot){
     // add a dot of same color at center x,y
-    svgSelection.append("circle")
-      .attr("clip-path", "url(#screenClip)")
-      .attr("transform", `translate(${xOffset} ${yOffset})`)
-      .attr("cx", x*factor)
-      .attr("cy", y*factor)
-      .attr("r", 2*factor)
-      .style("fill", textcolor)
-      .attr("class", "centerDot");
-  }
+  svgSelection.append("circle")
+    .attr("clip-path", "url(#screenClip)")
+    .attr("transform", `translate(${xOffset} ${yOffset})`)
+    .attr("cx", x*factor)
+    .attr("cy", y*factor)
+    .attr("r", 2*factor)
+    .style("fill", textcolor)
+    .attr("class", "centerDot")
+    .attr("visibility", `${dotVisibility}`);
 }
 
 function fillNewColor(r,g,b){
@@ -395,6 +400,40 @@ function showGrid(){
   textSelection.attr("visibility", "visible");
   var lineSelection = d3.selectAll(".gridLine");
   lineSelection.attr("visibility", "visible");
+}
+
+function toggleGrid(){
+  if (gridVisibility == "visible"){
+    hideGrid();
+    gridVisibility = "hidden";
+    document.getElementById("toggle-grid").innerHTML = "Show Grid";
+  } else {
+    showGrid();
+    gridVisibility = "visible";
+    document.getElementById("toggle-grid").innerHTML = "Hide Grid";
+  }
+}
+
+function hideDots(){
+  var dotSelection = d3.selectAll(".centerDot");
+  dotSelection.attr("visibility", "hidden");
+}
+
+function showDots(){
+  var dotSelection = d3.selectAll(".centerDot");
+  dotSelection.attr("visibility", "visible");
+}
+
+function toggleOrigin(){
+  if (dotVisibility == "visible"){
+    hideDots();
+    dotVisibility = "hidden";
+    document.getElementById("toggle-origin").innerHTML = "Show Origin";
+  } else {
+    showDots();
+    dotVisibility = "visible";
+    document.getElementById("toggle-origin").innerHTML = "Hide Origin";
+  }
 }
 
 
