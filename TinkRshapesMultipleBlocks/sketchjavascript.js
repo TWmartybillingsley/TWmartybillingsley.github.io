@@ -21,7 +21,6 @@ resizeGridVars()
 var globalDot = false;
 
 function resizeGridVars(){
-  //console.log("running resizeGridVars()")
   factor = window.innerWidth/(3*rawScreenWidth)
   screenWidth = rawScreenWidth*factor
   screenHeight = rawScreenHeight*factor
@@ -31,10 +30,8 @@ function resizeGridVars(){
   yOffset = 10*factor
 }
 
-
 window.addEventListener("resize", setScreenLoc);
 function setScreenLoc(){
-  //console.log("running setScreenLoc()")
   // runs on window resize
   // deletes the screen, resizes the box the screen resides in, redraws screen and runs code to redraw shapes
 
@@ -82,18 +79,19 @@ function setDivSizeLoc(){
 //************SVG************//
 // generate SVG: initial (empty) screen with grid lines
 function createSVG(){
+  //console.log('running createSVG()')
   var divSelection = d3.select("#svgDIV");
+
 
   svgSelection = divSelection.append("svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight)
-    .attr("id", "mainSVG");   
+    .attr("id", "mainSVG"); 
 
-    svgSelection.append('defs')
+  svgSelection.append('defs')
     .append('style')
     .attr('type', 'text/css')
     .text("@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900')");
-
 }
 
 // draw screen in SVG, create clip path
@@ -359,7 +357,6 @@ function fillNewColor(r,g,b){
 //--------useful functions to change state of SVG
 
 function drawStartingState(){
-  //console.log("running drawStartingState()")
   createSVG()
   createScreen()
   drawGrid()

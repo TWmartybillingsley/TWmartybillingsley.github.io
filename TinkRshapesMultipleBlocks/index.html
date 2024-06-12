@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<title>Sketch Simulator, Block-based</title>
+	<title>Sketch Simulator, Block-based v1</title>
 	<!-- blockly scripts -->
 	<script src="google-blockly/blockly_compressed.js"></script>
 	<script src="google-blockly/blocks_compressed.js"></script>
@@ -32,12 +29,10 @@
 	<!-- d3 library for drawing SVGs -->
 	<script src="d3.js"></script>
 
-
 	<link rel="stylesheet" href="styles.css">
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
-
+	<link rel="shortcut icon" href="../favicon.ico" />
 </head>
-<body onload="setScreenLoc(); drawStartingState(); ">
+<body onload="setScreenLoc()">
 
 	<!-- blockly needs a fixed-sized div -->
 	<div id="blocklyDiv"></div>
@@ -65,6 +60,7 @@
 		<!-- sketch blocks, custom-made -->
 		<category name="Sketch" colour="#78cabb">
 
+			<!-- don't need; embedded in all other blocks
 			<block type="tw_color">
 				<value name="RED">
 		          	<block type="math_number">
@@ -82,6 +78,7 @@
 	      			</block>
 		          </value>
 			</block>
+			-->
 
 
 			<block type="tw_fill_new_color">
@@ -390,7 +387,8 @@
 		      </value>
 		    </block>
 
-			<!-- don't let students make more than one (remove from drawer)
+
+		    <!-- don't let students make more than one subroutine 
 		    <block type="tw_pseudo_subroutine">
 		      <value name="CODE_BLOCKS">
 		      </value>
