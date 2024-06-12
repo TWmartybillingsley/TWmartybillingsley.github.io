@@ -265,6 +265,7 @@ Blockly.Blocks['tw_pseudo_subroutine'] = {
     this.appendStatementInput("CODE_BLOCKS")
         .setCheck(null);
     this.setInputsInline(false);
+    this.setDeletable (false);
     this.setColour(199);
  this.setTooltip("code blocks put here will be turned into a subroutine called drawBackground in TinkRcode");
  this.setHelpUrl("");
