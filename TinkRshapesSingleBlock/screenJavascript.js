@@ -22,7 +22,13 @@ function createSVG(){
   svgSelection = divSelection.append("svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight)
-    .attr("id", "mainSVG");      
+    .attr("id", "mainSVG");  
+    
+  svgSelection.append('defs')
+    .append('style')
+    .attr('type', 'text/css')
+    .text("@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900')");
+
 }
 
 // draw screen in SVG, create clip path
@@ -91,6 +97,7 @@ function writeVtext(txt,pos){
     .attr("x", pos)  
     .attr("y", -5)  // just above the grid
     .attr("text-anchor", "middle")
+    .style("font-family", "Roboto, sans-serif")
     .style("font-size", `${factor*5}px`)
 }
 
@@ -104,6 +111,7 @@ function writeHtext(txt,pos){
     .attr("x", -5)  // just to the left of the grid
     .attr("y", pos+3) // down a few pixels to center text on line
     .attr("text-anchor", "end")
+    .style("font-family", "Roboto, sans-serif")
     .style("font-size", `${factor*5}px`)
 }
 
