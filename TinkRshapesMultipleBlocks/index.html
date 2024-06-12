@@ -30,8 +30,10 @@
 	<script src="d3.js"></script>
 
 	<link rel="stylesheet" href="styles.css">
+	<link rel="shortcut icon" href="../favicon.ico" />
+
 </head>
-<body onload="drawStartingState(); setScreenLoc()">
+<body onload="setScreenLoc(); drawStartingState(); ">
 
 	<!-- blockly needs a fixed-sized div -->
 	<div id="blocklyDiv"></div>
@@ -42,7 +44,7 @@
 	<input type="button" class="runButton" value="Copy XML" onclick="copyXML()">
 
 	<!-- show the screen -->
-	<div class="svgWhiteBox" id="svgWhiteBox" draggable="true" ondragstart="startBoxDrag(this,event)" ondragend="endBoxDrag(this, event)" ondragover="drag_over(event)">
+	<div class="svgWhiteBox" id="svgWhiteBox">
    		<div id="svgDIV">
     	</div>
 	</div>
