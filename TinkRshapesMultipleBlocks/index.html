@@ -585,8 +585,17 @@
 		var disabledBlocksWarningIssued = false;
 
 		
-  		var workspace = Blockly.inject('blocklyDiv',
-      	{toolbox: document.getElementById('toolbox')});
+		var workspace = Blockly.inject('blocklyDiv',{
+  			toolbox: document.getElementById('toolbox'),
+  			move:{
+        		scrollbars: {
+          		horizontal: true,
+          		vertical: true
+        		},
+        		drag: true,
+        		wheel: true
+        	}
+    	});
       	
 
     	Blockly.Xml.appendDomToWorkspace(document.getElementById('startBlocks'), workspace);
