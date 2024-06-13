@@ -633,25 +633,21 @@
 			var topBlock = topBlocks[i];
 			if (topBlock.type !== "tw_pseudo_subroutine") {
 				topBlock.setEnabled(false);
-				console.log('disabled a top-block')
 				// all blocks attached to that block should be disabled
 				var b = topBlock;
 				while (b != null){
 					b.setEnabled(false);
-					console.log('disabled a sub-block')
 					b = b.getNextBlock();
 				}
 				disabledBlocks = true;
 			} else {
-				//topBlock.setEnabled(true);
-				console.log('enabled the code block')
-				// all blocks attached to that block should be enabled
+				//topBlock is pseudo-subroutine
+				// all blocks inside to that block should be enabled
 				var c = topBlock.getChildren();
 				if (c != null && c.length>0){
 					var b = c[0]
 					while (b != null){
 						b.setEnabled(true);
-						console.log('enabled a sub-block')
 						b = b.getNextBlock();
 					}
 				}
