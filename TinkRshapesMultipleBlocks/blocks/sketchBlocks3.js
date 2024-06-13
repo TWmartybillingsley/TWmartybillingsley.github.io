@@ -261,7 +261,7 @@ Blockly.Blocks['tw_color'] = {
   Blockly.Blocks['tw_pseudo_subroutine'] = {
     init: function() {
       this.appendDummyInput()
-          .appendField("Code:");
+          .appendField("Draw Background");
       this.appendStatementInput("CODE_BLOCKS")
           .setCheck(null);
       this.setInputsInline(false);
