@@ -626,26 +626,42 @@
       		resetScreenColor();
 
       	// disable all blocks that aren't in the code ("pseudo-subroutine") block
-      		var disabledBlocks = false;
-      		var topBlocks = workspace.getTopBlocks();
-			for (var i = 0; i < topBlocks.length; i++) {
-			  var topBlock = topBlocks[i];
-			  if (topBlock.type !== "tw_pseudo_subroutine") {
-			    topBlock.setEnabled(false);
-			    // all blocks attached to that block should be disabled
-			    var b = topBlock;
-			    while (b.getNextBlock() != null){
-			    	b.getNextBlock().setEnabled(false);
-			    	b = b.getNextBlock();
-			    }
-			    disabledBlocks = true;
-			  }
+      	// and enable all blocks that are inside the code ("pseudo-subroutine") block
+		var disabledBlocks = false;
+		var topBlocks = workspace.getTopBlocks();
+		for (var i = 0; i < topBlocks.length; i++) {
+			var topBlock = topBlocks[i];
+			if (topBlock.type !== "tw_pseudo_subroutine") {
+				topBlock.setEnabled(false);
+				console.log('disabled a top-block')
+				// all blocks attached to that block should be disabled
+				var b = topBlock;
+				while (b != null){
+					b.setEnabled(false);
+					console.log('disabled a sub-block')
+					b = b.getNextBlock();
+				}
+				disabledBlocks = true;
+			} else {
+				//topBlock.setEnabled(true);
+				console.log('enabled the code block')
+				// all blocks attached to that block should be enabled
+				var c = topBlock.getChildren();
+				if (c != null && c.length>0){
+					var b = c[0]
+					while (b != null){
+						b.setEnabled(true);
+						console.log('enabled a sub-block')
+						b = b.getNextBlock();
+					}
+				}
 			}
-			// warn users about disabled blocks if this is the first time they are seeing them
-			if (disabledBlocks && !disabledBlocksWarningIssued){
-				alert('Blocks that are not in Code will be disabled. To use a block, drag it into the Code block, then right-click and choose Enable Block');
-				disabledBlocksWarningIssued = true;
-			}
+		}
+		// warn users about disabled blocks if this is the first time they are seeing them
+		if (disabledBlocks && !disabledBlocksWarningIssued){
+			alert('Blocks that are not in Code will be disabled. To use a block, drag it into the Code block, then right-click and choose Enable Block');
+			disabledBlocksWarningIssued = true;
+		}
 
 		// start the XML code
 			newXML();
