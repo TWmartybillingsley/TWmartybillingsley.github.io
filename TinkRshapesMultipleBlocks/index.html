@@ -581,8 +581,46 @@
 	</xml>
 
 	<script>
-		// keep track of whether the user has been warned about disabled blocks
-		var disabledBlocksWarningIssued = false;
+
+
+		function disable_enableBlocks(){
+		// disable all blocks that aren't in the code ("pseudo-subroutine") block
+      	// and enable all blocks that are inside the code ("pseudo-subroutine") block
+      		var disabledBlocks = false;
+      		var topBlocks = workspace.getTopBlocks();
+			for (var i = 0; i < topBlocks.length; i++) {
+			  var topBlock = topBlocks[i];
+			  if (topBlock.type !== "tw_pseudo_subroutine") {
+			    topBlock.setEnabled(false);
+			    // all blocks attached to that block should be disabled
+			    var b = topBlock;
+			    while (b != null){
+			    	b.setEnabled(false);
+			    	b = b.getNextBlock();
+			    }
+			    disabledBlocks = true;
+			  } else {  // topBlock is the code block
+			    // all blocks attached to that block should be enabled
+			    var c = topBlock.getChildren();
+			    if (c != null && c.length>0){
+			    	var b = c[0]
+				    while (b != null){
+				    	b.setEnabled(true);
+				    	b = b.getNextBlock();
+				    }
+			    }
+			  }
+			}
+		}
+
+		function onBlockMoved(event) {
+			if(Blockly.Events.BLOCK_MOVE === event.type) {
+            	disable_enableBlocks();
+        	}
+        }
+		
+		
+
 
 		// kludge: change color of math blocks
 		function recolor(block, hue) {
@@ -593,8 +631,9 @@
 			}
 		}
 		recolor(Blockly.Blocks['math_number'], "#B81D20");
+
 		
-		var workspace = Blockly.inject('blocklyDiv',{
+  		var workspace = Blockly.inject('blocklyDiv',{
   			toolbox: document.getElementById('toolbox'),
   			move:{
         		scrollbars: {
@@ -603,11 +642,15 @@
         		},
         		drag: true,
         		wheel: true
-        	}
+        	},
+        	"collapse": true,
+    		"comments": false,
+    		"maxBlocks": 3000
     	});
       	
 
     	Blockly.Xml.appendDomToWorkspace(document.getElementById('startBlocks'), workspace);
+    	workspace.addChangeListener(onBlockMoved);
   		
 
       	function makecode() {
@@ -625,40 +668,9 @@
       		removeAllClass("centerDot");
       		resetScreenColor();
 
-      	// disable all blocks that aren't in the code ("pseudo-subroutine") block
-      	// and enable all blocks that are inside the code ("pseudo-subroutine") block
-		var disabledBlocks = false;
-		var topBlocks = workspace.getTopBlocks();
-		for (var i = 0; i < topBlocks.length; i++) {
-			var topBlock = topBlocks[i];
-			if (topBlock.type !== "tw_pseudo_subroutine") {
-				topBlock.setEnabled(false);
-				// all blocks attached to that block should be disabled
-				var b = topBlock;
-				while (b != null){
-					b.setEnabled(false);
-					b = b.getNextBlock();
-				}
-				disabledBlocks = true;
-			} else {
-				//topBlock is pseudo-subroutine
-				// all blocks inside to that block should be enabled
-				var c = topBlock.getChildren();
-				if (c != null && c.length>0){
-					var b = c[0]
-					while (b != null){
-						b.setEnabled(true);
-						b = b.getNextBlock();
-					}
-				}
-			}
-		}
-		// warn users about disabled blocks if this is the first time they are seeing them
-		if (disabledBlocks && !disabledBlocksWarningIssued){
-			alert('Blocks that are not in Code will be disabled. To use a block, drag it into the Code block, then right-click and choose Enable Block');
-			disabledBlocksWarningIssued = true;
-		}
-
+      	// disable/enable blocks
+      		disable_enableBlocks();
+      	
 		// start the XML code
 			newXML();
 
