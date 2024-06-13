@@ -584,6 +584,15 @@
 		// keep track of whether the user has been warned about disabled blocks
 		var disabledBlocksWarningIssued = false;
 
+		// kludge: change color of math blocks
+		function recolor(block, hue) {
+			var oldInit = block.init;
+			block.init = function() {
+				oldInit.call(this);
+				this.setColour(hue);
+			}
+		}
+		recolor(Blockly.Blocks['math_number'], "#B81D20");
 		
 		var workspace = Blockly.inject('blocklyDiv',{
   			toolbox: document.getElementById('toolbox'),
