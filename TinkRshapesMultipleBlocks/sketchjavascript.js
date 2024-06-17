@@ -205,6 +205,9 @@ function drawGrid(){
 
 
 //************Shapes************//
+// note: when rect/oval/text is drawn, origin dot is created, but might be invisible
+
+
 // draw shape -- rect
 function createRect(fakeX,fakeY,w,h,r,g,b,f){
   var bordercolor = `rgb(${r},${g},${b})`
@@ -436,30 +439,6 @@ function toggleOrigin(){
   }
 }
 
-
-// ------ drag the screen around
-
-// diff between left/top of box and x,y of mouse; set when drag starts
-var diffX;
-var diffY;
-
-function startBoxDrag(box,e){
-  diffX = parseInt(e.clientX) - parseInt(box.style.left)
-  diffY = parseInt(e.clientY) - parseInt(box.style.top)
-}
-
-function drag_over(e) { 
-    e.preventDefault(); 
-    return false; 
-} 
-
-function endBoxDrag(box,e){
-  var newLeft = e.clientX-diffX;
-  var newTop = e.clientY-diffY;
-  box.style.left = newLeft + 'px';
-  box.style.top = newTop + 'px';
-  e.preventDefault();
-}
 
 
 
