@@ -30,7 +30,8 @@
 	<script src="d3.js"></script>
 
 	<link rel="stylesheet" href="styles.css">
-	<link rel="shortcut icon" href="../favicon.ico" />
+
+	<link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body onload="setScreenLoc()">
 
@@ -61,7 +62,7 @@
 	<div id="blocklyDiv"></div>
 	
 
-	<!-- show the screen -->
+	<!-- show sketch screen -->
 	<div class="svgWhiteBox" id="svgWhiteBox">
    		<div id="svgDIV">
     	</div>
@@ -582,6 +583,13 @@
 
 	<script>
 
+		// set up workspace
+		// functions called when user interacts with main page:
+		//  - drag any block: disable any blocks not in the main code, enable all others
+		//  - run button: call blockly run command to eval code
+		//  - copy XML button: place XML in clipboard
+		// not: show/hide grid and origin are handled in sketchjavascript.js
+
 
 		function disable_enableBlocks(){
 		// disable all blocks that aren't in the code ("pseudo-subroutine") block
@@ -633,6 +641,7 @@
 		recolor(Blockly.Blocks['math_number'], "#B81D20");
 
 		
+		// set up workspace
   		var workspace = Blockly.inject('blocklyDiv',{
   			toolbox: document.getElementById('toolbox'),
   			move:{
@@ -691,26 +700,16 @@
         		alert(e);
       		}
 
-      		// New way of running code
+      		// New way of running code  (this is from Blockly)
       		//var myInterpreter = new Interpreter(code);
 			//myInterpreter.run(); 
 
-		// finish the XML code
+		// add ending tags to XML code
 			finishXML();
 
     	}
 
-    	function showCode() {
-      	// DEBUG: Generate JavaScript code and display it.
-      		window.LoopTrap = 1000;
-        	Blockly.JavaScript.INFINITE_LOOP_TRAP =
-          		'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-          	var code = makecode();
-			console.log(code) ;
-			alert(code);
-
-    	}
-
+    	
     	function copyXML(){
     		runCode();
     		navigator.clipboard.writeText(xmlCompleteCode);
