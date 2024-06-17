@@ -6,29 +6,29 @@
 *  depending on block
 *
 *  rect/oval - drawRectangleBlock.png, drawOvalBlock.png
-*  sharedXYinputs (always shown): 230,65 
-*  widthHeightInputs (shown for rect/oval): 230,104
-*  sharedTF (shown for rect/oval/triangle): 149,140
-*  colorInputs (always shown): 254,170 
+*  sharedXYinputs (always shown)
+*  widthHeightInputs (shown for rect/oval)
+*  sharedTF (shown for rect/oval/triangle)
+*  colorInputs (always shown)
 *
 *  line - drawLineBlock.png
-*  sharedXYinputs (always shown): 230,65
-*  point2xyInputs (shown for line/triangle): 230,104
-*  lineThickness (shown for line): 148,138
-*  colorInputs (always shown): 254,170
+*  sharedXYinputs (always shown)
+*  point2xyInputs (shown for line/triangle)
+*  lineThickness (shown for line)
+*  colorInputs (always shown)
 *  
 *  triangle - drawTriangleBlock.png
-*  sharedXYinputs (always shown): 230,65
-*  point2xyInputs (shown for line/triangle): 230,104
-*  point3xyInputs (shown for triangle): 230,141
-*  sharedTF (shown for rect/oval/triangle): 149,177
-*  colorInputs (always shown): 254,209
+*  sharedXYinputs (always shown)
+*  point2xyInputs (shown for line/triangle)
+*  point3xyInputs (shown for triangle)
+*  sharedTF (shown for rect/oval/triangle)
+*  colorInputs (always shown)
 *  
 *  text
-*  txttext (shown for text): 162,61
-*  sharedXYinputs (always shown): 230,94 
-*  txtsize (shown for text): 147,130
-*  colorInputs (always shown): 254,160
+*  txttext (shown for text)
+*  sharedXYinputs (always shown)
+*  txtsize (shown for text)
+*  colorInputs (always shown)
 *
 *
 * Input fields within the above divs:
@@ -62,6 +62,26 @@
 *
 */
 
+:root{
+  --sharedXYinputsLeft: 230;    /* starting position for rect/oval/line/triangle blocks */
+  --sharedXYinputsTop: 66;      
+  --colorInputsLeft: 254;       /* starting x position for rect/oval/triangle blocks */
+  --colorInputsTop: 171;        /* starting y position for rect/oval blocks */
+  --widthHeightInputsLeft: 230; /* starting position for rect/oval blocks */
+  --widthHeightInputsTop: 104;  
+  --point2xyInputsLeft: 230;    /* starting position for line/triangle blocks */
+  --point2xyInputsTop: 105;    
+  --point3xyInputsLeft: 230;    /* starting position for triangle block */
+  --point3xyInputsTop: 143;    
+  --sharedTFLeft: 149;          /* starting position for rect/oval blocks */
+  --sharedTFTop: 140;
+  --lineThicknessLeft: 148;     /* starting position for line block */
+  --lineThicknessTop: 138;
+  --txtsizeLeft: 147;           /* starting position for text block */
+  --txtsizeTop: 130;
+  --txttxtLeft: 162;            /* starting position for text block */
+  --txttxtTop: 61;
+}
 
 body{
   margin: 0;
@@ -105,7 +125,7 @@ input::-webkit-inner-spin-button {
   width:675px;
   height: 515px;
   position: absolute;   /* position based on window */
-  left:660px;
+  left:670px;
   top:145px;
   background-color: white;
   border-radius: 10px;
@@ -268,9 +288,7 @@ input::-webkit-inner-spin-button {
 }
 /* end of control box */
 
-
 /* programming blocks and inputs */
-/* programming blocks (background changes) */
 #blocks{
   width:550px;
   height:260px;
@@ -299,13 +317,12 @@ input::-webkit-inner-spin-button {
   display: block;   /* shows when first loaded (drawRectangle)*/
 }
 
-/* inputs -- generic settings */
 .textInput{
   width: 213px;
   height: 17px;
   color: #000000;
   text-align:center;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 16px;
   background-color:#A5CBA9;
   border: 2px #36823C solid;
@@ -318,7 +335,7 @@ input::-webkit-inner-spin-button {
   height: 19px;
   color: #000000;
   text-align:center;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 14px;
   background-color:#878787;
   border: 2px #000000 solid;
@@ -334,12 +351,8 @@ input::-webkit-inner-spin-button {
   text-align:center;
   font-weight: normal;
   font-size: 16px;
-  background-color: transparent;
-  /*
-  background-color:#E39795;
-  border: 2px #B10814 solid;
-  border-radius: 5px;
-  */
+  background-color:transparent;
+  border: 1px transparent solid;
   z-index: 10;
 }
 
@@ -356,14 +369,14 @@ input::-webkit-inner-spin-button {
 }
 
 
-/* inputs are grouped into divs, which are then placed according to which block has been chosen */
+
 /*** Colors Block ***/
 #colorInputs{
   width: 280px;
   height: 28px;
   position: absolute;  /* inside drawBlockInputs */
-  left: 254px;   /* position for rect/oval/triangle blocks */
-  top: 170px;    /* y loc for rect/oval */
+  left: calc(var(--colorInputsLeft)*1px);   
+  top: calc(var(--colorInputsTop)*1px);    
   z-index: 5;
   border: 1px solid transparent;
   background-color: transparent;
@@ -392,8 +405,8 @@ input::-webkit-inner-spin-button {
   width: 165px;
   height: 28px;
   position: absolute;  /* inside drawBlockInputs */
-  left: 230px;   /* position for all blocks */
-  top: 65px;     /* y position for rect/oval/triangle/line */
+  left: calc(var(--sharedXYinputsLeft)*1px);   /* position for all blocks */
+  top: calc(var(--sharedXYinputsTop)*1px);     /* y position for rect/oval/triangle/line */
   z-index: 5;
   border: 1px solid transparent;
   background-color: transparent;
@@ -414,8 +427,8 @@ input::-webkit-inner-spin-button {
 
 #sharedTF{    
   position: absolute; /* inside drawBlockInputs */
-  left: 149px;      /* position for rect/oval blocks */
-  top: 140px;
+  left: calc(var(--sharedTFLeft)*1px);      
+  top: calc(var(--sharedTFTop)*1px);
   display: block;   /* shows when first loaded (drawRectangle)*/
                     /* hide for line/text */
 }
@@ -427,8 +440,8 @@ input::-webkit-inner-spin-button {
   width: 165px;
   height: 28px;
   position: absolute;  /* inside drawBlockInputs */
-  left: 230px;   
-  top: 104px;     
+  left: calc(var(--widthHeightInputsLeft)*1px) ;  
+  top: calc(var(--widthHeightInputsTop)*1px);     
   z-index: 5;
   border: 1px solid transparent;
   background-color: transparent;
@@ -454,8 +467,8 @@ input::-webkit-inner-spin-button {
   width: 165px;
   height: 28px;
   position: absolute;  /* inside drawBlockInputs */
-  left: 230px;   
-  top: 104px;     
+  left: calc(var(--point2xyInputsLeft)*1px);   
+  top: calc(var(--point2xyInputsTop)*1px);      
   z-index: 5;
   border: 1px solid transparent;
   background-color: transparent;
@@ -479,8 +492,8 @@ input::-webkit-inner-spin-button {
   width: 165px;
   height: 28px;
   position: absolute;  /* inside drawBlockInputs */
-  left: 230px;   
-  top: 141px;     
+  left: calc(var(--point3xyInputsLeft)*1px);   
+  top: calc(var(--point3xyInputsTop)*1px);     
   z-index: 5;
   border: 1px solid transparent;
   background-color: transparent;
@@ -501,8 +514,8 @@ input::-webkit-inner-spin-button {
 /* line thickness for line */
 #lineThickness{
   position: absolute;   /* inside drawBlockInputs */
-  left: 147px;
-  top: 138px;
+  left: calc(var(--lineThicknessLeft)*1px);
+  top: calc(var(--lineThicknessTop)*1px);
   z-index: 5;
   display: none; /* visible for line, otherwise hidden */
 }
@@ -510,8 +523,8 @@ input::-webkit-inner-spin-button {
 /* text input for writeText */
 #txttext{
   position: absolute;   /* inside drawBlockInputs */
-  left: 162px;
-  top: 61px;
+  left: calc(var(--txttxtLeft)*1px);
+  top: calc(var(--txttxtTop)*1px);
   z-index: 5;
   display: none; /* visible for writeText, otherwise hidden */
 }
@@ -519,8 +532,8 @@ input::-webkit-inner-spin-button {
 /* text size input for writeText */
 #txtsize{
   position: absolute;   /* inside drawBlockInputs */
-  left: 147px;
-  top: 130px;
+  left: calc(var(--txtsizeLeft)*1px);
+  top: calc(var(--txtsizeTop)*1px);
   z-index: 5;
   display: none; /* visible for writeText, otherwise hidden */
 }

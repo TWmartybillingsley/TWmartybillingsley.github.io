@@ -410,18 +410,38 @@ function removeAllClass(whichClass){
 }
 
 
+//-------functions to change CSS variables (when user switches blocks)
+
+// Get the root element
+var r = document.querySelector(':root');
+
+// get a CSS variable value
+function getCssVar(varName) {
+  // get the styles (properties and values) for the root
+  var rs = getComputedStyle(r);
+  // fetch the value of the variable
+  return rs.getPropertyValue(varName);
+}
+
+// set a CSS variable value
+function setCssVar(varName, value) {
+  // set the value of variable 
+  varName = "--"+varName;
+  r.style.setProperty(varName, value);
+}
+
 //-------functions to effect change in HTML
 function changeBlockViaRadioButton(){
   newBlock = document.querySelector('input[name = "shape"]:checked').value
   changeBlock(newBlock)
-  console.log("switching to", newBlock)
+  //console.log("switching to", newBlock)
 }
 
 function changeBlockShapeClick(newBlock, id){
   // update the radio button
   document.getElementById(id).checked = true
   changeBlock(newBlock)
-  console.log("switching to", newBlock)
+  //console.log("switching to", newBlock)
 }
 
 
@@ -436,17 +456,22 @@ function changeBlock(newBlock){
   case "rect":
     document.getElementById("drawBlockInputs").style.backgroundImage = "url('images/drawRectangleBlock.png')"
     document.getElementById("sharedXYinputs").style.display = "block"
-    document.getElementById("sharedXYinputs").style.left = "230px"
-    document.getElementById("sharedXYinputs").style.top = "65px"
+    setCssVar("sharedXYinputsLeft", 230);
+    setCssVar("sharedXYinputsTop", 66);
+    
     document.getElementById("widthHeightInputs").style.display = "block"
-    document.getElementById("widthHeightInputs").style.left = "230px"
-    document.getElementById("widthHeightInputs").style.top = "104px"
+    //doesn't move
+    //setCssVar("widthHeightInputsLeft", 230);
+    //setCssVar("widthHeightInputsTop", 104);
+
     document.getElementById("sharedTF").style.display = "block"
-    document.getElementById("sharedTF").style.left = "149px"
-    document.getElementById("sharedTF").style.top = "140px"
+    setCssVar("sharedTFLeft", 149);
+    setCssVar("sharedTFTop", 140);
+    
     document.getElementById("colorInputs").style.display = "block"
-    document.getElementById("colorInputs").style.left = "254px"
-    document.getElementById("colorInputs").style.top = "170px"
+    setCssVar("colorInputsLeft", 254);
+    setCssVar("colorInputsTop", 171);
+    
     // hide line/triangle/text blocks
     document.getElementById("point2xyInputs").style.display = "none"
     document.getElementById("point3xyInputs").style.display = "none"
@@ -458,17 +483,22 @@ function changeBlock(newBlock){
   case "oval":
     document.getElementById("drawBlockInputs").style.backgroundImage = "url('images/drawOvalBlock.png')"
     document.getElementById("sharedXYinputs").style.display = "block"
-    document.getElementById("sharedXYinputs").style.left = "230px"
-    document.getElementById("sharedXYinputs").style.top = "65px"
+    setCssVar("sharedXYinputsLeft", 230);
+    setCssVar("sharedXYinputsTop", 66);
+    
     document.getElementById("widthHeightInputs").style.display = "block"
-    document.getElementById("widthHeightInputs").style.left = "230px"
-    document.getElementById("widthHeightInputs").style.top = "104px"
+    // doesn't move
+    //setCssVar("widthHeightInputsLeft", 230);
+    //setCssVar("widthHeightInputsTop", 104);
+
     document.getElementById("sharedTF").style.display = "block"
-    document.getElementById("sharedTF").style.left = "149px"
-    document.getElementById("sharedTF").style.top = "140px"
+    setCssVar("sharedTFLeft", 149);
+    setCssVar("sharedTFTop", 140);
+    
     document.getElementById("colorInputs").style.display = "block"
-    document.getElementById("colorInputs").style.left = "254px"
-    document.getElementById("colorInputs").style.top = "170px"
+    setCssVar("colorInputsLeft", 254);
+    setCssVar("colorInputsTop", 171);
+    
     // hide line/triangle/text blocks
     document.getElementById("point2xyInputs").style.display = "none"
     document.getElementById("point3xyInputs").style.display = "none"
@@ -480,17 +510,23 @@ function changeBlock(newBlock){
   case "line":
     document.getElementById("drawBlockInputs").style.backgroundImage = "url('images/drawLineBlock.png')"
     document.getElementById("sharedXYinputs").style.display = "block"
-    document.getElementById("sharedXYinputs").style.left = "230px"
-    document.getElementById("sharedXYinputs").style.top = "65px"
+    setCssVar("sharedXYinputsLeft", 230);
+    setCssVar("sharedXYinputsTop", 66);
+
     document.getElementById("point2xyInputs").style.display = "block"
-    document.getElementById("point2xyInputs").style.left = "230px"
-    document.getElementById("point2xyInputs").style.top = "104px"
+    // doesn't move
+    //setCssVar("point2xyInputsLeft", 230);
+    //setCssVar("point2xyInputsTop", 104);
+    
     document.getElementById("lineThickness").style.display = "block"
-    document.getElementById("lineThickness").style.left = "148px"
-    document.getElementById("lineThickness").style.top = "138px"
+    // doesn't move
+    //setCssVar("lineThicknessLeft", 148);
+    //setCssVar("lineThicknessTop", 138);
+    
     document.getElementById("colorInputs").style.display = "block"
-    document.getElementById("colorInputs").style.left = "254px"
-    document.getElementById("colorInputs").style.top = "170px"
+    setCssVar("colorInputsLeft", 254);
+    setCssVar("colorInputsTop", 171);
+
     // hide rect/oval/triangle/text blocks
     document.getElementById("widthHeightInputs").style.display = "none"
     document.getElementById("sharedTF").style.display = "none"
@@ -502,20 +538,27 @@ function changeBlock(newBlock){
   case "triangle":
     document.getElementById("drawBlockInputs").style.backgroundImage = "url('images/drawTriangleBlock.png')"
     document.getElementById("sharedXYinputs").style.display = "block"
-    document.getElementById("sharedXYinputs").style.left = "230px"
-    document.getElementById("sharedXYinputs").style.top = "65px"
+    setCssVar("sharedXYinputsLeft", 230);
+    setCssVar("sharedXYinputsTop", 66);
+
     document.getElementById("point2xyInputs").style.display = "block"
-    document.getElementById("point2xyInputs").style.left = "230px"
-    document.getElementById("point2xyInputs").style.top = "104px"
+    // doesn't move
+    //setCssVar("point2xyInputsLeft", 230);
+    //setCssVar("point2xyInputsTop", 104);
+
     document.getElementById("point3xyInputs").style.display = "block"
-    document.getElementById("point3xyInputs").style.left = "230px"
-    document.getElementById("point3xyInputs").style.top = "141px"
+    // doesn't move
+    //setCssVar("point3xyInputsLeft", 230);
+    //setCssVar("point3xyInputsTop", 141);
+    
     document.getElementById("sharedTF").style.display = "block"
-    document.getElementById("sharedTF").style.left = "149px"
-    document.getElementById("sharedTF").style.top = "177px"
+    setCssVar("sharedTFLeft", 149);
+    setCssVar("sharedTFTop", 177);
+
     document.getElementById("colorInputs").style.display = "block"
-    document.getElementById("colorInputs").style.left = "254px"
-    document.getElementById("colorInputs").style.top = "209px"
+    setCssVar("colorInputsLeft", 254);
+    setCssVar("colorInputsTop", 210);
+
     // hide rect/oval/line/text blocks
     document.getElementById("widthHeightInputs").style.display = "none"
     document.getElementById("lineThickness").style.display = "none"
@@ -526,17 +569,23 @@ function changeBlock(newBlock){
    case "text":
     document.getElementById("drawBlockInputs").style.backgroundImage = "url('images/writeTextBlock.png')"
     document.getElementById("txttext").style.display = "block"
-    document.getElementById("txttext").style.left = "162px"
-    document.getElementById("txttext").style.top = "61px"
+    // doesn't move
+    //setCssVar("txttxtLeft", 162);
+    //setCssVar("txttxtTop", 61);
+
     document.getElementById("sharedXYinputs").style.display = "block"
-    document.getElementById("sharedXYinputs").style.left = "230px"
-    document.getElementById("sharedXYinputs").style.top = "94px"
+    setCssVar("sharedXYinputsLeft", 230);
+    setCssVar("sharedXYinputsTop", 94);
+
     document.getElementById("txtsize").style.display = "block"
-    document.getElementById("txtsize").style.left = "147px"
-    document.getElementById("txtsize").style.top = "130px"
+    // doesn't move
+    //setCssVar("txtsizeLeft", 147);
+    //setCssVar("txtsizeTop", 130);
+
     document.getElementById("colorInputs").style.display = "block"
-    document.getElementById("colorInputs").style.left = "254px"
-    document.getElementById("colorInputs").style.top = "160px"
+    setCssVar("colorInputsLeft", 254);
+    setCssVar("colorInputsTop", 160);
+    
     // hide rect/oval/line/triangle blocks
     document.getElementById("widthHeightInputs").style.display = "none"
     document.getElementById("point2xyInputs").style.display = "none"
