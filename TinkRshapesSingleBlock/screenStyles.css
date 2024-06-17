@@ -81,6 +81,15 @@
   --txtsizeTop: 130;
   --txttxtLeft: 162;            /* starting position for text block */
   --txttxtTop: 61;
+
+  /* these components shift their y location for different blocks */
+  --sharedXYinputsTop1: 66;     /* rect/oval/line/triangle */
+  --sharedXYinputsTop2: 94;     /* text */
+  --colorInputsTop1: 171;       /* rect/oval/line */
+  --colorInputsTop2: 210;       /* triangle */
+  --colorInputsTop3: 160;       /* text */
+  --sharedTFTop1: 140;          /* rect/oval */
+  --sharedTFTop2: 177;          /* triangle */
 }
 
 body{
