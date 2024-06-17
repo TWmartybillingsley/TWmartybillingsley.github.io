@@ -329,11 +329,11 @@ input::-webkit-inner-spin-button {
   height: 18px;
   color: #000000;
   text-align:center;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 16px;
-  background-color:#E39795;
-  border: 2px #B10814 solid;
-  border-radius: 5px;
+  background-color:transparent;
+  /*border: 2px #B10814 solid;
+  border-radius: 5px;*/
   z-index: 10;
 }
 
