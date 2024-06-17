@@ -105,7 +105,7 @@ input::-webkit-inner-spin-button {
   width:675px;
   height: 515px;
   position: absolute;   /* position based on window */
-  left:560px;
+  left:660px;
   top:145px;
   background-color: white;
   border-radius: 10px;
@@ -268,7 +268,9 @@ input::-webkit-inner-spin-button {
 }
 /* end of control box */
 
+
 /* programming blocks and inputs */
+/* programming blocks (background changes) */
 #blocks{
   width:550px;
   height:260px;
@@ -297,6 +299,7 @@ input::-webkit-inner-spin-button {
   display: block;   /* shows when first loaded (drawRectangle)*/
 }
 
+/* inputs -- generic settings */
 .textInput{
   width: 213px;
   height: 17px;
@@ -315,7 +318,7 @@ input::-webkit-inner-spin-button {
   height: 19px;
   color: #000000;
   text-align:center;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 14px;
   background-color:#878787;
   border: 2px #000000 solid;
@@ -331,9 +334,12 @@ input::-webkit-inner-spin-button {
   text-align:center;
   font-weight: normal;
   font-size: 16px;
-  background-color:transparent;
-  /*border: 2px #B10814 solid;
-  border-radius: 5px;*/
+  background-color: transparent;
+  /*
+  background-color:#E39795;
+  border: 2px #B10814 solid;
+  border-radius: 5px;
+  */
   z-index: 10;
 }
 
@@ -350,7 +356,7 @@ input::-webkit-inner-spin-button {
 }
 
 
-
+/* inputs are grouped into divs, which are then placed according to which block has been chosen */
 /*** Colors Block ***/
 #colorInputs{
   width: 280px;
