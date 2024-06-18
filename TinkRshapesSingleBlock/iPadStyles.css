@@ -6,7 +6,7 @@
 body{
   margin: 0;
   padding: 0;
-  background-color: purple;
+  background-color: white;
 }
 
 .whiteBanner{
@@ -208,7 +208,7 @@ input::-webkit-inner-spin-button {
   padding:20px;
   position: absolute;   /* position based on window */
   left:10px;
-  top:400px;
+  top:calc(var(--resize)*400px);
   background-color: #FFFFFF;
   border-radius: 10px;
   box-shadow: 1px 1px 5px #808080;
@@ -285,11 +285,11 @@ input::-webkit-inner-spin-button {
 
 /*** Colors Block ***/
 #colorInputs{
-  width: 280px;
-  height: 28px;
+  width: calc(var(--resize)*280px);
+  height: calc(var(--resize)*28px);
   position: absolute;  /* inside drawBlockInputs */
-  left: calc(var(--colorInputsLeft)*1px);   
-  top: calc(var(--colorInputsTop)*1px);    
+  left: calc(var(--resize)*var(--colorInputsLeft)*1px);   
+  top: calc(var(--resize)*var(--colorInputsTop)*1px);    
   z-index: 5;
   border: 1px solid transparent;
   background-color: transparent;
@@ -304,22 +304,22 @@ input::-webkit-inner-spin-button {
 }
 #sharedGreen{
   position: absolute; /* inside colorInputs */
-  left: 123px;  /* same for all (colorInputs block is moved) */
+  left: calc(var(--resize)*123px);  /* same for all (colorInputs block is moved) */
   top: 0px;
 }
 #sharedBlue{
   position: absolute; /* inside colorInputs */
-  left: 233px;  /* same for all (colorInputs block is moved) */
+  left: calc(var(--resize)*233px);  /* same for all (colorInputs block is moved) */
   top: 0px;
 }
 
 /*** shared XY Block ***/
 #sharedXYinputs{
-  width: 165px;
-  height: 28px;
+  width: calc(var(--resize)*165px);
+  height: calc(var(--resize)*28px);
   position: absolute;  /* inside drawBlockInputs */
-  left: calc(var(--sharedXYinputsLeft)*1px);   /* position for all blocks */
-  top: calc(var(--sharedXYinputsTop)*1px);     /* y position for rect/oval/triangle/line */
+  left: calc(var(--resize)*var(--sharedXYinputsLeft)*1px);   /* position for all blocks */
+  top: calc(var(--resize)*var(--sharedXYinputsTop)*1px);     /* y position for rect/oval/triangle/line */
   z-index: 5;
   border: 1px solid transparent;
   background-color: transparent;
@@ -333,15 +333,15 @@ input::-webkit-inner-spin-button {
 }
 #sharedY{
   position: absolute;   /* inside sharedXYinputs */
-  left: 114px;  /* same for all (sharedXYinputs block is moved) */
+  left: calc(var(--resize)*114px);  /* same for all (sharedXYinputs block is moved) */
   top: 0px;
 }
 
 
 #sharedTF{    
   position: absolute; /* inside drawBlockInputs */
-  left: calc(var(--sharedTFLeft)*1px);      
-  top: calc(var(--sharedTFTop)*1px);
+  left: calc(var(--resize)*var(--sharedTFLeft)*1px);      
+  top: calc(var(--resize)*var(--sharedTFTop)*1px);
   display: block;   /* shows when first loaded (drawRectangle)*/
                     /* hide for line/text */
 }
@@ -350,11 +350,11 @@ input::-webkit-inner-spin-button {
 
 /* width/height inputs for drawRectangle/drawOval*/
 #widthHeightInputs{
-  width: 165px;
-  height: 28px;
+  width: calc(var(--resize)*165px);
+  height: calc(var(--resize)*28px);
   position: absolute;  /* inside drawBlockInputs */
-  left: calc(var(--widthHeightInputsLeft)*1px) ;  
-  top: calc(var(--widthHeightInputsTop)*1px);     
+  left: calc(var(--resize)*var(--widthHeightInputsLeft)*1px) ;  
+  top: calc(var(--resize)*var(--widthHeightInputsTop)*1px);     
   z-index: 5;
   border: 1px solid transparent;
   background-color: transparent;
@@ -368,7 +368,7 @@ input::-webkit-inner-spin-button {
 }
 #rectOvalHeight{
   position: absolute;   /* inside widthHeightInputs */
-  left: 114px;  
+  left: calc(var(--resize)*114px);  
   top: 0px;
 }
 
@@ -377,11 +377,11 @@ input::-webkit-inner-spin-button {
 /* point 2 and thickness inputs for line */
 
 #point2xyInputs{
-  width: 165px;
-  height: 28px;
+  width: calc(var(--resize)*165px);
+  height: calc(var(--resize)*28px);
   position: absolute;  /* inside drawBlockInputs */
-  left: calc(var(--point2xyInputsLeft)*1px);   
-  top: calc(var(--point2xyInputsTop)*1px);      
+  left: calc(var(--resize)*var(--point2xyInputsLeft)*1px);   
+  top: calc(var(--resize)*var(--point2xyInputsTop)*1px);      
   z-index: 5;
   border: 1px solid transparent;
   background-color: transparent;
@@ -395,18 +395,18 @@ input::-webkit-inner-spin-button {
 }
 #point2y{
   position: absolute;   /* inside point2xyInputs */
-  left: 114px;  
+  left: calc(var(--resize)*114px);  
   top: 0px;
 }
 
 /* point 3 inputs for triangle */
 
 #point3xyInputs{
-  width: 165px;
-  height: 28px;
+  width: calc(var(--resize)*165px);
+  height: calc(var(--resize)*28px);
   position: absolute;  /* inside drawBlockInputs */
-  left: calc(var(--point3xyInputsLeft)*1px);   
-  top: calc(var(--point3xyInputsTop)*1px);     
+  left: calc(var(--resize)*var(--point3xyInputsLeft)*1px);   
+  top: calc(var(--resize)*var(--point3xyInputsTop)*1px);     
   z-index: 5;
   border: 1px solid transparent;
   background-color: transparent;
@@ -420,15 +420,15 @@ input::-webkit-inner-spin-button {
 }
 #point3y{
   position: absolute;   /* inside point2xyInputs */
-  left: 114px;  
+  left: calc(var(--resize)*114px);  
   top: 0px;
 }
 
 /* line thickness for line */
 #lineThickness{
   position: absolute;   /* inside drawBlockInputs */
-  left: calc(var(--lineThicknessLeft)*1px);
-  top: calc(var(--lineThicknessTop)*1px);
+  left: calc(var(--resize)*var(--lineThicknessLeft)*1px);
+  top: calc(var(--resize)*var(--lineThicknessTop)*1px);
   z-index: 5;
   display: none; /* visible for line, otherwise hidden */
 }
@@ -436,8 +436,8 @@ input::-webkit-inner-spin-button {
 /* text input for writeText */
 #txttext{
   position: absolute;   /* inside drawBlockInputs */
-  left: calc(var(--txttxtLeft)*1px);
-  top: calc(var(--txttxtTop)*1px);
+  left: calc(var(--resize)*var(--txttxtLeft)*1px);
+  top: calc(var(--resize)*var(--txttxtTop)*1px);
   z-index: 5;
   display: none; /* visible for writeText, otherwise hidden */
 }
@@ -445,8 +445,8 @@ input::-webkit-inner-spin-button {
 /* text size input for writeText */
 #txtsize{
   position: absolute;   /* inside drawBlockInputs */
-  left: calc(var(--txtsizeLeft)*1px);
-  top: calc(var(--txtsizeTop)*1px);
+  left: calc(var(--resize)*var(--txtsizeLeft)*1px);
+  top: calc(var(--resize)*var(--txtsizeTop)*1px);
   z-index: 5;
   display: none; /* visible for writeText, otherwise hidden */
 }
