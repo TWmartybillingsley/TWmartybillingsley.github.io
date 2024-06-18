@@ -64,30 +64,30 @@
 
 :root{
   --sharedXYinputsLeft: 230;    /* starting position for rect/oval/line/triangle blocks */
-  --sharedXYinputsTop: 66;      
+  --sharedXYinputsTop: 67;      
   --colorInputsLeft: 254;       /* starting x position for rect/oval/triangle blocks */
-  --colorInputsTop: 171;        /* starting y position for rect/oval blocks */
+  --colorInputsTop: 172;        /* starting y position for rect/oval blocks */
   --widthHeightInputsLeft: 230; /* starting position for rect/oval blocks */
-  --widthHeightInputsTop: 104;  
+  --widthHeightInputsTop: 105;  
   --point2xyInputsLeft: 230;    /* starting position for line/triangle blocks */
   --point2xyInputsTop: 105;    
   --point3xyInputsLeft: 230;    /* starting position for triangle block */
-  --point3xyInputsTop: 143;    
+  --point3xyInputsTop: 144;    
   --sharedTFLeft: 149;          /* starting position for rect/oval blocks */
   --sharedTFTop: 140;
   --lineThicknessLeft: 148;     /* starting position for line block */
   --lineThicknessTop: 138;
   --txtsizeLeft: 147;           /* starting position for text block */
-  --txtsizeTop: 130;
+  --txtsizeTop: 129;
   --txttxtLeft: 162;            /* starting position for text block */
   --txttxtTop: 61;
 
   /* these components shift their y location for different blocks */
   --sharedXYinputsTop1: 66;     /* rect/oval/line/triangle */
   --sharedXYinputsTop2: 94;     /* text */
-  --colorInputsTop1: 171;       /* rect/oval/line */
+  --colorInputsTop1: 172;       /* rect/oval/line */
   --colorInputsTop2: 210;       /* triangle */
-  --colorInputsTop3: 160;       /* text */
+  --colorInputsTop3: 161;       /* text */
   --sharedTFTop1: 140;          /* rect/oval */
   --sharedTFTop2: 177;          /* triangle */
 
@@ -343,7 +343,7 @@ input::-webkit-inner-spin-button {
 
 .pulldownMenu{
   width: 83px;
-  height: 19px;
+  height: 21px;
   color: #000000;
   text-align:center;
   font-weight: 500;
