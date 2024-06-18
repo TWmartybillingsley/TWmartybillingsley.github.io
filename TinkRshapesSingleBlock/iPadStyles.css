@@ -136,7 +136,7 @@ input::-webkit-inner-spin-button {
   width:506px;
   height: 386px;
   position: absolute;   /* position based on window */
-  left:502px;
+  left:490px;
   top:145px;
   background-color: white;
   border-radius: 10px;
@@ -156,7 +156,7 @@ input::-webkit-inner-spin-button {
   height:131px;
   padding:20px;
   position: absolute;   /* position based on window */
-  left:20px;
+  left:10px;
   top:145px;
   background-color: #FFFFFF;
   border-radius: 10px;
@@ -270,14 +270,14 @@ input::-webkit-inner-spin-button {
 
 #instructions2{
   position: absolute;
-  top:150px;
+  top:100px;
   left:20px;
 }
 
 #drawButton{
   position: absolute;
   top: 40px;
-  left: 300px;
+  left: 330px;
   height: 80px;
   width: 80px;
   border-radius: 50%;
@@ -305,7 +305,7 @@ input::-webkit-inner-spin-button {
   height:195px;
   padding:20px;
   position: absolute;   /* position based on window */
-  left:35px;
+  left:10px;
   top:300px;
   background-color: #FFFFFF;
   border-radius: 10px;
