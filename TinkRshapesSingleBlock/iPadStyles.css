@@ -168,14 +168,14 @@ input::-webkit-inner-spin-button {
 
 #instructions2{
   position: absolute;
-  top:150px;
+  top:130px;
   left:20px;
 }
 
 #drawButton{
   position: absolute;
   top: 40px;
-  left: 400px;
+  left: 350px;
   height: 80px;
   width: 80px;
   border-radius: 50%;
