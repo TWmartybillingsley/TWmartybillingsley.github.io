@@ -349,7 +349,7 @@ input::-webkit-inner-spin-button {
   font-weight: 500;
   font-size: 14px;
   background-color:#878787;
-  border: 2px #000000 solid;
+  border: 0px #000000 solid;
   border-radius: 5px;
   z-index: 20;
 }
