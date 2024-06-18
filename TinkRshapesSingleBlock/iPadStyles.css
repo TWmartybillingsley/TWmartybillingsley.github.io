@@ -91,7 +91,7 @@
   --sharedTFTop1: 105;          /* rect/oval */
   --sharedTFTop2: 133;          /* triangle */
 
-  --screenFactor: 1.2;
+  --screenFactor: 1;
 }
 
 body{
@@ -153,7 +153,7 @@ input::-webkit-inner-spin-button {
 /* Controls box: choose shape, origin point checkbox, draw button */
 #controls{
   width:412px;
-  height:140px;
+  height:145px;
   padding:20px;
   position: absolute;   /* position based on window */
   left:10px;
@@ -270,7 +270,7 @@ input::-webkit-inner-spin-button {
 
 #instructions2{
   position: absolute;
-  top:130px;
+  top:135px;
   left:20px;
 }
 
