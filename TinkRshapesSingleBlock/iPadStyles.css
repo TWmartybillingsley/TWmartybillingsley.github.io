@@ -63,15 +63,15 @@
 */
 
 :root{
-  --sharedXYinputsLeft: 168;    /* starting position for rect/oval/line/triangle blocks */
-  --sharedXYinputsTop: 48;      
+  --sharedXYinputsLeft: 167;    /* starting position for rect/oval/line/triangle blocks */
+  --sharedXYinputsTop: 49;      
   --colorInputsLeft: 188;       /* starting x position for rect/oval/triangle blocks */
-  --colorInputsTop: 130;        /* starting y position for rect/oval blocks */
-  --widthHeightInputsLeft: 168; /* starting position for rect/oval blocks */
+  --colorInputsTop: 129;        /* starting y position for rect/oval blocks */
+  --widthHeightInputsLeft: 167; /* starting position for rect/oval blocks */
   --widthHeightInputsTop: 78;  
-  --point2xyInputsLeft: 168;    /* starting position for line/triangle blocks */
+  --point2xyInputsLeft: 167;    /* starting position for line/triangle blocks */
   --point2xyInputsTop: 79;    
-  --point3xyInputsLeft: 168;    /* starting position for triangle block */
+  --point3xyInputsLeft: 167;    /* starting position for triangle block */
   --point3xyInputsTop: 107;    
   --sharedTFLeft: 107;          /* starting position for rect/oval blocks */
   --sharedTFTop: 107;
@@ -80,13 +80,13 @@
   --txtsizeLeft: 107;           /* starting position for text block */
   --txtsizeTop: 98;
   --txttxtLeft: 121;            /* starting position for text block */
-  --txttxtTop: 47;
+  --txttxtTop: 49;
 
   /* these components shift their y location for different blocks */
   --sharedXYinputsTop1: 49;     /* rect/oval/line/triangle */
   --sharedXYinputsTop2: 70;     /* text */
-  --colorInputsTop1: 130;       /* rect/oval/line */
-  --colorInputsTop2: 160;       /* triangle */
+  --colorInputsTop1: 129;       /* rect/oval/line */
+  --colorInputsTop2: 158;       /* triangle */
   --colorInputsTop3: 120;       /* text */
   --sharedTFTop1: 107;          /* rect/oval */
   --sharedTFTop2: 138;          /* triangle */
@@ -333,7 +333,7 @@ input::-webkit-inner-spin-button {
   height: 12px;
   color: #000000;
   text-align:center;
-  font-weight: normal;
+  font-weight: 500;
   font-size: 12px;
   background-color: transparent;
   border: 0px transparent solid;
@@ -343,7 +343,7 @@ input::-webkit-inner-spin-button {
 
 .pulldownMenu{
   width: 75px;
-  height: 19px;
+  height: 20px;
   color: #000000;
   text-align:center;
   font-weight: bold;
@@ -403,12 +403,12 @@ input::-webkit-inner-spin-button {
 }
 #sharedGreen{
   position: absolute; /* inside colorInputs */
-  left: 94px;  /* same for all (colorInputs block is moved) */
+  left: 92px;  /* same for all (colorInputs block is moved) */
   top: 0px;
 }
 #sharedBlue{
   position: absolute; /* inside colorInputs */
-  left: 178px;  /* same for all (colorInputs block is moved) */
+  left: 175px;  /* same for all (colorInputs block is moved) */
   top: 0px;
 }
 
@@ -432,7 +432,7 @@ input::-webkit-inner-spin-button {
 }
 #sharedY{
   position: absolute;   /* inside sharedXYinputs */
-  left: 89px;  /* same for all (sharedXYinputs block is moved) */
+  left: 88px;  /* same for all (sharedXYinputs block is moved) */
   top: 0px;
 }
 
@@ -467,7 +467,7 @@ input::-webkit-inner-spin-button {
 }
 #rectOvalHeight{
   position: absolute;   /* inside widthHeightInputs */
-  left: 89px;  
+  left: 88px;  
   top: 0px;
 }
 
@@ -494,7 +494,7 @@ input::-webkit-inner-spin-button {
 }
 #point2y{
   position: absolute;   /* inside point2xyInputs */
-  left: 89px;  
+  left: 88px;  
   top: 0px;
 }
 
@@ -519,7 +519,7 @@ input::-webkit-inner-spin-button {
 }
 #point3y{
   position: absolute;   /* inside point2xyInputs */
-  left: 89px;  
+  left: 88px;  
   top: 0px;
 }
 
