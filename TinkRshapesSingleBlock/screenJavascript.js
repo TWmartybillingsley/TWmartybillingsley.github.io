@@ -14,6 +14,16 @@ var gridColor = "rgba(100,100,100,0.2)"
 // for switching block types
 var blockType = "rect"
 
+function resetFactor(newFactor){
+  factor = newFactor;
+  screenWidth = rawScreenWidth*factor
+  screenHeight = rawScreenHeight*factor
+  svgWidth = screenWidth + 100
+  svgHeight = screenHeight + 100
+  xOffset = 10*factor + 2
+  yOffset = 10*factor
+}
+
 //************SVG************//
 // generate SVG
 function createSVG(){
@@ -389,7 +399,9 @@ function fixLineTriangleInputs(){
 //--------useful functions to change state of SVG
 
 function drawStartingState(){
-  factor = getCssVar("screenFactor");
+  if (navigator.userAgent.match(/Android|iPhone|iPad/i)){
+    resetFactor(1.5);
+  }
   createSVG()
   createScreen()
   drawGrid()

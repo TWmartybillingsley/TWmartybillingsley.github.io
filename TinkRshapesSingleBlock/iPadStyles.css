@@ -34,10 +34,10 @@ input::-webkit-inner-spin-button {
       }
 
 .svgWhiteBox{
-  width:675px;
-  height: 515px;
+  width:506px;
+  height: 386px;
   position: absolute;   /* position based on window */
-  left:420px;
+  left:500px;
   top:145px;
   background-color: white;
   border-radius: 10px;
