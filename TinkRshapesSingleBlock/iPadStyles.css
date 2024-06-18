@@ -3,7 +3,7 @@
 body{
   margin: 0;
   padding: 0;
-  background-color: blue;
+  background-color: green;
 }
 
 .whiteBanner{
@@ -14,7 +14,7 @@ body{
 
 .orangeMain{
   margin:0;
-  background-color: blue;
+  background-color: green;
   width: 100%;
 }
 
@@ -35,7 +35,7 @@ input::-webkit-inner-spin-button {
   width:675px;
   height: 515px;
   position: absolute;   /* position based on window */
-  left:550px;
+  left:400px;
   top:145px;
   background-color: white;
   border-radius: 10px;
