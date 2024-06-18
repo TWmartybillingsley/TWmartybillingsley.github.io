@@ -63,20 +63,20 @@
 */
 
 :root{
-  --sharedXYinputsLeft: 170;    /* starting position for rect/oval/line/triangle blocks */
-  --sharedXYinputsTop: 49;      
-  --colorInputsLeft: 190;       /* starting x position for rect/oval/triangle blocks */
-  --colorInputsTop: 128;        /* starting y position for rect/oval blocks */
-  --widthHeightInputsLeft: 170; /* starting position for rect/oval blocks */
+  --sharedXYinputsLeft: 168;    /* starting position for rect/oval/line/triangle blocks */
+  --sharedXYinputsTop: 48;      
+  --colorInputsLeft: 188;       /* starting x position for rect/oval/triangle blocks */
+  --colorInputsTop: 130;        /* starting y position for rect/oval blocks */
+  --widthHeightInputsLeft: 168; /* starting position for rect/oval blocks */
   --widthHeightInputsTop: 78;  
-  --point2xyInputsLeft: 170;    /* starting position for line/triangle blocks */
+  --point2xyInputsLeft: 168;    /* starting position for line/triangle blocks */
   --point2xyInputsTop: 79;    
-  --point3xyInputsLeft: 170;    /* starting position for triangle block */
+  --point3xyInputsLeft: 168;    /* starting position for triangle block */
   --point3xyInputsTop: 107;    
   --sharedTFLeft: 107;          /* starting position for rect/oval blocks */
   --sharedTFTop: 107;
-  --lineThicknessLeft: 109;     /* starting position for line block */
-  --lineThicknessTop: 103;
+  --lineThicknessLeft: 105;     /* starting position for line block */
+  --lineThicknessTop: 104;
   --txtsizeLeft: 107;           /* starting position for text block */
   --txtsizeTop: 98;
   --txttxtLeft: 121;            /* starting position for text block */
@@ -85,8 +85,8 @@
   /* these components shift their y location for different blocks */
   --sharedXYinputsTop1: 49;     /* rect/oval/line/triangle */
   --sharedXYinputsTop2: 70;     /* text */
-  --colorInputsTop1: 128;       /* rect/oval/line */
-  --colorInputsTop2: 157;       /* triangle */
+  --colorInputsTop1: 130;       /* rect/oval/line */
+  --colorInputsTop2: 160;       /* triangle */
   --colorInputsTop3: 120;       /* text */
   --sharedTFTop1: 107;          /* rect/oval */
   --sharedTFTop2: 138;          /* triangle */
@@ -330,14 +330,14 @@ input::-webkit-inner-spin-button {
 
 .textInput{
   width: 150px;
-  height: 14px;
+  height: 12px;
   color: #000000;
   text-align:center;
   font-weight: normal;
   font-size: 12px;
-  /*background-color:#A5CBA9;
-  border: 2px #36823C solid;
-  border-radius: 5px;*/
+  background-color: transparent;
+  border: 0px transparent solid;
+  border-radius: 0px;
   z-index: 20;
 }
 
@@ -348,9 +348,10 @@ input::-webkit-inner-spin-button {
   text-align:center;
   font-weight: bold;
   font-size: 11px;
-  /*background-color:#878787;
+  background-color:#878787;
   border: 2px #000000 solid;
-  border-radius: 5px;*/
+  border-right-width: 5px;
+  border-radius: 5px;
   z-index: 20;
 }
 
@@ -402,12 +403,12 @@ input::-webkit-inner-spin-button {
 }
 #sharedGreen{
   position: absolute; /* inside colorInputs */
-  left: 92px;  /* same for all (colorInputs block is moved) */
+  left: 94px;  /* same for all (colorInputs block is moved) */
   top: 0px;
 }
 #sharedBlue{
   position: absolute; /* inside colorInputs */
-  left: 175px;  /* same for all (colorInputs block is moved) */
+  left: 178px;  /* same for all (colorInputs block is moved) */
   top: 0px;
 }
 
@@ -431,7 +432,7 @@ input::-webkit-inner-spin-button {
 }
 #sharedY{
   position: absolute;   /* inside sharedXYinputs */
-  left: 87px;  /* same for all (sharedXYinputs block is moved) */
+  left: 89px;  /* same for all (sharedXYinputs block is moved) */
   top: 0px;
 }
 
@@ -466,7 +467,7 @@ input::-webkit-inner-spin-button {
 }
 #rectOvalHeight{
   position: absolute;   /* inside widthHeightInputs */
-  left: 87px;  
+  left: 89px;  
   top: 0px;
 }
 
@@ -493,7 +494,7 @@ input::-webkit-inner-spin-button {
 }
 #point2y{
   position: absolute;   /* inside point2xyInputs */
-  left: 87px;  
+  left: 89px;  
   top: 0px;
 }
 
@@ -518,7 +519,7 @@ input::-webkit-inner-spin-button {
 }
 #point3y{
   position: absolute;   /* inside point2xyInputs */
-  left: 87px;  
+  left: 89px;  
   top: 0px;
 }
 
