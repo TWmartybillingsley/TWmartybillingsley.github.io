@@ -400,7 +400,7 @@ function fixLineTriangleInputs(){
 
 function drawStartingState(){
   if (navigator.userAgent.match(/Android|iPhone|iPad/i)){
-    resetFactor(1.5);
+    resetFactor(1.3);
   }
   createSVG()
   createScreen()

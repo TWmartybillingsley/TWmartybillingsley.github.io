@@ -73,8 +73,8 @@
   --point2xyInputsTop: 79;    
   --point3xyInputsLeft: 170;    /* starting position for triangle block */
   --point3xyInputsTop: 107;    
-  --sharedTFLeft: 108;          /* starting position for rect/oval blocks */
-  --sharedTFTop: 105;
+  --sharedTFLeft: 107;          /* starting position for rect/oval blocks */
+  --sharedTFTop: 107;
   --lineThicknessLeft: 109;     /* starting position for line block */
   --lineThicknessTop: 103;
   --txtsizeLeft: 107;           /* starting position for text block */
@@ -88,8 +88,8 @@
   --colorInputsTop1: 128;       /* rect/oval/line */
   --colorInputsTop2: 157;       /* triangle */
   --colorInputsTop3: 120;       /* text */
-  --sharedTFTop1: 105;          /* rect/oval */
-  --sharedTFTop2: 133;          /* triangle */
+  --sharedTFTop1: 107;          /* rect/oval */
+  --sharedTFTop2: 138;          /* triangle */
 
   --screenFactor: 1;
 }
@@ -133,10 +133,10 @@ input::-webkit-inner-spin-button {
       }
 
 .svgWhiteBox{
-  width:506px;
-  height: 386px;
+  width:450px;
+  height: 350px;
   position: absolute;   /* position based on window */
-  left:460px;
+  left:480px;
   top:145px;
   background-color: white;
   border-radius: 10px;
@@ -146,7 +146,7 @@ input::-webkit-inner-spin-button {
 
 #svgDIV{
   position: relative;   /* inside svgWhiteBox */
-  top: 0px;
+  top: 10px;
   left: 0px;
 }
 
@@ -368,14 +368,14 @@ input::-webkit-inner-spin-button {
 }
 
 .TFinput{
-  width:60px;
+  width:58px;
   height:21px;
   color: #000000;
   font-weight: normal;
   font-size: 11px;
-  /*background-color:#FFEFA0;
+  background-color:#FFEFA0;
   border: 2px #FED50A solid;
-  border-radius: 5px;*/
+  border-radius: 5px;
   z-index: 10;
 }
 
