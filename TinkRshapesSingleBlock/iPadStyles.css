@@ -30,7 +30,7 @@ input::-webkit-inner-spin-button {
   width:675px;
   height: 515px;
   position: absolute;   /* position based on window */
-  left:600px;
+  left:550px;
   top:145px;
   background-color: white;
   border-radius: 10px;
