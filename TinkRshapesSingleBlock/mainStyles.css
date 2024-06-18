@@ -95,7 +95,7 @@
 body{
   margin: 0;
   padding: 0;
-  background-color: purple;
+  background-color: #F79520;
 }
 
 .whiteBanner{
@@ -114,8 +114,7 @@ body{
 
 .orangeMain{
   margin:0;
-  /*background-color: #F79520;*/
-  background-color:purple;
+  background-color: #F79520;
   width: 100%;
 }
 
