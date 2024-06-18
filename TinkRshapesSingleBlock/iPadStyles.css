@@ -1,9 +1,15 @@
 
 
+body{
+  margin: 0;
+  padding: 0;
+  background-color: blue;
+}
+
 
 .orangeMain{
   margin:0;
-  background-color: #0000FF;
+  background-color: blue;
   width: 100%;
 }
 
