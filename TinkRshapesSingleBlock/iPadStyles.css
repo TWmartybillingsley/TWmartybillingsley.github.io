@@ -1,0 +1,439 @@
+
+
+
+.orangeMain{
+  margin:0;
+  background-color: #0000FF;
+  width: 100%;
+}
+
+
+
+
+.checkbox{
+  width: 20px;
+  height: 20px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+         -webkit-appearance: none;
+      }
+
+.svgWhiteBox{
+  width:675px;
+  height: 515px;
+  position: absolute;   /* position based on window */
+  left:670px;
+  top:145px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #808080;
+  padding: 20px;
+}
+
+#svgDIV{
+  position: relative;   /* inside svgWhiteBox */
+  top: 0px;
+  left: 0px;
+}
+
+/* Controls box: choose shape, origin point checkbox, draw button */
+#controls{
+  width:550px;
+  height:175px;
+  padding:20px;
+  position: absolute;   /* position based on window */
+  left:35px;
+  top:145px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #808080;
+}
+
+#controlIcons{
+  position: absolute;    /* svg inside controls */
+  left: 20px;
+  top: 55px;
+}
+  .controls1 {
+    fill: #55a4db;
+    stroke: #33558A;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-width: 5px;
+    cursor: pointer;
+  }
+
+  .controls2 {
+    font-family: Roboto, Avenir-Heavy, Avenir, sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0em;
+    fill: #33558A;
+    cursor: pointer;
+  }
+
+  .controls3 {
+    fill: #33558A;
+    stroke: #33558A;
+    stroke-width: 0px;
+    cursor: pointer;
+  }
+
+  input[type=radio] {
+    border: 2px solid #33558A;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    padding: 8px;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+
+  input[type=radio]:checked {
+    border: 2px solid #33558A; 
+    background-color: #3AB54A; 
+  }
+
+  input[type=radio]:focus {
+    outline-color: transparent;
+  }
+
+
+  input[type=checkbox] {
+    position: relative;
+    top: 8px;
+    border: 2px solid #33558A;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    padding: 8px;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+
+  input[type=checkbox]:checked {
+    border: 2px solid #33558A; 
+    background-color: #3AB54A; 
+    /*content: "✓";*/
+  }
+
+  .shapeRadioButton{
+    position: absolute;
+    top: 100px;
+  }
+
+  #rectRadioButton{
+    left: 20px;
+  }
+
+  #ovalRadioButton{
+    left: 78px;
+  }
+
+  #triangleRadioButton{
+    left: 150px;
+  }
+
+  #lineRadioButton{
+    left: 225px;
+  }
+
+  #textRadioButton{
+    left: 288px;
+  }
+
+.instructions{
+  color: #33558A;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+}
+
+#instructions1{
+  position: absolute;
+  top:20px;
+  left:20px;
+}
+
+#instructions2{
+  position: absolute;
+  top:150px;
+  left:20px;
+}
+
+#drawButton{
+  position: absolute;
+  top: 40px;
+  left: 400px;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background-color: #3AB54A;
+  box-shadow: 0px 0px 8px #3AB54A;
+  cursor: pointer;
+}
+
+#drawButtonText{
+  position: relative;
+  top: 40px;
+  color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px;
+  text-align: center;
+  cursor: pointer;
+}
+/* end of control box */
+
+/* programming blocks and inputs */
+#blocks{
+  width:550px;
+  height:260px;
+  padding:20px;
+  position: absolute;   /* position based on window */
+  left:35px;
+  top:400px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #808080;
+  background-image: url("images/programmingBackground.png");
+}
+
+.drawBlockInputs{
+  border: 1px transparent; solid;
+  padding: 0px;
+  position: relative;   /* inside blocks */
+  top: 5px;
+  left: 0px;
+  width: 550px;
+  height: 248px;
+  background-image: url("images/drawRectangleBlock.png");
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  display: block;   /* shows when first loaded (drawRectangle)*/
+}
+
+.textInput{
+  width: 213px;
+  height: 17px;
+  color: #000000;
+  text-align:center;
+  font-weight: normal;
+  font-size: 16px;
+  background-color:#A5CBA9;
+  border: 2px #36823C solid;
+  border-radius: 5px;
+  z-index: 20;
+}
+
+.pulldownMenu{
+  width: 83px;
+  height: 19px;
+  color: #000000;
+  text-align:center;
+  font-weight: bold;
+  font-size: 14px;
+  background-color:#878787;
+  border: 2px #000000 solid;
+  border-radius: 5px;
+  z-index: 20;
+}
+
+
+.numberinput{
+  width: 36px;
+  height: 18px;
+  color: #000000;
+  text-align:center;
+  font-weight: normal;
+  font-size: 16px;
+  background-color:transparent;
+  border: 1px transparent solid;
+  z-index: 10;
+}
+
+.TFinput{
+  width:67px;
+  height:23px;
+  color: #000000;
+  font-weight: normal;
+  font-size: 16px;
+  background-color:#FFEFA0;
+  border: 2px #FED50A solid;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+
+
+/*** Colors Block ***/
+#colorInputs{
+  width: 280px;
+  height: 28px;
+  position: absolute;  /* inside drawBlockInputs */
+  left: calc(var(--colorInputsLeft)*1px);   
+  top: calc(var(--colorInputsTop)*1px);    
+  z-index: 5;
+  border: 1px solid transparent;
+  background-color: transparent;
+  display: block;   /* always shows */
+}
+
+/* individual inputs for color */
+#sharedRed{
+  position: absolute; /* inside colorInputs */
+  left: 0px;  /* same for all (colorInputs block is moved) */
+  top: 0px;
+}
+#sharedGreen{
+  position: absolute; /* inside colorInputs */
+  left: 123px;  /* same for all (colorInputs block is moved) */
+  top: 0px;
+}
+#sharedBlue{
+  position: absolute; /* inside colorInputs */
+  left: 233px;  /* same for all (colorInputs block is moved) */
+  top: 0px;
+}
+
+/*** shared XY Block ***/
+#sharedXYinputs{
+  width: 165px;
+  height: 28px;
+  position: absolute;  /* inside drawBlockInputs */
+  left: calc(var(--sharedXYinputsLeft)*1px);   /* position for all blocks */
+  top: calc(var(--sharedXYinputsTop)*1px);     /* y position for rect/oval/triangle/line */
+  z-index: 5;
+  border: 1px solid transparent;
+  background-color: transparent;
+  display: block;   /* always shows */
+}
+
+#sharedX{
+  position: absolute;   /* inside sharedXYinputs */
+  left: 0px;    /* same for all (sharedXYinputs block is moved) */
+  top: 0px;
+}
+#sharedY{
+  position: absolute;   /* inside sharedXYinputs */
+  left: 114px;  /* same for all (sharedXYinputs block is moved) */
+  top: 0px;
+}
+
+
+#sharedTF{    
+  position: absolute; /* inside drawBlockInputs */
+  left: calc(var(--sharedTFLeft)*1px);      
+  top: calc(var(--sharedTFTop)*1px);
+  display: block;   /* shows when first loaded (drawRectangle)*/
+                    /* hide for line/text */
+}
+
+
+
+/* width/height inputs for drawRectangle/drawOval*/
+#widthHeightInputs{
+  width: 165px;
+  height: 28px;
+  position: absolute;  /* inside drawBlockInputs */
+  left: calc(var(--widthHeightInputsLeft)*1px) ;  
+  top: calc(var(--widthHeightInputsTop)*1px);     
+  z-index: 5;
+  border: 1px solid transparent;
+  background-color: transparent;
+  display: block; /* visible for rect/oval, otherwise hidden */
+}
+
+#rectOvalWidth{
+  position: absolute;   /* inside widthHeightInputs */
+  left: 0px;    
+  top: 0px;
+}
+#rectOvalHeight{
+  position: absolute;   /* inside widthHeightInputs */
+  left: 114px;  
+  top: 0px;
+}
+
+
+
+/* point 2 and thickness inputs for line */
+
+#point2xyInputs{
+  width: 165px;
+  height: 28px;
+  position: absolute;  /* inside drawBlockInputs */
+  left: calc(var(--point2xyInputsLeft)*1px);   
+  top: calc(var(--point2xyInputsTop)*1px);      
+  z-index: 5;
+  border: 1px solid transparent;
+  background-color: transparent;
+  display: none; /* visible for line/triangle, otherwise hidden */
+}
+
+#point2x{
+  position: absolute;   /* inside point2xyInputs */
+  left: 0px;    
+  top: 0px;
+}
+#point2y{
+  position: absolute;   /* inside point2xyInputs */
+  left: 114px;  
+  top: 0px;
+}
+
+/* point 3 inputs for triangle */
+
+#point3xyInputs{
+  width: 165px;
+  height: 28px;
+  position: absolute;  /* inside drawBlockInputs */
+  left: calc(var(--point3xyInputsLeft)*1px);   
+  top: calc(var(--point3xyInputsTop)*1px);     
+  z-index: 5;
+  border: 1px solid transparent;
+  background-color: transparent;
+  display: none; /* visible for triangle, otherwise hidden */
+}
+
+#point3x{
+  position: absolute;   /* inside point2xyInputs */
+  left: 0px;    
+  top: 0px;
+}
+#point3y{
+  position: absolute;   /* inside point2xyInputs */
+  left: 114px;  
+  top: 0px;
+}
+
+/* line thickness for line */
+#lineThickness{
+  position: absolute;   /* inside drawBlockInputs */
+  left: calc(var(--lineThicknessLeft)*1px);
+  top: calc(var(--lineThicknessTop)*1px);
+  z-index: 5;
+  display: none; /* visible for line, otherwise hidden */
+}
+
+/* text input for writeText */
+#txttext{
+  position: absolute;   /* inside drawBlockInputs */
+  left: calc(var(--txttxtLeft)*1px);
+  top: calc(var(--txttxtTop)*1px);
+  z-index: 5;
+  display: none; /* visible for writeText, otherwise hidden */
+}
+
+/* text size input for writeText */
+#txtsize{
+  position: absolute;   /* inside drawBlockInputs */
+  left: calc(var(--txtsizeLeft)*1px);
+  top: calc(var(--txtsizeTop)*1px);
+  z-index: 5;
+  display: none; /* visible for writeText, otherwise hidden */
+}
+

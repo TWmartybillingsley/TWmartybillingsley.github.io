@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-    	<link rel="stylesheet" type="text/css" href="screenStyles.css" />
+    	<!-- main css -->
+    	<link rel="stylesheet" type="text/css" href="main.css" />
+    	<!-- css depending on screen size -->
+    	<link rel="stylesheet" type="text/css" media="screen and (max-width: 1024px)" href="ipadStyles.css">
+
     	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico?">
 
     	<script src="d3.js"></script>
@@ -97,14 +101,14 @@
 
 		    	<!-- contains point 2 x,y inputs for line/triangle -->
 		    	<div class="point2xyInputs" id="point2xyInputs"> 
-		    		<input type="number" id="point2x" class="numberinput" max="999" min="0" value="50" onclick="this.select()" tabindex="5"/>
-		    		<input type="number" id="point2y" class="numberinput" max="999" min="0" value="50" onclick="this.select()" tabindex="6"/>
+		    		<input type="number" id="point2x" class="numberinput" max="999" min="0" value="100" onclick="this.select()" tabindex="5"/>
+		    		<input type="number" id="point2y" class="numberinput" max="999" min="0" value="100" onclick="this.select()" tabindex="6"/>
 		    	</div>
 
 		    	<!-- contains point 3 x,y inputs for triangle -->
 		    	<div class="point3xyInputs" id="point3xyInputs"> 
-		    		<input type="number" id="point3x" class="numberinput" max="999" min="0" value="50" onclick="this.select()" tabindex="7"/>
-		    		<input type="number" id="point3y" class="numberinput" max="999" min="0" value="50" onclick="this.select()" tabindex="8"/>
+		    		<input type="number" id="point3x" class="numberinput" max="999" min="0" value="0" onclick="this.select()" tabindex="7"/>
+		    		<input type="number" id="point3y" class="numberinput" max="999" min="0" value="100" onclick="this.select()" tabindex="8"/>
 		    	</div>
 
 		    	<!-- line thickness input -->
