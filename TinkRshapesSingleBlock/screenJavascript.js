@@ -6,7 +6,7 @@ var screenWidth = rawScreenWidth*factor
 var screenHeight = rawScreenHeight*factor
 var svgWidth = screenWidth + 100
 var svgHeight = screenHeight + 100
-var xOffset = 10*factor + 10
+var xOffset = 10*factor + 3
 var yOffset = 10*factor
 var gridSpacing = 20  // factor taken into account when drawing/labeling grid
 var gridColor = "rgba(100,100,100,0.2)"
@@ -20,7 +20,7 @@ function resetFactor(newFactor){
   screenHeight = rawScreenHeight*factor
   svgWidth = screenWidth + 100
   svgHeight = screenHeight + 100
-  xOffset = 10*factor + 2
+  xOffset = 10*factor + 4
   yOffset = 10*factor
 }
 
