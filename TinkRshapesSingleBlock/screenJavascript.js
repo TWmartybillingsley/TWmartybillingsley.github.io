@@ -389,7 +389,7 @@ function fixLineTriangleInputs(){
 //--------useful functions to change state of SVG
 
 function drawStartingState(){
-  factor = getCssVar(screenFactor);
+  factor = getCssVar("screenFactor");
   createSVG()
   createScreen()
   drawGrid()
