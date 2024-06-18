@@ -35,7 +35,7 @@ input::-webkit-inner-spin-button {
   width:675px;
   height: 515px;
   position: absolute;   /* position based on window */
-  left:400px;
+  left:420px;
   top:145px;
   background-color: white;
   border-radius: 10px;
@@ -55,7 +55,7 @@ input::-webkit-inner-spin-button {
   height:175px;
   padding:20px;
   position: absolute;   /* position based on window */
-  left:35px;
+  left:10px;
   top:145px;
   background-color: #FFFFFF;
   border-radius: 10px;
@@ -204,7 +204,7 @@ input::-webkit-inner-spin-button {
   height:260px;
   padding:20px;
   position: absolute;   /* position based on window */
-  left:35px;
+  left:10px;
   top:400px;
   background-color: #FFFFFF;
   border-radius: 10px;
