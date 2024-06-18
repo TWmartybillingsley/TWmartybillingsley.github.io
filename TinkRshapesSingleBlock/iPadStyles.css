@@ -80,7 +80,7 @@
   --txtsizeLeft: 107;           /* starting position for text block */
   --txtsizeTop: 98;
   --txttxtLeft: 121;            /* starting position for text block */
-  --txttxtTop: 46;
+  --txttxtTop: 47;
 
   /* these components shift their y location for different blocks */
   --sharedXYinputsTop1: 49;     /* rect/oval/line/triangle */
@@ -317,8 +317,8 @@ input::-webkit-inner-spin-button {
   border: 1px transparent; solid;
   padding: 0px;
   position: relative;   /* inside blocks */
-  top: 0px;
-  left: 0px;
+  top: 5px;
+  left: 5px;
   width: 412px;
   height: 195px;
   background-image: url("images/drawRectangleBlock.png");
@@ -329,7 +329,7 @@ input::-webkit-inner-spin-button {
 }
 
 .textInput{
-  width: 150px;
+  width: 152px;
   height: 12px;
   color: #000000;
   text-align:center;
@@ -342,7 +342,7 @@ input::-webkit-inner-spin-button {
 }
 
 .pulldownMenu{
-  width: 70px;
+  width: 75px;
   height: 19px;
   color: #000000;
   text-align:center;
