@@ -1,5 +1,5 @@
 // for sizing the grid
-var factor = 2
+var factor = 2  // might be changed on load, depending on device
 var rawScreenWidth = 320
 var rawScreenHeight = 240
 var screenWidth = rawScreenWidth*factor
@@ -389,6 +389,7 @@ function fixLineTriangleInputs(){
 //--------useful functions to change state of SVG
 
 function drawStartingState(){
+  factor = getCssVar(screenFactor);
   createSVG()
   createScreen()
   drawGrid()

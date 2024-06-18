@@ -1,20 +1,22 @@
-
+:root{
+  --screenFactor: 1.5;
+}
 
 body{
   margin: 0;
   padding: 0;
-  background-color: green;
+  background-color: purple;
 }
 
 .whiteBanner{
   background-color: #FFFFFF;
-  width: 1024px;
+  width: 2048px;
   height: 100px;
 }
 
 .orangeMain{
   margin:0;
-  background-color: green;
+  background-color: purple;
   width: 100%;
 }
 

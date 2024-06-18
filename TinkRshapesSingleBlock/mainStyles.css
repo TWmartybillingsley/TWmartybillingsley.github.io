@@ -90,6 +90,8 @@
   --colorInputsTop3: 160;       /* text */
   --sharedTFTop1: 140;          /* rect/oval */
   --sharedTFTop2: 177;          /* triangle */
+
+  --screenFactor: 2;
 }
 
 body{
