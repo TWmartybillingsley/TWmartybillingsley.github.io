@@ -6,6 +6,11 @@ body{
   background-color: blue;
 }
 
+.whiteBanner{
+  background-color: #FFFFFF;
+  width: 1024px;
+  height: 100px;
+}
 
 .orangeMain{
   margin:0;
