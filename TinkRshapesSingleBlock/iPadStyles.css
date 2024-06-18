@@ -63,21 +63,21 @@
 */
 
 :root{
-  --sharedXYinputsLeft: 172;    /* starting position for rect/oval/line/triangle blocks */
+  --sharedXYinputsLeft: 170;    /* starting position for rect/oval/line/triangle blocks */
   --sharedXYinputsTop: 49;      
   --colorInputsLeft: 190;       /* starting x position for rect/oval/triangle blocks */
   --colorInputsTop: 128;        /* starting y position for rect/oval blocks */
-  --widthHeightInputsLeft: 172; /* starting position for rect/oval blocks */
+  --widthHeightInputsLeft: 170; /* starting position for rect/oval blocks */
   --widthHeightInputsTop: 78;  
-  --point2xyInputsLeft: 172;    /* starting position for line/triangle blocks */
+  --point2xyInputsLeft: 170;    /* starting position for line/triangle blocks */
   --point2xyInputsTop: 79;    
-  --point3xyInputsLeft: 172;    /* starting position for triangle block */
+  --point3xyInputsLeft: 170;    /* starting position for triangle block */
   --point3xyInputsTop: 107;    
-  --sharedTFLeft: 112;          /* starting position for rect/oval blocks */
+  --sharedTFLeft: 108;          /* starting position for rect/oval blocks */
   --sharedTFTop: 105;
-  --lineThicknessLeft: 111;     /* starting position for line block */
+  --lineThicknessLeft: 109;     /* starting position for line block */
   --lineThicknessTop: 103;
-  --txtsizeLeft: 110;           /* starting position for text block */
+  --txtsizeLeft: 108;           /* starting position for text block */
   --txtsizeTop: 97;
   --txttxtLeft: 121;            /* starting position for text block */
   --txttxtTop: 46;
@@ -91,7 +91,7 @@
   --sharedTFTop1: 105;          /* rect/oval */
   --sharedTFTop2: 133;          /* triangle */
 
-  --screenFactor: 1.5;
+  --screenFactor: 1.4;
 }
 
 body{
@@ -136,7 +136,7 @@ input::-webkit-inner-spin-button {
   width:506px;
   height: 386px;
   position: absolute;   /* position based on window */
-  left:490px;
+  left:460px;
   top:145px;
   background-color: white;
   border-radius: 10px;
@@ -270,7 +270,7 @@ input::-webkit-inner-spin-button {
 
 #instructions2{
   position: absolute;
-  top:100px;
+  top:120px;
   left:20px;
 }
 
@@ -306,7 +306,7 @@ input::-webkit-inner-spin-button {
   padding:20px;
   position: absolute;   /* position based on window */
   left:10px;
-  top:300px;
+  top:330px;
   background-color: #FFFFFF;
   border-radius: 10px;
   box-shadow: 1px 1px 5px #808080;
@@ -329,15 +329,15 @@ input::-webkit-inner-spin-button {
 }
 
 .textInput{
-  width: 160px;
+  width: 150px;
   height: 17px;
   color: #000000;
   text-align:center;
   font-weight: normal;
   font-size: 12px;
-  background-color:#A5CBA9;
+  /*background-color:#A5CBA9;
   border: 2px #36823C solid;
-  border-radius: 5px;
+  border-radius: 5px;*/
   z-index: 20;
 }
 
@@ -348,9 +348,9 @@ input::-webkit-inner-spin-button {
   text-align:center;
   font-weight: bold;
   font-size: 11px;
-  background-color:#878787;
+  /*background-color:#878787;
   border: 2px #000000 solid;
-  border-radius: 5px;
+  border-radius: 5px;*/
   z-index: 20;
 }
 
@@ -373,9 +373,9 @@ input::-webkit-inner-spin-button {
   color: #000000;
   font-weight: normal;
   font-size: 12px;
-  background-color:#FFEFA0;
+  /*background-color:#FFEFA0;
   border: 2px #FED50A solid;
-  border-radius: 5px;
+  border-radius: 5px;*/
   z-index: 10;
 }
 
@@ -431,7 +431,7 @@ input::-webkit-inner-spin-button {
 }
 #sharedY{
   position: absolute;   /* inside sharedXYinputs */
-  left: 85px;  /* same for all (sharedXYinputs block is moved) */
+  left: 87px;  /* same for all (sharedXYinputs block is moved) */
   top: 0px;
 }
 
@@ -466,7 +466,7 @@ input::-webkit-inner-spin-button {
 }
 #rectOvalHeight{
   position: absolute;   /* inside widthHeightInputs */
-  left: 85px;  
+  left: 87px;  
   top: 0px;
 }
 
@@ -493,7 +493,7 @@ input::-webkit-inner-spin-button {
 }
 #point2y{
   position: absolute;   /* inside point2xyInputs */
-  left: 85px;  
+  left: 87px;  
   top: 0px;
 }
 
@@ -518,7 +518,7 @@ input::-webkit-inner-spin-button {
 }
 #point3y{
   position: absolute;   /* inside point2xyInputs */
-  left: 85px;  
+  left: 87px;  
   top: 0px;
 }
 
