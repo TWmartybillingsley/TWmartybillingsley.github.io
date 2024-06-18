@@ -65,7 +65,7 @@
 :root{
   --sharedXYinputsLeft: 167;    /* starting position for rect/oval/line/triangle blocks */
   --sharedXYinputsTop: 49;      
-  --colorInputsLeft: 188;       /* starting x position for rect/oval/triangle blocks */
+  --colorInputsLeft: 187;       /* starting x position for rect/oval/triangle blocks */
   --colorInputsTop: 129;        /* starting y position for rect/oval blocks */
   --widthHeightInputsLeft: 167; /* starting position for rect/oval blocks */
   --widthHeightInputsTop: 78;  
@@ -78,7 +78,7 @@
   --lineThicknessLeft: 105;     /* starting position for line block */
   --lineThicknessTop: 104;
   --txtsizeLeft: 107;           /* starting position for text block */
-  --txtsizeTop: 98;
+  --txtsizeTop: 99;
   --txttxtLeft: 121;            /* starting position for text block */
   --txttxtTop: 49;
 
@@ -89,7 +89,7 @@
   --colorInputsTop2: 158;       /* triangle */
   --colorInputsTop3: 120;       /* text */
   --sharedTFTop1: 107;          /* rect/oval */
-  --sharedTFTop2: 138;          /* triangle */
+  --sharedTFTop2: 136;          /* triangle */
 
   --screenFactor: 1;
 }
@@ -346,7 +346,7 @@ input::-webkit-inner-spin-button {
   height: 20px;
   color: #000000;
   text-align:center;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 11px;
   background-color:#878787;
   border: 2px #000000 solid;
@@ -361,7 +361,7 @@ input::-webkit-inner-spin-button {
   height: 18px;
   color: #000000;
   text-align:center;
-  font-weight: normal;
+  font-weight: 500;
   font-size: 12px;
   background-color:transparent;
   border: 1px transparent solid;
@@ -372,7 +372,7 @@ input::-webkit-inner-spin-button {
   width:58px;
   height:21px;
   color: #000000;
-  font-weight: normal;
+  font-weight: 500;
   font-size: 11px;
   background-color:#FFEFA0;
   border: 2px #FED50A solid;
@@ -403,12 +403,12 @@ input::-webkit-inner-spin-button {
 }
 #sharedGreen{
   position: absolute; /* inside colorInputs */
-  left: 92px;  /* same for all (colorInputs block is moved) */
+  left: 91px;  /* same for all (colorInputs block is moved) */
   top: 0px;
 }
 #sharedBlue{
   position: absolute; /* inside colorInputs */
-  left: 175px;  /* same for all (colorInputs block is moved) */
+  left: 174px;  /* same for all (colorInputs block is moved) */
   top: 0px;
 }
 
