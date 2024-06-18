@@ -409,11 +409,11 @@ function toggleGrid(){
   if (gridVisibility == "visible"){
     hideGrid();
     gridVisibility = "hidden";
-    document.getElementById("toggle-grid").innerHTML = "Show Grid";
+    document.getElementById("toggle-grid").innerHTML = 'Show Grid<br><img src="images/ShowGrid.png" class="app-icon, button-icon" id="grid-button">'
   } else {
     showGrid();
     gridVisibility = "visible";
-    document.getElementById("toggle-grid").innerHTML = "Hide Grid";
+    document.getElementById("toggle-grid").innerHTML = 'Hide Grid<br><img src="images/HideGrid.png" class="app-icon, button-icon" id="grid-button">'
   }
 }
 
@@ -431,11 +431,11 @@ function toggleOrigin(){
   if (dotVisibility == "visible"){
     hideDots();
     dotVisibility = "hidden";
-    document.getElementById("toggle-origin").innerHTML = "Show Origin";
+    document.getElementById("toggle-origin").innerHTML = 'Show Origin<br><img src="images/ShowOrigin.png" class="app-icon, button-icon" id="grid-button">'
   } else {
     showDots();
     dotVisibility = "visible";
-    document.getElementById("toggle-origin").innerHTML = "Hide Origin";
+    document.getElementById("toggle-origin").innerHTML = 'Hide Origin<br><img src="images/HideOrigin.png" class="app-icon, button-icon" id="grid-button">'
   }
 }
 
