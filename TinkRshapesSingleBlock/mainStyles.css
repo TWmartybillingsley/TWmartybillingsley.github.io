@@ -333,7 +333,7 @@ input::-webkit-inner-spin-button {
   height: 17px;
   color: #000000;
   text-align:center;
-  font-weight: normal;
+  font-weight: 500;
   font-size: 16px;
   background-color:#A5CBA9;
   border: 2px #36823C solid;
@@ -346,7 +346,7 @@ input::-webkit-inner-spin-button {
   height: 19px;
   color: #000000;
   text-align:center;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 14px;
   background-color:#878787;
   border: 2px #000000 solid;
@@ -360,7 +360,7 @@ input::-webkit-inner-spin-button {
   height: 18px;
   color: #000000;
   text-align:center;
-  font-weight: normal;
+  font-weight: 500;
   font-size: 16px;
   background-color:transparent;
   border: 1px transparent solid;
@@ -371,7 +371,7 @@ input::-webkit-inner-spin-button {
   width:67px;
   height:23px;
   color: #000000;
-  font-weight: normal;
+  font-weight: 500;
   font-size: 16px;
   background-color:#FFEFA0;
   border: 2px #FED50A solid;

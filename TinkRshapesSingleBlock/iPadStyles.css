@@ -408,7 +408,7 @@ input::-webkit-inner-spin-button {
 }
 #sharedBlue{
   position: absolute; /* inside colorInputs */
-  left: 174px;  /* same for all (colorInputs block is moved) */
+  left: 173px;  /* same for all (colorInputs block is moved) */
   top: 0px;
 }
 
