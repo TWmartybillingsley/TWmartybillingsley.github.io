@@ -108,7 +108,7 @@ body{
 	width:320px;
   height: 240px;
   position: absolute;   /* position based on window */
-  left:700px; /* recalculated in JS on load */
+  right: 100px;
   top:110px;  /* recalculated in JS on load */
   background-color: white;
   border-radius: 10px;
@@ -122,3 +122,8 @@ body{
   top: 0px;
   left: 0px;
 }
+
+
+
+
+

@@ -32,7 +32,7 @@ function resizeGridVars(){
   screenHeight = rawScreenHeight*factor
   svgWidth = screenWidth + 100
   svgHeight = screenHeight + 100
-  xOffset = 10*factor
+  xOffset = 15*factor
   yOffset = 10*factor
 }
 
@@ -49,11 +49,8 @@ function setScreenLoc(){
   setDivSizeLoc();
 
   // set the location of svgWhiteBox based on blockly div and width of box
-  var bw = window.innerWidth-40
   var box = document.getElementById("svgWhiteBox")
-  var w = screenWidth  + 20
-  var left = bw - w - 60
-  box.style.left = `${left}px`
+  box.style.right = `100px`
   box.style.top = `110px`
 
   drawStartingState()
@@ -77,9 +74,7 @@ function setDivSizeLoc(){
   box.style.height=`${h}px`
 
   // set the location of svgWhiteBox based on blockly div
-  var left = bw - w - 60
-  box.style.left = `${left}px`
-
+  box.style.right = `100px`
 }
 
 //************SVG************//
