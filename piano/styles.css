@@ -23,7 +23,7 @@ body{
 
 /* for keys, height is 4*width */
 .white{
-	--width: 5.9vw;      /* resizes keys with browser window resize */
+	--width: 6vw;      /* resizes keys with browser window resize */
 	background-color: white;
 	border: 1px solid #333;
 }
@@ -53,6 +53,7 @@ body{
 	width: 40vw;
 	position: absolute;		/* dependent on window size */
 	top: 11vw;
+	left:23vw;
 	z-index: 5;
 }
 
@@ -161,16 +162,17 @@ body{
 
 .restKey{
 	position: absolute;		/* dependent on window size */
-	top: 52vw;
-	height: 4vw;   /* change size proportionally*/
-	width: 24vw;
+	top: 11vw;		/* top aligns with note container */
+	left:68vw;
+	height: 10vw;   /* change size proportionally*/
+	width: 11vw;
 	z-index: 5;
 	text-align: center;
 	border-radius: 5% 5% 5% 5%;
 	background-color: white;
 	border: 1px solid #333;
 	padding-top: 2vw;
-	font-size:2vw;
+	font-size:1.5vw;
 }
 
 .logoBox{
