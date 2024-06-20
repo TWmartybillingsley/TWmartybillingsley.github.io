@@ -138,13 +138,15 @@
 			<div class="playButton" onclick="playBack();"></div>
 			<div class="stopButton" onclick="stopPlayBack();"></div>
 			<div class="clearButton" onclick="clearNoteBox();"></div>
+
+			<div id="r" class="restKey" onpointerdown="keyPressed('r');" onpointerup="keyReleased('r');" onpointerleave="keyReleased('r');">
+				Rest
+			</div>
 		</div>
 	</div>
 
 
-	<div id="r" class="restKey" onpointerdown="keyPressed('r');" onpointerup="keyReleased('r');" onpointerleave="keyReleased('r');">
-		Rest
-	</div>
+	
 
 	<div class="logoBox"><img src="website-logo-2022.png" class="logoImage"></div>
 	<div class="colorBox"></div>

@@ -50,16 +50,15 @@ body{
 }
 
 .controls{
-	width: 40vw;
+	width: 45vw;
 	position: absolute;		/* dependent on window size */
 	top: 11vw;
-	left:23vw;
 	z-index: 5;
 }
 
 .noteBoxContainer{               
 	display: block;
-	width: 40vw;
+	width: 45vw;
 	height: 3vw;
 	line-height: 3vw;
 	border: 1px solid #000;
@@ -103,7 +102,7 @@ body{
 
 .buttonContainer {
     display: grid;
-    grid-template-columns: 21.5vw 5.5vw 5.5vw 5.5vw;
+    grid-template-columns: 21.5vw 5.5vw 5.5vw 5.5vw 5.5vw;
     grid-gap: 1vw;
     margin-top: 1vw;
 }
@@ -128,7 +127,7 @@ body{
 	background-size: contain;
 	background-repeat: no-repeat;
 	vertical-align: top;
-	margin-left: 2vw;
+	margin-left: 1.5vw;
 }
 
 .playButton{
@@ -161,17 +160,14 @@ body{
 
 
 .restKey{
-	position: absolute;		/* dependent on window size */
-	top: 11vw;		/* top aligns with note container */
-	left:68vw;
-	height: 10vw;   /* change size proportionally*/
-	width: 11vw;
+	height: 3.8vw;   /* change size proportionally*/
+	width: 5vw;
 	z-index: 5;
 	text-align: center;
 	border-radius: 5% 5% 5% 5%;
 	background-color: white;
 	border: 1px solid #333;
-	padding-top: 2vw;
+	padding-top: 1.7vw;
 	font-size:1.5vw;
 }
 
