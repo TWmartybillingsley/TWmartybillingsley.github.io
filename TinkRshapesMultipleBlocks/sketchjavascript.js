@@ -9,7 +9,7 @@ var rawScreenHeight = 240
 var screenWidth = rawScreenWidth*factor
 var screenHeight = rawScreenHeight*factor
 var svgWidth = screenWidth + 100
-var svgHeight = screenHeight + 100
+var svgHeight = screenHeight + 200
 var xOffset = 15*factor
 var yOffset = 10*factor
 var gridSpacing = 20  // factor taken into account when drawing/labeling grid
@@ -28,10 +28,13 @@ var gridVisibility = "visible";
 
 function resizeGridVars(){
   factor = window.innerWidth/(3*rawScreenWidth)
+  // limit what factor can be to keep elements on page reasonable sizes
+  if (factor < 0.82){ factor = 0.82 }
+  if (factor > 2.6) { factor = 2.6 }
   screenWidth = rawScreenWidth*factor
   screenHeight = rawScreenHeight*factor
   svgWidth = screenWidth + 100
-  svgHeight = screenHeight + 100
+  svgHeight = screenHeight + 200
   xOffset = 15*factor
   yOffset = 10*factor
 }
@@ -50,8 +53,8 @@ function setScreenLoc(){
 
   // set the location of svgWhiteBox based on blockly div and width of box
   var box = document.getElementById("svgWhiteBox")
-  box.style.right = `100px`
   box.style.top = `110px`
+  box.style.right = `100px`
 
   drawStartingState()
   runCode()
@@ -67,8 +70,8 @@ function setDivSizeLoc(){
 
   // sets the width/height of svgWhiteBox based on factor
   // div has a hard-coded padding of 20
-  var w = screenWidth  + 20
-  var h = parseInt(0.75 * w)
+  var w = screenWidth  + 40  
+  var h = parseInt(screenWidth*0.75 + 40) // add 20px at bottom for toggle switches
   var box = document.getElementById("svgWhiteBox")
   box.style.width=`${w}px`
   box.style.height=`${h}px`
@@ -404,11 +407,9 @@ function toggleGrid(){
   if (gridVisibility == "visible"){
     hideGrid();
     gridVisibility = "hidden";
-    document.getElementById("toggle-grid").innerHTML = 'Show Grid<br><img src="images/ShowGrid.png" class="app-icon, button-icon" id="grid-button">'
   } else {
     showGrid();
     gridVisibility = "visible";
-    document.getElementById("toggle-grid").innerHTML = 'Hide Grid<br><img src="images/HideGrid.png" class="app-icon, button-icon" id="grid-button">'
   }
 }
 
@@ -426,12 +427,10 @@ function toggleOrigin(){
   if (dotVisibility == "visible"){
     hideDots();
     dotVisibility = "hidden";
-    document.getElementById("toggle-origin").innerHTML = 'Show Origin<br><img src="images/ShowOrigin.png" class="app-icon, button-icon" id="grid-button">'
-  } else {
+    } else {
     showDots();
     dotVisibility = "visible";
-    document.getElementById("toggle-origin").innerHTML = 'Hide Origin<br><img src="images/HideOrigin.png" class="app-icon, button-icon" id="grid-button">'
-  }
+    }
 }
 
 
