@@ -219,17 +219,23 @@ function createOval(x,y,w,h,r,g,b,f,dot){
 function createLine(x1,y1,x2,y2,thick,r,g,b){
   var bordercolor = `rgb(${r},${g},${b})`
 
+  // in TinkRsketch, lines are treated differently than in SVG: 
+  // a thickness of 1 works the same, but thicker lines grown downward only
+  // draw with multiple lines
+
   var svgSelection = d3.select("#mainSVG");
-  svgSelection.append("line")
+  for (var i=0; i<thick*factor;i++){
+    svgSelection.append("line")
     .attr("clip-path", "url(#screenClip)")
     .attr("transform", `translate(${xOffset} ${yOffset})`)
     .attr("x1", x1*factor)
-    .attr("y1", y1*factor)
+    .attr("y1", y1*factor+i)
     .attr("x2", x2*factor)
-    .attr("y2", y2*factor)
+    .attr("y2", y2*factor+i)
     .style("stroke", bordercolor)
-    .style("stroke-width", thick*factor)
+    .style("stroke-width", 1)
     .attr("class", "shape");
+  }
 }
 
 // draw shape -- triangle
