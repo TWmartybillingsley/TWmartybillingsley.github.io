@@ -272,6 +272,7 @@ function createText(x,y,textContents,size,r,g,b,dot){
     .style("font-size",`${size*factor}px`)
     .style("fill", textcolor)
     .text(textContents)
+    .attr("style","white-space:pre")
     .attr("class", "shape");
 
   if(dot){
