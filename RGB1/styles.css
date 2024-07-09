@@ -1,0 +1,147 @@
+/* Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+body{
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  position: absolute;
+  cursor: pointer;
+  z-index: auto;
+}
+
+#circleRed {
+  background: rgb(255,0,0);
+  left: 140px;
+  top: 40px;
+}
+
+#circleGreen {
+  background: rgb(0,255,0);
+  left: 180px;
+  top: 40px;
+}
+
+#circleBlue {
+  background: rgb(0,0,255);
+  left: 160px;
+  top: 80px;
+}
+
+.isolate {
+  isolation: isolate; /* Without isolation, the background color will be taken into account */
+  position: relative;
+}
+
+.sliders{  /* div containing sliders */
+  position:absolute;
+  top:330px;
+}
+
+
+.slider{
+  width: 300px;
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  cursor: pointer;
+  outline: none;
+  height: 15px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Slider Track*/
+.slider::-webkit-slider-runnable-track {
+  height: 15px;
+  background: #ccc;
+  border-radius: 16px;
+}
+
+.slider::-moz-range-track {
+  height: 15px;
+  background: #ccc;
+  border-radius: 16px;
+}
+
+/* Slider Thumb */
+.slider::-webkit-slider-thumb {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  height: 15px;
+  width: 15px;
+  background-color: #555;
+  border: 2px #ffffff solid;
+  border-radius: 50%;
+  box-shadow: -407px 0 0 400px #f50;
+}
+
+.slider::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  background-color: #555;
+  border: 2px #ffffff solid;
+  border-radius: 50%;
+  box-shadow: -407px 0 0 400px #f50;
+}
+
+#redSlider::-webkit-slider-thumb{
+  box-shadow: -407px 0 0 400px #ff0000;
+  /*background-color: #ff0000;*/
+}
+#redSlider::-moz-range-thumb{
+  box-shadow: -407px 0 0 400px #f0000;
+  /*background-color: #ff0000;*/
+}
+#greenSlider::-webkit-slider-thumb{
+  box-shadow: -407px 0 0 400px #00ff00;
+  /*background-color: #00ff00;*/
+}
+#greenSlider::-moz-range-thumb{
+  box-shadow: -407px 0 0 400px #00ff00;
+  /*background-color: #00ff00;*/
+}
+#blueSlider::-webkit-slider-thumb{
+  box-shadow: -407px 0 0 400px #0000ff;
+  /*background-color: #0000ff;*/
+}
+#blueSlider::-moz-range-thumb{
+  box-shadow: -407px 0 0 400px #0000ff;
+  /*background-color: #0000ff;*/
+}
+
+
+#redSlider{
+  accent-color: #FF0000;
+}
+
+#greenSlider{
+  accent-color: #00FF00;
+}
+
+#blueSlider{
+  accent-color: #0000FF;
+}
+
+.label{
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  text-align:right;
+}
+
+.value{
+  display: inline-block;
+  width: 100px;
+}
+

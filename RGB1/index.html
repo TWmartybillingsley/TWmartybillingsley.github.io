@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RGB Colors</title>
+
+
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+
+  <!--javascript included at end, after page loads-->
+  
+</head>
+<body>
+
+  <div class="isolate">
+    <div class="circle" id="circleRed"></div>
+    <div class="circle" id="circleGreen"></div>
+    <div class="circle" id="circleBlue"></div>
+  </div>
+
+  <div class="sliders">
+    <div class="label">Red</div>
+    <input type="range" id="redSlider" class="slider" min="0" max="255" value="255" oninput="updateColors()">
+    <div class="value" id="redValue">255</div>
+    <br>
+    <div class="label">Green</div>
+    <input type="range" id="greenSlider" class="slider" min="0" max="255" value="255" oninput="updateColors()">
+    <div class="value" id="greenValue">255</div>
+    <br>
+   <div class="label">Blue</div>
+    <input type="range" id="blueSlider" class="slider" min="0" max="255" value="255" oninput="updateColors()">
+    <div class="value" id="blueValue">255</div>
+    <br>
+  </div>
+
+  <script src="javascript.js"></script>
+
+
+</body>
+</html>
