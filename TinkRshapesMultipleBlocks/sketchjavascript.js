@@ -340,7 +340,7 @@ function createText(x,y,textContents,size,r,g,b){
     .style("font-size",`${size*factor}px`)
     .style("fill", textcolor)
     .text(textContents)
-    .attr("style","white-space:pre")
+    .attr('xml:space', 'preserve')
     .attr("class", "shape");
 
     // add a dot of same color at center x,y
