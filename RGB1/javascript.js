@@ -1,20 +1,51 @@
-function updateColors(){
+function updateColorsFromSliders(){
 	// read all sliders
-	// update all overlapping circles
 	r = document.getElementById('redSlider').value;
 	g = document.getElementById('greenSlider').value;
 	b = document.getElementById('blueSlider').value;
 
+  // update the textboxes showing color values
 	document.getElementById('redValue').innerHTML = `${r}`
 	document.getElementById('greenValue').innerHTML = `${g}`
 	document.getElementById('blueValue').innerHTML = `${b}`
 
-	// overlapping circles
-	document.getElementById('circleRed').style.backgroundColor = `rgb(${r},0,0)`
-	document.getElementById('circleGreen').style.backgroundColor = `rgb(0,${g},0)`
-	document.getElementById('circleBlue').style.backgroundColor = `rgb(0,0,${b})`
+	updateColors(r,g,b)
 }
 
+function updateColorsFromTextboxes(){
+  // read all text boxes
+  r = document.getElementById('redValue').value;
+  g = document.getElementById('greenValue').value;
+  b = document.getElementById('blueValue').value;
+
+  // update the sliders showing color values
+  document.getElementById('redSlider').value = `${r}`
+  document.getElementById('greenSlider').value = `${g}`
+  document.getElementById('blueSlider').value = `${b}`
+
+  updateColors(r,g,b)
+}
+
+function updateColors(r,g,b){
+  // update overlapping circles
+  document.getElementById('circleRed').style.backgroundColor = `rgb(${r},0,0)`
+  document.getElementById('circleGreen').style.backgroundColor = `rgb(0,${g},0)`
+  document.getElementById('circleBlue').style.backgroundColor = `rgb(0,0,${b})`
+
+  // update rocket -- has very light gray border so it shows up when color is white
+  document.getElementById('rocketBody').setAttribute("style", `fill:rgb(${r},${g},${b});stroke:#eeeeee;stroke-width:0.5px`)
+  document.getElementById('rocketNose').setAttribute("style", `fill:rgb(${r},${g},${b});stroke:#eeeeee;stroke-width:0.5px`)
+}
+
+function hideHelp(){
+  document.getElementById('helpBox').style.display = "none";
+  document.getElementById('questionMark').style.display = "block";
+}
+
+function showHelp(){
+  document.getElementById('helpBox').style.display = "block";
+  document.getElementById('questionMark').style.display = "none";
+}
 
 
 // Make the circles draggable:
@@ -48,8 +79,12 @@ function dragElement(elmnt) {
     pos3 = e.clientX;
     pos4 = e.clientY;
     // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    if ((elmnt.offsetTop - pos2)>0 && (elmnt.offsetTop - pos2)<250){ // limit vertical drag
+      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    }
+    if ((elmnt.offsetLeft - pos1)>0 && (elmnt.offsetLeft - pos1)<550){ // limit horizontal drag
+      elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
   }
 
   function closeDragElement() {
