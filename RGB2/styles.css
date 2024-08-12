@@ -19,7 +19,7 @@ body{
   z-index: auto;
 }
 
-/* start with circles making TinkrWorks orange color (247,149,32) */
+/* circles are just for help with positioning */
 #circleRed {
   background: rgb(255,0,0);
   left: 140px;
@@ -43,29 +43,34 @@ body{
 
 .isolate {
   isolation: isolate; /* Without isolation, the background color will be taken into account */
-  position: relative;
-  top: 300px;
-  left: 300px;
+  position: absolute;
+  top: 280px;
+  left: 170px;
 }
 
 .isolate2 {
   isolation: isolate; /* Without isolation, the background color will be taken into account */
+  width: 700px;
+  height: 600px;
+  position: relative;
+  left: 80px;
+  top: 220px;
 }
 
 #flashlightRed{
   mix-blend-mode: screen;
   position: absolute;
-  left:450px;
-  top: 90px;
-  width: 200px;
-  height: 450px;
+  left:0px;
+  top: 0px;
+  width: 420px;
+  height: 400px;
 }
 
 #flashlightGreen{
   mix-blend-mode: screen;
   position: absolute;
-  left:490px;
-  top: 350px;
+  left:270px;
+  top: 0px;
   width: 420px;
   height: 400px;
 }
@@ -73,16 +78,17 @@ body{
 #flashlightBlue{
   mix-blend-mode: screen;
   position: absolute;
-  left:248px;
-  top: 387px;
-  width: 420px;
-  height: 400px;
+  left:245px;
+  top: 140px;
+  width: 200px;
+  height: 450px;
 }
 
 
 .sliders{  /* div containing sliders */
   position:absolute;
-  top:100px;
+  top:80px;
+  left: 180px;
 }
 
 
@@ -231,8 +237,8 @@ input[type=number]{
   font-size: 16px;
   position: absolute;
   width: 480px;
-  top: 60px;
-  left: 520px;
+  top: 80px;
+  left: 820px;
   padding: 10px;
   display: none;
 }
@@ -251,11 +257,12 @@ input[type=number]{
   font-size: 60px;
   font-style: italic;
   background-color: none;
+  color: white;
   padding: 0px 20px;
   border-radius: 3px;
   position: absolute;
-  left: 500px;
-  top: 60px;
+  left: 820px;
+  top: 80px;
   cursor: pointer;
   display: block;
 }
