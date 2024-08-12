@@ -211,7 +211,7 @@ input[type=number]{
 #questionMark{
   font-size: 60px;
   font-style: italic;
-  background-color: white;
+  background-color: none;
   padding: 0px 20px;
   border-radius: 3px;
   position: absolute;
