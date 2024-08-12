@@ -28,17 +28,17 @@
   <div class="sliders">
     <div class="label">Red</div>
     <input type="range" id="redSlider" class="slider" min="0" max="255" value="247" oninput="updateColorsFromSliders()">
-    <input type="number" id="redValue" class="value" min="0" max="255" step="1" value="247" onclick="this.select()" tabindex="1" oninput="this.value = Math.round(this.value); updateColorsFromTextboxes()">
+    <input type="number" id="redValue" class="value" min="0" max="255" step="1" value="247" onclick="this.select()" tabindex="1" onchange="this.value = Math.round(this.value); updateColorsFromTextboxes()">
     <!-- <div class="value" id="redValue">247</div>-->
     <br>
     <div class="label">Green</div>
     <input type="range" id="greenSlider" class="slider" min="0" max="255" value="149" oninput="updateColorsFromSliders()">
-    <input type="number" id="greenValue" class="value" min="0" max="255" step="1" value="149" onclick="this.select()" tabindex="2" oninput="this.value = Math.round(this.value); updateColorsFromTextboxes()">
+    <input type="number" id="greenValue" class="value" min="0" max="255" step="1" value="149" onclick="this.select()" tabindex="2" onchange="this.value = Math.round(this.value); updateColorsFromTextboxes()">
     <!--<div class="value" id="greenValue">149</div>-->
     <br>
    <div class="label">Blue</div>
     <input type="range" id="blueSlider" class="slider" min="0" max="255" value="32" oninput="updateColorsFromSliders()">
-    <input type="number" id="blueValue" class="value" min="0" max="255" step="1" value="32" onclick="this.select()" tabindex="3" oninput="this.value = Math.round(this.value); updateColorsFromTextboxes()">
+    <input type="number" id="blueValue" class="value" min="0" max="255" step="1" value="32" onclick="this.select()" tabindex="3" onchange="this.value = Math.round(this.value); updateColorsFromTextboxes()">
     <!--<div class="value" id="blueValue">32</div>-->
     <br>
   </div>
