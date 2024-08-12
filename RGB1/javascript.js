@@ -13,10 +13,36 @@ function updateColorsFromSliders(){
 }
 
 function updateColorsFromTextboxes(){
-  // read all text boxes
+  // read all text boxes, check for out-of-bounds values
   r = document.getElementById('redValue').value;
+  if (r>255){
+    r = 255;
+    document.getElementById('redValue').value = 255
+  }
+  if (r<0){
+    r = 0;
+    document.getElementById('redValue').value = 0
+  }
+
   g = document.getElementById('greenValue').value;
+  if (g>255){
+    g = 255;
+    document.getElementById('greenValue').value = 255
+  }
+  if (g<0){
+    g = 0;
+    document.getElementById('greenValue').value = 0
+  }
+
   b = document.getElementById('blueValue').value;
+  if (b>255){
+    b = 255;
+    document.getElementById('blueValue').value = 255
+  }
+  if (b<0){
+    b = 0;
+    document.getElementById('blueValue').value = 0
+  }
 
   // update the sliders showing color values
   document.getElementById('redSlider').value = `${r}`
