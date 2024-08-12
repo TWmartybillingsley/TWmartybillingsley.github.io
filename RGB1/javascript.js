@@ -5,9 +5,9 @@ function updateColorsFromSliders(){
 	b = document.getElementById('blueSlider').value;
 
   // update the textboxes showing color values
-	document.getElementById('redValue').innerHTML = `${r}`
-	document.getElementById('greenValue').innerHTML = `${g}`
-	document.getElementById('blueValue').innerHTML = `${b}`
+	document.getElementById('redValue').value = `${r}`
+	document.getElementById('greenValue').value = `${g}`
+	document.getElementById('blueValue').value = `${b}`
 
 	updateColors(r,g,b)
 }
