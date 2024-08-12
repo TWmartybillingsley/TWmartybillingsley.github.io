@@ -82,7 +82,7 @@ function dragElement(elmnt) {
     if ((elmnt.offsetTop - pos2)>0 && (elmnt.offsetTop - pos2)<250){ // limit vertical drag
       elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     }
-    if ((elmnt.offsetLeft - pos1)>0 && (elmnt.offsetLeft - pos1)<550){ // limit horizontal drag
+    if ((elmnt.offsetLeft - pos1)>0 && (elmnt.offsetLeft - pos1)<400){ // limit horizontal drag
       elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
     }
   }
