@@ -19,34 +19,6 @@ body{
   z-index: auto;
 }
 
-/* circles are just for help with positioning */
-#circleRed {
-  background: rgb(255,0,0);
-  left: 140px;
-  top: 40px;
-  display: none;
-}
-
-#circleGreen {
-  background: rgb(0,255,0);
-  left: 180px;
-  top: 40px;
-  display: none;
-}
-
-#circleBlue {
-  background: rgb(0,0,255);
-  left: 160px;
-  top: 80px;
-  display: none;
-}
-
-.isolate {
-  isolation: isolate; /* Without isolation, the background color will be taken into account */
-  position: absolute;
-  top: 280px;
-  left: 170px;
-}
 
 .isolate2 {
   isolation: isolate; /* Without isolation, the background color will be taken into account */
@@ -238,7 +210,7 @@ input[type=number]{
   position: absolute;
   width: 480px;
   top: 80px;
-  left: 820px;
+  left: 840px;
   padding: 20px;
   border-radius: 5%;
   display: none;
@@ -255,12 +227,15 @@ input[type=number]{
 }
 
 #questionMark{
-  font-size: 60px;
-  font-style: italic;
-  background-color: none;
-  color: white;
-  padding: 0px 20px;
-  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border-radius: 50%;
   position: absolute;
   left: 820px;
   top: 80px;

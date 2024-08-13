@@ -65,12 +65,10 @@ function updateColors(r,g,b){
 
 function hideHelp(){
   document.getElementById('helpBox').style.display = "none";
-  document.getElementById('questionMark').style.display = "block";
 }
 
 function showHelp(){
   document.getElementById('helpBox').style.display = "block";
-  document.getElementById('questionMark').style.display = "none";
 }
 
 
