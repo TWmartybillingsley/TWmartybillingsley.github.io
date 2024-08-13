@@ -13,8 +13,6 @@
 </head>
 <body>
 
-  <!--<div class="outline">
-  </div>-->
 
   <div class=isolate2>
     <div class="flashlight" id="flashlightRed">
@@ -73,13 +71,8 @@
 
   </div>
  
-  <div class="isolate">
-    <div class="circle" id="circleRed"></div>
-    <div class="circle" id="circleGreen"></div>
-    <div class="circle" id="circleBlue"></div>
-  </div>
 
-   <div id="questionMark" onclick="showHelp()">?</div>
+  <div id="questionMark" onmouseover="showHelp()">?</div>
 
 
   <div class="sliders">
@@ -135,7 +128,7 @@
 
   
   
-  <div id="helpBox" class="helpBox">
+  <div id="helpBox" class="helpBox" onmouseout="hideHelp()">
     <span class="header">Mixing Light</span><br>
     Imagine you have three flashlights, each with its own special color: one is <span style="color:red">red</span>, one is <span style="color:green">green</span>, and one is <span style="color:blue">blue</span>. When you turn these flashlights on they shine circles of light onto the screen. The colors mix together when the circles overlap. If two circles overlap, you'll see a new color made from those two colors. For example, red and green might mix to make yellow. If all the circles overlap, you'll see a special mix of all three colors: red, green, and blue together in the middle.
     <br><br>
