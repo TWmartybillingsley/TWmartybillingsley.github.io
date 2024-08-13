@@ -57,8 +57,6 @@ function updateColors(r,g,b){
   document.getElementById('redLightPath').style=`fill: rgb(${r},0,0);` 
   document.getElementById('greenLightPath').style=`fill: rgb(0,${g},0);` 
   document.getElementById('blueLightPath').style=`fill: rgb(0,0,${b});` 
-  //document.getElementById('circleGreen').style.backgroundColor = `rgb(0,${g},0)`
-  //document.getElementById('circleBlue').style.backgroundColor = `rgb(0,0,${b})`
 
   // update rocket -- has very light gray border so it shows up when color is white
   //document.getElementById('rocketBody').setAttribute("style", `fill:rgb(${r},${g},${b});stroke:#eeeeee;stroke-width:0.5px`)
