@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Piano</title>
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" href="styles.css">
+	<script src="pianoScript.js" defer></script>
+</head>
+<body>
+
+	<div class="piano" id="piano">
+		<!-- A4 + 1 octave (to Ab5) -->
+		<div id="a4" class="white key" onpointerdown="keyPressed('a4');" onpointerup="keyReleased('a4');" onpointerleave="keyReleased('a4');">
+			<div class="noteTextWhite">A4</div>
+		</div>
+
+		<div id="b4b" class="black key">
+		</div>
+
+		<div id="b4" class="white key" onpointerdown="keyPressed('b4');" onpointerup="keyReleased('b4');" onpointerleave="keyReleased('b4');">
+			<div class="noteTextWhite">B4</div>
+		</div>
+
+		<div id="c5" class="white key" onpointerdown="keyPressed('c5');" onpointerup="keyReleased('c5');" onpointerleave="keyReleased('c5');">
+			<div class="noteTextWhite">C5</div>
+		</div>
+
+
+		<div id="d5b" class="black key">
+		</div>
+
+		<div id="d5" class="white key" onpointerdown="keyPressed('d5');" onpointerup="keyReleased('d5');" onpointerleave="keyReleased('d5');">
+			<div class="noteTextWhite">D5</div>
+		</div>
+
+		<div id="e5b" class="black key">
+		</div>
+
+		<div id="e5" class="white key" onpointerdown="keyPressed('e5');" onpointerup="keyReleased('e5');" onpointerleave="keyReleased('e5');">
+			<div class="noteTextWhite">E5</div>
+		</div>
+
+		<div id="f5" class="white key" onpointerdown="keyPressed('f5');" onpointerup="keyReleased('f5');" onpointerleave="keyReleased('f5');">
+			<div class="noteTextWhite">F5</div>
+		</div>
+
+		<div id="g5b" class="black key">
+		</div>
+
+		<div id="g5" class="white key" onpointerdown="keyPressed('g5');" onpointerup="keyReleased('g5');" onpointerleave="keyReleased('g5');">
+			<div class="noteTextWhite">G5</div>
+		</div>
+
+		<div id="a5b" class="black key">
+		</div>
+
+		<!-- A5 + 1 octave (to Ab6) -->
+		<div id="a5" class="white key" onpointerdown="keyPressed('a5');" onpointerup="keyReleased('a5');" onpointerleave="keyReleased('a5');">
+			<div class="noteTextWhite">A5</div>
+		</div>
+
+		<div id="b5b" class="black key">
+		</div>
+
+		<div id="b5" class="white key" onpointerdown="keyPressed('b5');" onpointerup="keyReleased('b5');" onpointerleave="keyReleased('b5');">
+			<div class="noteTextWhite">B5</div>
+		</div>
+
+		<div id="c6" class="white key" onpointerdown="keyPressed('c6');" onpointerup="keyReleased('c6');" onpointerleave="keyReleased('c6');">
+			<div class="noteTextWhite">C6</div>
+		</div>
+
+
+		<div id="d6b" class="black key">
+		</div>
+
+		<div id="d6" class="white key" onpointerdown="keyPressed('d6');" onpointerup="keyReleased('d6');" onpointerleave="keyReleased('d6');">
+			<div class="noteTextWhite">D6</div>
+		</div>
+
+		<div id="e6b" class="black key">
+		</div>
+
+		<div id="e6" class="white key" onpointerdown="keyPressed('e6');" onpointerup="keyReleased('e6');" onpointerleave="keyReleased('e6');">
+			<div class="noteTextWhite">E6</div>
+		</div>
+
+		<div id="f6" class="white key" onpointerdown="keyPressed('f6');" onpointerup="keyReleased('f6');" onpointerleave="keyReleased('f6');">
+			<div class="noteTextWhite">F6</div>
+		</div>
+
+		<div id="g6b" class="black key">
+		</div>
+
+		<div id="g6" class="white key" onpointerdown="keyPressed('g6');" onpointerup="keyReleased('g6');" onpointerleave="keyReleased('g6');">
+			<div class="noteTextWhite">G6</div>
+		</div>
+
+		<div id="a6b" class="black key">
+		</div>
+
+		<div id="a6" class="white key" onpointerdown="keyPressed('a6');" onpointerup="keyReleased('a6');" onpointerleave="keyReleased('a6');">
+			<div class="noteTextWhite">A6</div>
+		</div>
+
+	</div>
+
+	</div>  <!-- end of piano -->
+
+
+
+	<div class="controls">
+		<div class="noteBoxContainer" id="noteBoxContainer">
+			<div id="noteBox" class="noteBox"> </div>
+		</div>
+		
+		<div class="buttonContainer">
+			<div class="speedBlock">
+				<label class="speedOptionLabel" for="speedOption">Speed:</label>
+				<select name="speedOption" id="speedOption" class="speedOption" onChange="changeSpeed();">
+				  <option value="slow">slow</option>
+				  <option value="medium">medium</option>
+				  <option value="fast">fast</option>
+				</select>
+				<div class="speedIcon" id="speedIcon"></div>
+			</div>
+			
+			<div class="playButton" onclick="playBack();"></div>
+			<div class="stopButton" onclick="stopPlayBack();"></div>
+			<div class="clearButton" onclick="clearNoteBox();"></div>
+
+			<div id="r" class="restKey" onpointerdown="keyPressed('r');" onpointerup="keyReleased('r');" onpointerleave="keyReleased('r');">
+				Rest
+			</div>
+		</div>
+	</div>
+
+
+	
+
+	<div class="logoBox"><img src="website-logo-2022.png" class="logoImage"></div>
+	<div class="colorBox"></div>
+
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+body{
+	box-sizing: border-box;
+	
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Helvetica, sans-serif;
+}
+
+.piano{
+	display: flex;
+	position: absolute;
+	top: 25vw;
+}
+
+.key{
+	height: calc(var(--width) * 4);   /* change size proportionally*/
+	width: var(--width);
+	text-align: center;
+	border-radius: 0 0 5% 5%;
+}
+
+/* for keys, height is 4*width */
+.white{
+	--width: 6vw;      /* resizes keys with browser window resize */
+	background-color: white;
+	border: 1px solid #333;
+}
+
+.black{
+	--width: 3.6vw;   /* resizes keys with browser window resize */
+	background-color: black;
+	margin-left: calc(var(--width) / -2); /* -30px when width is 60*/
+	margin-right: calc(var(--width) / -2); /* -30px when width is 60*/
+	z-index: 2;
+	color: white;
+}
+
+/* text on piano keys - make everything proportional to vw*/
+
+.noteTextWhite{
+	font-size:1vw;
+	margin-top: 22vw;
+}
+
+.noteTextBlack{
+	font-size:1vw;
+	margin-top: 11.4vw;
+}
+
+.controls{
+	width: 45vw;
+	position: absolute;		/* dependent on window size */
+	top: 11vw;
+	z-index: 5;
+}
+
+.noteBoxContainer{               
+	display: block;
+	width: 45vw;
+	height: 3vw;
+	line-height: 3vw;
+	border: 1px solid #000;
+	background-color: #FFF;
+	padding: 1vw;
+	font-size:1.5vw;
+	font-weight: normal;
+	overflow-x: scroll;
+	overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.noteBox{		/* text in noteBox */
+	width: fit-content;
+}
+
+/* Scrollbar */
+.noteBoxContainer::-webkit-scrollbar {
+	height: 0.75vw;
+}
+.noteBoxContainer::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 1%;
+}
+.noteBoxContainer::-webkit-scrollbar-thumb {
+	background: #888;
+	width: 20px;
+}
+.noteBoxContainer::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+
+.speedOptionLabel{
+	color: white;
+}
+
+.speedOption{
+	font-size: 1.5vw;
+}
+
+.buttonContainer {
+    display: grid;
+    grid-template-columns: 21.5vw 5.5vw 5.5vw 5.5vw 5.5vw;
+    grid-gap: 1vw;
+    margin-top: 1vw;
+}
+
+.speedBlock{
+	width: 19vw;
+	height: 10vw;
+	padding-top: 1vw;
+	padding-left: 2vw;
+	font-size: 1.5vw;
+	background-image: url("speedBlockPlain.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	white-space: nowrap;
+}
+
+.speedIcon{
+	display: inline-block;
+	width: 3vw;
+	height: 3vw;
+	background-image: url("snail.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	vertical-align: top;
+	margin-left: 1.5vw;
+}
+
+.playButton{
+	display: inline-block;
+	width: 5vw;
+	height: 5vw;
+	background-image: url("playButton.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.stopButton{
+	display: inline-block;
+	width: 5vw;
+	height: 5vw;
+	background-image: url("stopButton.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.clearButton{
+	display: inline-block;
+	width: 5vw;
+	height: 5vw;
+	background-image: url("clearButton.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+
+
+.restKey{
+	height: 3.8vw;   /* change size proportionally*/
+	width: 5vw;
+	z-index: 5;
+	text-align: center;
+	border-radius: 5% 5% 5% 5%;
+	background-color: white;
+	border: 1px solid #333;
+	padding-top: 1.7vw;
+	font-size:1.5vw;
+}
+
+.logoBox{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 7vw;
+	background-color:white;
+	padding:0.5vw;
+	text-align:left;
+}
+.logoImage{
+	width: 20vw;
+	margin-left:4vw;
+}
+
+.colorBox{
+	position: absolute;
+	width: 100vw;
+	background-color: #F7941F;   /* TinkRworks orange */
+	height:58vw;
+	top: 7vw;
+	z-index:-1;
+}
+
+
