@@ -23,7 +23,7 @@
     <div class="circle" id="circleBlue"></div>
   </div>
 
-   <div id="questionMark" onclick="showHelp()">?</div>
+  <div id="helpBox" class="helpBox" onmouseout="hideHelp()">?</div>
 
   <div class="sliders">
     <div class="label">Red</div>
@@ -79,7 +79,7 @@
 
   
   
-  <div id="helpBox" class="helpBox">
+  <div id="helpBox" class="helpBox" onmouseout="hideHelp()">
     <span class="header">Mixing Light</span><br>
     Imagine you have three flashlights, each with its own special color: one is <span style="color:red">red</span>, one is <span style="color:green">green</span>, and one is <span style="color:blue">blue</span>. When you turn these flashlights on they shine circles of light onto the screen. The colors mix together when the circles overlap. If two circles overlap, you'll see a new color made from those two colors. For example, red and green might mix to make yellow. If all the circles overlap, you'll see a special mix of all three colors: red, green, and blue together in the middle.
     <br><br>
@@ -87,8 +87,6 @@
     <br><br>
     <span class="header">Try it yourself!</span><br>
     Use the sliders to increase or decrease the brightness of the flashlights. Click and drag the circles to see how they interact when mixed together. A preview of the mixed color will be displayed in the rocket below. If you play and mix these lights you can build up a ton of different colors from shades of red, green, and blue.
-    <br><br>
-    <input type="button" id="dismissHelpButton" value="Done" onclick="hideHelp()">
   </div>
   
 

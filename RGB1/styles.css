@@ -194,7 +194,8 @@ input[type=number]{
   width: 480px;
   top: 60px;
   left: 520px;
-  padding: 10px;
+  padding: 20px;
+  border-radius: 5%;
   display: none;
 }
 .header{
