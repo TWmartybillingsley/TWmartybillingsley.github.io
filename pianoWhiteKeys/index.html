@@ -140,7 +140,7 @@
 			<div class="stopButton" onclick="stopPlayBack();"></div>
 			<div class="clearButton" onclick="clearNoteBox();"></div>
 
-			<div id="r" class="restKey" onpointerdown="keyPressed('r');" onpointerup="keyReleased('r');" onpointerleave="keyReleased('r');">
+			<div id="r" class="restKey" onpointerdown="keyPressed(this.id);" ontouchstart="keyPressed(this.id);" onpointerup="keyReleased(this.id);" onpointerleave="keyReleased(this.id);" ontouchend="keyReleased(this.id);">
 				Rest
 			</div>
 		</div>
