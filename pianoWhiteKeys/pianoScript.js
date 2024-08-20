@@ -136,21 +136,30 @@ function initSound() {
 }
 
 
+// handle key press and release via mouse clicks and/or touch
+var keyCurrentlyPressed = false;	// used to detect multiple touches; only one key pressed at a time
 function keyPressed(keyName){
-	// highlight the key 
-	document.getElementById(keyName).style.backgroundColor = "#34B84B";  // TinkRworks light green
+	if (!keyCurrentlyPressed){
+		// variable is true as long as the key is pressed; prevent touches on multiple keys at the same time
+		keyCurrentlyPressed = true;
 
-	// turn sound on
-	soundOn(frequencies.get(keyName));
+		// highlight the key 
+		document.getElementById(keyName).style.backgroundColor = "#34B84B";  // TinkRworks light green
 
-	// add note to noteBox
-	document.getElementById("noteBox").innerHTML += keyNameDisplay.get(keyName) + "&nbsp;&nbsp;&nbsp;";
-	// and to noteBoxArray
-	noteBoxArray.push(keyName);
+		// turn sound on
+		soundOn(frequencies.get(keyName));
+
+		// add note to noteBox
+		document.getElementById("noteBox").innerHTML += keyNameDisplay.get(keyName) + "&nbsp;&nbsp;&nbsp;";
+		// and to noteBoxArray
+		noteBoxArray.push(keyName);
+	}
 }
 
 
 function keyReleased(keyName){
+	keyCurrentlyPressed = false;
+
 	// unhighlight the key -- turn it back to original color
 	document.getElementById(keyName).style.backgroundColor = keyColors.get(keyName);
 
