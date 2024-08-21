@@ -24,6 +24,7 @@ body{
 	cursor: pointer;
 }
 
+
 /* In case of touch-screen device,
     setting startButton display to block.
     Using @media to detect pointer 
