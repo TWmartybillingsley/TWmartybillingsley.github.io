@@ -7,6 +7,8 @@
 	<script src="pianoScript.js" defer></script>
 </head>
 <body>
+	<!-- this div shows up at start, forcing user to click to create an audio context-->
+	<div id="startButton" onclick="initSound(); this.style.display='none';">Start</div>
 
 	<div class="piano" id="piano">
 		<!-- A4 + 1 octave (to Ab5) -->
