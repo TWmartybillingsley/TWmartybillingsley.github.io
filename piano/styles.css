@@ -9,19 +9,20 @@ body{
 }
 
 #startButton{
-	width: 500px;
-	height: 300px;
+	width: 80vw;
+	height: 60vh;
 	position: relative;
-	top: 200px;
-	margin: 0 auto;
+	top: 8vh;
+
 	display: block;
 	background-color: white;
 	border: 2px black solid;
 	border-radius: 10px;
 	z-index: 10;
-	padding-top: 100px;
-	font-size: 100px;
+	padding-top: 10vw;
+	font-size: 20vw;
 	text-align: center;
+	cursor: pointer;
 }
 
 .piano{
