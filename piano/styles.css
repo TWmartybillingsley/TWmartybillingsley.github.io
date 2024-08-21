@@ -13,7 +13,7 @@ body{
 	height: 60vh;
 	position: relative;
 	top: 8vh;
-	display: none;
+	display: block;
 	background-color: white;
 	border: 2px black solid;
 	border-radius: 10px;
@@ -27,12 +27,12 @@ body{
 /* In case of touch-screen device,
     setting startButton display to block.
     Using @media to detect pointer 
-    accuracy */
+    accuracy 
 @media (pointer:coarse) {
 	#startButton {
 		display: block;
 	}
-}
+}*/
 
 .piano{
 	display: flex;
