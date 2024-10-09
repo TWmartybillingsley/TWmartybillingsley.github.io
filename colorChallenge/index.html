@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<script src="javascript.js"></script>
+
+</head>
+<body onload="clearFeedback()">
+
+	<div class="headline">
+		Color Challenge
+	</div>
+	<p> 
+		Choose a challenge, then see if you can make your color match the challenge color by moving the color sliders. Click the "Check your Answer" button to see how close you are.
+	</p>
+
+	<!-- left side of page is the user's color circle
+		 and sliders, check answer button, feedback box
+	-->
+	<div id="yourColor">
+		<p style="text-align:center;"> 
+			Your color
+		</p>
+		<div id="userCircle" class="colorCircle" style="background-color: rgb(0,0,0)"> 
+		</div>
+
+		<p>
+			<input type="range" class="slider" id="red" name="red" min="0" max="255" value="0" onchange="moveSlider('red')" oninput="updateUserColorCircle()">
+			<span id="redVal" class="colorNumber">0</span>
+		</p><p>
+			<input type="range" class="slider" id="green" name="green" min="0" max="255" value="0" onchange="moveSlider('green')" oninput="updateUserColorCircle()">
+			<span id="greenVal" class="colorNumber">0</span>
+		</p><p>
+			<input type="range" class="slider" id="blue" name="blue" min="0" max="255" value="0" onchange="moveSlider('blue')" oninput="updateUserColorCircle()">
+			<span id="blueVal" class="colorNumber">0</span>
+		</p>
+
+		<!-- buttons go in a div so they can be centered -->
+		<div class="buttons">
+			<input class="btn" type="button" value="Check your Answer" onclick="checkColor()">
+		</div>
+
+		<div id="feedback"></div>
+	</div>
+
+
+	<!-- right side of page is the challenge color circle,
+		buttons to generate challenges
+	-->
+	<div id="challengeColor">
+		<p style="text-align:center;"> 
+			Challenge color
+		</p>
+		<div id="challengeCircle" class="colorCircle" style="background-color: rgb(0,0,0)"> 
+		</div>
+		<!-- buttons go in a div so they can be centered -->
+		<div class="buttons">
+			<p>
+				<button class="btn" onclick="makeChallengeColor(1)">Easy Challenge<br>8 colors</button>
+			</p>
+			<p>
+				<button class="btn" onclick="makeChallengeColor(2)">Medium Challenge<br>27 colors</button>
+			</p>
+			<p>
+				<button class="btn" onclick="makeChallengeColor(3)">Hard Challenge<br>millions of colors</button>
+			</p>
+				
+		</div>
+	</div>
+
+
+
+	<div class="footer">
+		Confidential and proprietary property of TinkRworks, LLC
+	</div>
+
+	
+
+</body>
+</html>
