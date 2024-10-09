@@ -13,7 +13,10 @@
 </head>
 <body>
 
-  <div class="logoBox"><img src="TinkRworks Logo.png" class="logoImage"></div>
+  <div class="logoBox">
+    <img src="TinkRworks Logo.png" class="logoImage">
+    <div class="titleBox"> RGB Colors</div>
+  </div>
 
 
   <div class=isolate2>
@@ -78,15 +81,15 @@
 
 
   <div class="sliders">
-    <div class="label">Red</div>
+    <div class="label" id="redLabel">Red</div>
     <input type="range" id="redSlider" class="slider" min="0" max="255" value="255" oninput="updateColorsFromSliders()">
     <input type="number" id="redValue" class="value" min="0" max="255" step="1" value="255" onclick="this.select()" tabindex="1" onchange="this.value = Math.round(this.value); updateColorsFromTextboxes()">
     <br>
-    <div class="label">Green</div>
+    <div class="label" id="greenLabel">Green</div>
     <input type="range" id="greenSlider" class="slider" min="0" max="255" value="255" oninput="updateColorsFromSliders()">
     <input type="number" id="greenValue" class="value" min="0" max="255" step="1" value="255" onclick="this.select()" tabindex="2" onchange="this.value = Math.round(this.value); updateColorsFromTextboxes()">
     <br>
-   <div class="label">Blue</div>
+   <div class="label" id="blueLabel">Blue</div>
     <input type="range" id="blueSlider" class="slider" min="0" max="255" value="255" oninput="updateColorsFromSliders()">
     <input type="number" id="blueValue" class="value" min="0" max="255" step="1" value="255" onclick="this.select()" tabindex="3" onchange="this.value = Math.round(this.value); updateColorsFromTextboxes()">
     <br>

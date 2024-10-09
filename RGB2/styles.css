@@ -25,7 +25,7 @@ body{
   width: 700px;
   height: 600px;
   position: relative;
-  left: 80px;
+  left: 180px;
   top: 280px;
 }
 
@@ -59,120 +59,170 @@ body{
 
 .sliders{  /* div containing sliders */
   position:absolute;
-  top:140px;
-  left: 180px;
+  top: 120px;
+  left: 270px;
+}
+
+/* suggested colors for slider thumbs and boxes is:
+red: #DF643B
+green: #60B358
+blue: #367AE4
+*/
+
+@property --redSliderColor {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #DF643B;
+}
+
+@property --greenSliderColor {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #60B358;
+}
+
+@property --blueSliderColor {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #367AE4;
 }
 
 
-.slider{
-  width: 300px;
-  /* removing default appearance */
+/*----style the sliders----*/
+input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
-  /* creating a custom design */
+  background: transparent;
   cursor: pointer;
+  width: 300px;
+  margin-top: 20px;
+}
+
+/* remove default focus */
+input[type="range"]:focus {
   outline: none;
-  height: 15px;
-  border-radius: 16px;
-  overflow: hidden;
 }
 
-/* Slider Track*/
-.slider::-webkit-slider-runnable-track {
-  height: 15px;
-  background: #ccc;
-  border-radius: 16px;
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: #bbbbbb;
+  border-radius: 10px;
+  height: 20px;
 }
 
-.slider::-moz-range-track {
-  height: 15px;
-  background: #ccc;
-  border-radius: 16px;
+input[type="range"]::-moz-range-track {
+  background-color: #bbbbbb;
+  border-radius: 10px;
+  height: 20px;
 }
 
-/* Slider Thumb */
-.slider::-webkit-slider-thumb {
-  /* removing default appearance */
-  -webkit-appearance: none;
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
   appearance: none;
-  /* creating a custom design */
-  height: 15px;
-  width: 15px;
-  background-color: #555;
-  border: 2px #ffffff solid;
+  margin-top: -5px; /* Centers thumb on the track */
+  background-color: #bbbbbb;
   border-radius: 50%;
-  box-shadow: -407px 0 0 400px #f50;
+  height: 30px;
+  width: 30px;
 }
 
-.slider::-moz-range-thumb {
-  height: 15px;
-  width: 15px;
-  background-color: #555;
-  border: 2px #ffffff solid;
+input[type="range"]::-moz-range-thumb {
+  background-color: #bbbbbb;
+  border: none; /*Removes extra border that FF applies*/
   border-radius: 50%;
-  box-shadow: -407px 0 0 400px #f50;
+  height: 30px;
+  width: 30px;
 }
 
 #redSlider::-webkit-slider-thumb{
-  box-shadow: -407px 0 0 400px #ff0000;
-  /*background-color: #ff0000;*/
+  background-color: var(--redSliderColor);
 }
 #redSlider::-moz-range-thumb{
-  box-shadow: -407px 0 0 400px #f0000;
-  /*background-color: #ff0000;*/
+  background-color: var(--redSliderColor);
 }
 #greenSlider::-webkit-slider-thumb{
-  box-shadow: -407px 0 0 400px #00ff00;
-  /*background-color: #00ff00;*/
+  background-color: var(--greenSliderColor);
 }
 #greenSlider::-moz-range-thumb{
-  box-shadow: -407px 0 0 400px #00ff00;
-  /*background-color: #00ff00;*/
+  background-color: var(--greenSliderColor);
 }
 #blueSlider::-webkit-slider-thumb{
-  box-shadow: -407px 0 0 400px #0000ff;
-  /*background-color: #0000ff;*/
+  background-color: var(--blueSliderColor);
 }
 #blueSlider::-moz-range-thumb{
-  box-shadow: -407px 0 0 400px #0000ff;
-  /*background-color: #0000ff;*/
+  background-color: var(--blueSliderColor);
+}
+
+/* add focus for accessibility */
+#redSlider:focus::-webkit-slider-thumb {
+  outline: 3px solid var(--redSliderColor);
+  outline-offset: 0.125rem;
+}
+
+#redSlider:focus::-moz-range-thumb{
+  outline: 3px solid var(--redSliderColor);
+  outline-offset: 0.125rem;
+}
+
+#greenSlider:focus::-webkit-slider-thumb {
+  outline: 3px solid var(--greenSliderColor);
+  outline-offset: 0.125rem;
+}
+
+#greenSlider:focus::-moz-range-thumb{
+  outline: 3px solid var(--greenSliderColor);
+  outline-offset: 0.125rem;
+}
+
+#blueSlider:focus::-webkit-slider-thumb {
+  outline: 3px solid var(--blueSliderColor);
+  outline-offset: 0.125rem;
+}
+
+#blueSlider:focus::-moz-range-thumb{
+  outline: 3px solid var(--blueSliderColor);
+  outline-offset: 0.125rem;
 }
 
 
-#redSlider{
-  accent-color: #FF0000;
-}
 
-#greenSlider{
-  accent-color: #00FF00;
-}
 
-#blueSlider{
-  accent-color: #0000FF;
-}
 
-.label{
+.label, .value{
   display: inline-block;
   width: 50px;
-  margin-bottom: 10px;
-  margin-left: 40px;
-  padding: 5px 10px;
   text-align:center;
   background-color: white;
   border-radius: 3px;
-}
-
-.value{
-  width: 50px;
-  text-align: center;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  background-color: white;
-  border-radius: 3px;
   border: none;
-
+  padding: 5px 10px;
+  font-size: 18px;
 }
+.label{
+  margin-bottom: 15px;
+  margin-left: 40px;
+}
+.value{
+  cursor: pointer;
+}
+
+#redLabel, #redValue{
+  background-color: var(--redSliderColor);
+  color: white;
+}
+
+#greenLabel, #greenValue{
+  background-color: var(--greenSliderColor);
+  color: white;
+}
+
+#blueLabel, #blueValue{
+  background-color: var(--blueSliderColor);
+  color: white;
+}
+
+
 
 /* turn off scroll for number input*/
 input::-webkit-outer-spin-button,
@@ -185,13 +235,7 @@ input[type=number]{
 }
 
 
-.rocketDiv{
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  left:150px;
-  top: 500px;
-}
+
 
 .outline{
   font-size: 50px;
@@ -210,7 +254,7 @@ input[type=number]{
   position: absolute;
   width: 480px;
   top: 80px;
-  left: 840px;
+  left: 640px;
   padding: 20px;
   border-radius: 5%;
   display: none;
@@ -227,18 +271,18 @@ input[type=number]{
 }
 
 #questionMark{
-  width: 20px;
-  height: 20px;
-  font-size: 20px;
-  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  font-weight: normal;
   text-align: center;
-  background-color: white;
-  color: black;
-  padding: 5px;
+  background-color: #60B358;
+  color: white;
+  padding: 5px 5px 5px 5px;
   border-radius: 50%;
   position: absolute;
-  left: 820px;
-  top: 140px;
+  left: 920px;
+  top: 120px;
   cursor: pointer;
   display: block;
 }
@@ -254,7 +298,15 @@ input[type=number]{
 }
 .logoImage{
 	width: 200px;
-	margin-left:80px;
+	margin-left:40px;
+}
+
+.titleBox{
+  color: #3B5486;
+  font-size: 36px;
+  position: absolute;
+  top: 20px;
+  left:450px;
 }
 
 
