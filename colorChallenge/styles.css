@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Montserrat&display=swap');
+
+body{
+	font-family: 'Abel', sans-serif;
+	color:rgb(44,64,97);
+	margin-left:50px;
+	margin-top:0px;
+	margin-bottom: 10px;
+	font-size: 20px;
+	width:800px;
+}
+
+.headline{
+	font-family: 'Montserrat', sans-serif;
+	color:rgb(44,64,97);
+	background-image:url('TinkrWorksHeader800.png');
+	background-repeat: no-repeat;
+	height: 70px;
+	width: 800px;
+	padding-top: 28px;
+	font-size: 35px;
+}
+
+.footer{
+	height: 50px;
+	text-align:right;
+	color: #868686;
+	font-size: 10pt;
+	font-style: italic;
+	position: absolute;
+	width:750px;
+	top:800px;
+}
+
+#yourColor{
+	width:350px;
+	height:600px;
+	position:absolute;
+	left:50px;
+	top:200px;
+}
+
+#challengeColor{
+	width:350px;
+	height:600px;
+	position:absolute;
+	left:450px;
+	top:200px;
+}
+
+/* circle to be colored; there are two with different ids
+*/
+
+.colorCircle{
+	height: 150px;
+	width: 150px;
+	background-color: rgb(0,0,0);
+	border-radius: 150px;
+	margin-left: 100px;
+	border-style: solid;
+	border-color: grey;
+	border-width: 2px;
+}
+
+/* sliders and value boxes
+*/
+.colorNumber{
+	display: inline-block;
+	overflow:hidden;
+	height:20px;
+	width:50px;
+	padding: 10px;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+}
+
+#redVal{
+	background-color: red;
+}
+#greenVal{
+	background-color: green;
+}
+#blueVal{
+	background-color:  blue;
+}
+
+.slider{
+
+  -webkit-appearance: none;
+  width: 256px;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  -webkit-transition: .2s;
+  
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: red;
+  cursor: pointer;
+}
+
+#red::-webkit-slider-thumb {
+	background: red;
+}
+#red::-moz-range-thumb {
+	background: red;
+}
+#green::-webkit-slider-thumb {
+	background: green;
+}
+#green::-moz-range-thumb {
+	background: green;
+}
+#blue::-webkit-slider-thumb {
+	background: blue;
+}
+#blue::-moz-range-thumb {
+	background: blue;
+}
+
+/* buttons
+*/
+.btn{
+	
+	background-color:rgb(247,148,31);
+	border-radius: 15px;
+	width: 200px;
+	padding: 15px;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.btn:focus{
+	outline: none;
+}
+
+.buttons{
+	text-align: center;
+}
+
+/* feedback box
+*/
+#feedback{
+	padding: 20px;
+}
