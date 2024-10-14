@@ -3,11 +3,53 @@
 
 
 body{
-  font-family: "Roboto", sans-serif;
+  font-family:  "Helvetica", sans-serif;
   font-size: 20px;
   background-color: #000000;
+  min-width: 700px;  /* width of flashlights */
 }
 
+.logoBox{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 80px;
+	background-color: white;
+	text-align:left;
+  filter: drop-shadow(0px 5px 5px #aaa);
+}
+.logoImage{
+	width: 220px; /* 220x66 */
+	margin-left:40px;
+}
+
+.titleBox{
+  background-color: #3B5486;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  line-height: 2;
+  text-align: center;
+  width: 100vw;
+  height: 45px;
+  border-radius: 0px 0px 12px 12px;
+  position: absolute;
+  top:80px;  /* logo is 80px high*/
+  left: 0px;  
+  min-width: 700px;
+}
+
+/* to remove top banners: hide .titlebox and .logobox, change margin for .controlsDiv to 0 auto */
+.controlsDiv{
+  width: 700px;
+  height: 200px;
+  position: relative;
+  margin: 150px auto 0px;  /* center right-left */
+}
+
+
+/* generic circle of light */
 .circle {
   width: 200px;
   height: 200px;
@@ -26,8 +68,7 @@ body{
   width: 700px;
   height: 600px;
   position: relative;
-  left: 100px;
-  top: 280px;
+  margin: 0px auto 0px;  /* center right-left */
 }
 
 #flashlightRed{
@@ -58,10 +99,12 @@ body{
 }
 
 
-.sliders{  /* div containing sliders */
-  position:absolute;
-  top: 120px;
-  left: 190px;
+/* div containing sliders (custom) */
+.sliders{  
+  position: relative;
+  top: 0px;
+  left: 100px;
+  width: 500px;
 }
 
 /* suggested colors for slider thumbs and boxes is:
@@ -122,15 +165,19 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
   margin-top: -4px; /* Centers thumb on the track */
-  background-color: #bbbbbb;
+  background-color: #b7b7b7;
+  font-family: inherit;
+  font-size: inherit;
   border-radius: 50%;
   height: 26px;
   width: 26px;
 }
 
 input[type="range"]::-moz-range-thumb {
-  background-color: #bbbbbb;
+  background-color: #b7b7b7;
   border: none; /*Removes extra border that FF applies*/
+  font-family: inherit;
+  font-size: inherit;
   border-radius: 50%;
   height: 26px;
   width: 25px;
@@ -187,9 +234,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 
-
-
-
+/* slider labels and value boxes */
 .label, .value{
   display: inline-block;
   width: 50px;
@@ -198,7 +243,8 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 3px;
   border: none;
   padding: 5px 10px;
-  font-size: 18px;
+  font-size: inherit;
+  font-family: inherit;
 }
 .label{
   margin-bottom: 15px;
@@ -224,7 +270,6 @@ input[type="range"]::-moz-range-thumb {
 }
 
 
-
 /* turn off scroll for number input*/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -236,26 +281,14 @@ input[type=number]{
 }
 
 
-
-
-.outline{
-  font-size: 50px;
-  position: absolute;
-  width: 1024px;
-  height: 768px;
-  top: 0px;
-  left: 0px;
-  border:1px black solid;
-  cursor: pointer;
-}
-
+/* help box -- appears when user clicks question mark */
 .helpBox{
   background-color:white;
   font-size: 16px;
   position: absolute;
-  width: 480px;
-  top: 110px;
-  left: 540px;
+  width: 500px;
+  top: 140px;
+  left: 20px;
   padding: 20px;
   border-radius: 20px;
   display: none;
@@ -263,12 +296,6 @@ input[type=number]{
 .header{
   font-weight: 500;
   font-size: 20px;
-}
-#dismissHelpButton{
-  width: 180px;
-  height: 36px;
-  font-size: 18px;
-  border-radius: 5px;
 }
 
 #questionMark{
@@ -281,35 +308,39 @@ input[type=number]{
   color: white;
   padding: 5px 5px 5px 5px;
   border-radius: 50%;
-  position: absolute;
-  left: 820px;
-  top: 120px;
+  position: absolute;   /* inside controls div */
+  left: 660px;
+  top: 5px;
   cursor: pointer;
   display: block;
 }
 
-.logoBox{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 80px;
-	background-color: white;
-	text-align:left;
-}
-.logoImage{
-	width: 220px; /* 220x66 */
-	margin-left:40px;
-}
-
-.titleBox{
-  color: #3B5486;
-  font-size: 36px;
-  width: 500px;
-  height: 32px;
-  position: absolute;
-  top:24px;  /* 26px top will align to bottom of logo  with 32px font*/
-  left: 320px;  /* 100 px gap from right edge of logo when logo is 220px wide*/
-}
 
 
+
+
+/* page organization
+|--------------------------------------------------------|
+|  Logo                                                  |
+|--------------------------------------------------------|
+|                       title                            |
+|--------------------------------------------------------|
+|                                                        |
+|     |--------------------------------------------|     |
+|     |           .controlsBox                   ? |     |
+|     |          relative to body                  |     |
+|     |   |------------------------------------|   |     |
+|     |   |      .sliders                      |   |     |
+|     |   |      relative to .controlsBox      |   |     |
+|     |   |------------------------------------|   |     |
+|     |                                            |     |
+|     |--------------------------------------------|     |
+|                                                        |
+|     |--------------------------------------------|     |
+|     |             .isolate2                      |     |
+|     |           relative to body                 |     |
+|     |             (flashlights)                  |     |
+|     |--------------------------------------------|     |
+|                                                        |
+|--------------------------------------------------------|
+*/

@@ -13,11 +13,31 @@
 </head>
 <body>
 
+  <!-- banners at top; can be removed or hidden-->
   <div class="logoBox">
     <img src="TinkRworks Logo.svg" class="logoImage">
-    <div class="titleBox">RGB Color Mixing</div>
   </div>
+  <div class="titleBox">RGB Color Mixing</div>
 
+  <!-- two divs: controlsDiv contains sliders and question mark
+                 isolate2 contains flashlights -->
+  <div class="controlsDiv">
+    <div id="questionMark" onmousedown="showHelp()" onmouseup="hideHelp()">?</div>
+    <div class="sliders">
+      <div class="label" id="redLabel">Red</div>
+      <input type="range" id="redSlider" class="slider" min="0" max="255" value="255" oninput="updateColorsFromSliders()">
+      <input type="number" id="redValue" class="value" min="0" max="255" step="1" value="255" onclick="this.select()" tabindex="1" onchange="this.value = Math.round(this.value); updateColorsFromTextboxes()">
+      <br>
+      <div class="label" id="greenLabel">Green</div>
+      <input type="range" id="greenSlider" class="slider" min="0" max="255" value="255" oninput="updateColorsFromSliders()">
+      <input type="number" id="greenValue" class="value" min="0" max="255" step="1" value="255" onclick="this.select()" tabindex="2" onchange="this.value = Math.round(this.value); updateColorsFromTextboxes()">
+      <br>
+     <div class="label" id="blueLabel">Blue</div>
+      <input type="range" id="blueSlider" class="slider" min="0" max="255" value="255" oninput="updateColorsFromSliders()">
+      <input type="number" id="blueValue" class="value" min="0" max="255" step="1" value="255" onclick="this.select()" tabindex="3" onchange="this.value = Math.round(this.value); updateColorsFromTextboxes()">
+      <br>
+    </div>
+  </div>
 
   <div class=isolate2>
     <div class="flashlight" id="flashlightRed">
@@ -77,27 +97,7 @@
   </div>
  
 
-  <div id="questionMark" onmousedown="showHelp()" onmouseup="hideHelp()">?</div>
-
-
-  <div class="sliders">
-    <div class="label" id="redLabel">Red</div>
-    <input type="range" id="redSlider" class="slider" min="0" max="255" value="255" oninput="updateColorsFromSliders()">
-    <input type="number" id="redValue" class="value" min="0" max="255" step="1" value="255" onclick="this.select()" tabindex="1" onchange="this.value = Math.round(this.value); updateColorsFromTextboxes()">
-    <br>
-    <div class="label" id="greenLabel">Green</div>
-    <input type="range" id="greenSlider" class="slider" min="0" max="255" value="255" oninput="updateColorsFromSliders()">
-    <input type="number" id="greenValue" class="value" min="0" max="255" step="1" value="255" onclick="this.select()" tabindex="2" onchange="this.value = Math.round(this.value); updateColorsFromTextboxes()">
-    <br>
-   <div class="label" id="blueLabel">Blue</div>
-    <input type="range" id="blueSlider" class="slider" min="0" max="255" value="255" oninput="updateColorsFromSliders()">
-    <input type="number" id="blueValue" class="value" min="0" max="255" step="1" value="255" onclick="this.select()" tabindex="3" onchange="this.value = Math.round(this.value); updateColorsFromTextboxes()">
-    <br>
-  </div>
-  
-
- 
-  
+  <!-- hidden until user clicks question mark -->
   <div id="helpBox" class="helpBox" onmouseup="hideHelp()" onmouseleave="hideHelp()">
     <span class="header">Mixing Light</span><br>
     You have three flashlights: one <span style="color:red">red</span>, one <span style="color:green">green</span>, and one <span style="color:blue">blue</span>. 
