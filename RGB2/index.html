@@ -14,8 +14,8 @@
 <body>
 
   <div class="logoBox">
-    <img src="TinkRworks Logo.png" class="logoImage">
-    <div class="titleBox"> RGB Colors</div>
+    <img src="TinkRworks Logo.svg" class="logoImage">
+    <div class="titleBox">RGB Color Mixing</div>
   </div>
 
 
@@ -77,7 +77,7 @@
   </div>
  
 
-  <div id="questionMark" onmouseover="showHelp()" onmouseout="hideHelp()">?</div>
+  <div id="questionMark" onmousedown="showHelp()" onmouseup="hideHelp()">?</div>
 
 
   <div class="sliders">
@@ -98,7 +98,7 @@
 
  
   
-  <div id="helpBox" class="helpBox">
+  <div id="helpBox" class="helpBox" onmouseup="hideHelp()" onmouseleave="hideHelp()">
     <span class="header">Mixing Light</span><br>
     You have three flashlights: one <span style="color:red">red</span>, one <span style="color:green">green</span>, and one <span style="color:blue">blue</span>. 
     When turned on, they shine circles of light that overlap, creating new colors. For example, red and green make yellow. When all three overlap, you get a mix of red, green, and blue.
