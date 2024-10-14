@@ -1,9 +1,35 @@
-// start out in free-form mode (hardest)
-var mode = 3
+// start out in easiest mode -- set this up at bottom of javascript
+var mode = 1
+
 
 // empty out feedback div
 function clearFeedback(){
-	document.getElementById("feedback").innerHTML = "Click 'Check your Answer' when ready."
+	document.getElementById("feedback").innerHTML = "Click 'Check Answer!' when ready."
+}
+
+function chooseButton(btnNum){
+	switch(btnNum) {
+		case 1: 
+		  document.getElementById('btn1').style.backgroundColor = "#E56700";
+		  document.getElementById('btn2').style.backgroundColor = "#f79520";
+		  document.getElementById('btn3').style.backgroundColor = "#f79520";
+		  break;
+		case 2: 
+			document.getElementById('btn2').style.backgroundColor = "#E56700";
+			document.getElementById('btn1').style.backgroundColor = "#f79520";
+			document.getElementById('btn3').style.backgroundColor = "#f79520";
+		  break;
+		case 3:
+			document.getElementById('btn3').style.backgroundColor = "#E56700";
+		  	document.getElementById('btn2').style.backgroundColor = "#f79520";
+		  	document.getElementById('btn1').style.backgroundColor = "#f79520";
+		  break;
+		default:
+			document.getElementById('btn1').style.backgroundColor = "#f79520";
+		  	document.getElementById('btn2').style.backgroundColor = "#f79520";
+		  	document.getElementById('btn2').style.backgroundColor = "#f79520";
+	  }
+
 }
 
 // sets the users color circle to whatever color the sliders dictate
@@ -143,8 +169,8 @@ function checkColor(){
 
 	// can't compare two arrays directly (they are different objects)
 	if ((rChallenge==rUser)&&(gChallenge==gUser)&&(bChallenge==bUser)){
-		console.log('same')
-		msg = "Good job! Both colors are exactly the same!"
+		//console.log('same')
+		msg = "Good job! <br>Both colors are exactly the same!"
 	}
 	else{
 		// not identical; how close?
@@ -187,3 +213,16 @@ function checkColor(){
 	
 }
 
+function hideHelp(){
+	document.getElementById('helpBox').style.display = "none";
+  }
+  
+  function showHelp(){
+	document.getElementById('helpBox').style.display = "block";
+  }
+  
+
+// start out in easiest mode 
+var mode = 1
+makeChallengeColor(1);
+chooseButton(1);

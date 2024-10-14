@@ -2,19 +2,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Color Challenge</title>
 	<link rel="stylesheet" type="text/css" href="styles.css" />
-	<script src="javascript.js"></script>
+
+	<!--javascript included at end, after page loads-->
+  
 
 </head>
 <body onload="clearFeedback()">
 
-	<div class="headline">
-		Color Challenge
-	</div>
-	<p> 
-		Choose a challenge, then see if you can make your color match the challenge color by moving the color sliders. Click the "Check your Answer" button to see how close you are.
-	</p>
+	<div class="logoBox">
+		<img src="TinkRworks Logo.svg" class="logoImage">
+	  </div>
+
+	<div class="titleBox">Color Challenge</div>
+
 
 	<!-- left side of page is the user's color circle
 		 and sliders, check answer button, feedback box
@@ -39,7 +41,7 @@
 
 		<!-- buttons go in a div so they can be centered -->
 		<div class="buttons">
-			<input class="btn" type="button" value="Check your Answer" onclick="checkColor()">
+			<input class="btn" type="button" value="Check Answer!" onclick="checkColor()">
 		</div>
 
 		<div id="feedback"></div>
@@ -58,25 +60,30 @@
 		<!-- buttons go in a div so they can be centered -->
 		<div class="buttons">
 			<p>
-				<button class="btn" onclick="makeChallengeColor(1)">Easy Challenge<br>8 colors</button>
+				<button class="btn" id="btn1" onclick="chooseButton(1); makeChallengeColor(1)">Easy Challenge<br><span class='btnSmallText'>8 Colors</span></button>
 			</p>
 			<p>
-				<button class="btn" onclick="makeChallengeColor(2)">Medium Challenge<br>27 colors</button>
+				<button class="btn" id="btn2" onclick="chooseButton(2); makeChallengeColor(2)">Medium Challenge<br><span class='btnSmallText'>27 Colors</span></button>
 			</p>
 			<p>
-				<button class="btn" onclick="makeChallengeColor(3)">Hard Challenge<br>millions of colors</button>
+				<button class="btn" id="btn3" onclick="chooseButton(3); makeChallengeColor(3)">Hard Challenge<br><span class='btnSmallText'>Millions of Colors</span></button>
 			</p>
 				
 		</div>
 	</div>
 
+	<div id="questionMark" onmousedown="showHelp()" onmouseup="hideHelp()">?</div>
 
-
-	<div class="footer">
-		Confidential and proprietary property of TinkRworks, LLC
+	<div id="helpBox" class="helpBox" onmouseup="hideHelp()" onmouseleave="hideHelp()">
+		<span class="header">Color Challenge</span><br>
+		Choose a challenge, then see if you can make your color match the challenge color by moving the color sliders. 
+		<br><br>
+		Click the "Check Answer!" button to see how close you are.
+		<br><br>
+		In the Hard Challenge, you can also click a slider and use the arrow keys to change the color one number at a time.
 	</div>
-
 	
-
+	<!--load javascript at end, after page loads-->
+	<script src="javascript.js"></script>
 </body>
 </html>

@@ -1,42 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=Montserrat&display=swap');
+/* Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* tinkRworks orange: #f79520 */
+/* drop shadow: filter: drop-shadow(3px 3px 4px rgba(0,0,0,0.15)); */
 
 body{
-	font-family: 'Abel', sans-serif;
-	color:rgb(44,64,97);
+	font-family:  "HelveticaNeue-Light", "Helvetica", sans-serif;
+	color:rgb(51,85,138);
+	background-color: #f3f0ea;
 	margin-left:50px;
 	margin-top:0px;
 	margin-bottom: 10px;
-	font-size: 20px;
+	font-size: 18px;
 	width:800px;
 }
 
-.headline{
-	font-family: 'Montserrat', sans-serif;
-	color:rgb(44,64,97);
-	background-image:url('TinkrWorksHeader800.png');
-	background-repeat: no-repeat;
-	height: 70px;
-	width: 800px;
-	padding-top: 28px;
-	font-size: 35px;
+.logoBox{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 80px;
+	background-color: white;
+	text-align:left;
+	filter: drop-shadow(3px 3px 4px rgba(0,0,0,0.15));
+}
+.logoImage{
+	width: 220px; /* 220x66 */
+	margin-left:40px;
 }
 
-.footer{
-	height: 50px;
-	text-align:right;
-	color: #868686;
-	font-size: 10pt;
-	font-style: italic;
+.titleBox{
+	background-color: #3B5486;
+	color: white;
+	font-family: "Roboto", sans-serif;
+	font-size: 24px;
+	line-height: 2;
+	text-align: left;
+	padding-left: 450px; /* roughly centered on static content */
+	width: 100vw;
+	height: 45px;
+	border-radius: 0px 0px 12px 12px;
 	position: absolute;
-	width:750px;
-	top:800px;
-}
+	top:80px;  /* logo is 80px high*/
+	left: 0px;  
+	min-width: 700px;
+  }
+
+
 
 #yourColor{
-	width:350px;
+	width:350x;
 	height:600px;
 	position:absolute;
-	left:50px;
+	left:100px;
 	top:200px;
 }
 
@@ -44,11 +61,11 @@ body{
 	width:350px;
 	height:600px;
 	position:absolute;
-	left:450px;
+	left:550px;
 	top:200px;
 }
 
-/* circle to be colored; there are two with different ids
+/* circle to be colored; there are two with different ids: userCircle and challengeCircle
 */
 
 .colorCircle{
@@ -56,93 +73,182 @@ body{
 	width: 150px;
 	background-color: rgb(0,0,0);
 	border-radius: 150px;
-	margin-left: 100px;
-	border-style: solid;
-	border-color: grey;
-	border-width: 2px;
+	margin: 0 auto;
+	border: none;
+	filter: drop-shadow(3px 3px 4px rgba(0,0,0,0.15));
 }
 
 /* sliders and value boxes
 */
-.colorNumber{
-	display: inline-block;
-	overflow:hidden;
-	height:20px;
-	width:50px;
-	padding: 10px;
-	color: white;
-	text-align: center;
-	font-weight: bold;
-}
 
-#redVal{
-	background-color: red;
-}
-#greenVal{
-	background-color: green;
-}
-#blueVal{
-	background-color:  blue;
-}
+/* suggested colors for slider thumbs and boxes is:
+red: #DF643B
+green: #60B358
+blue: #367AE4
+*/
 
-.slider{
-
-  -webkit-appearance: none;
-  width: 256px;
-  height: 15px;
-  border-radius: 5px;  
-  background: #d3d3d3;
-  outline: none;
-  -webkit-transition: .2s;
+@property --redSliderColor {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #DF643B;
+  }
   
-}
+  @property --greenSliderColor {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #60B358;
+  }
+  
+  @property --blueSliderColor {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #367AE4;
+  }
+  
+  
+  /*----style the sliders----*/
+  input[type="range"] {
+	-webkit-appearance: none;
+	appearance: none;
+	background: transparent;
+	cursor: pointer;
+	width: 256px;
+	margin-top: 20px;
+  }
+  
+  /* remove default focus */
+  input[type="range"]:focus {
+	outline: none;
+  }
+  
+  /* slider track */
+  input[type="range"]::-webkit-slider-runnable-track {
+	background-color: #bbbbbb;
+	border-radius: 10px;
+	height: 16px;
+  }
+  
+  input[type="range"]::-moz-range-track {
+	background-color: #bbbbbb;
+	border-radius: 10px;
+	height: 16px;
+  }
+  
+  /* slider thumb */
+  input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none; /* Override default look */
+	appearance: none;
+	margin-top: -4px; /* Centers thumb on the track */
+	background-color: #bbbbbb;
+	border-radius: 50%;
+	height: 26px;
+	width: 26px;
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+	background-color: #bbbbbb;
+	border: none; /*Removes extra border that FF applies*/
+	border-radius: 50%;
+	height: 26px;
+	width: 25px;
+  }
+  
+  #red::-webkit-slider-thumb{
+	background-color: var(--redSliderColor);
+  }
+  #red::-moz-range-thumb{
+	background-color: var(--redSliderColor);
+  }
+  #green::-webkit-slider-thumb{
+	background-color: var(--greenSliderColor);
+  }
+  #green::-moz-range-thumb{
+	background-color: var(--greenSliderColor);
+  }
+  #blue::-webkit-slider-thumb{
+	background-color: var(--blueSliderColor);
+  }
+  #blue::-moz-range-thumb{
+	background-color: var(--blueSliderColor);
+  }
+  
+  /* add focus for accessibility */
+  #red:focus::-webkit-slider-thumb {
+	outline: 3px solid var(--redSliderColor);
+	outline-offset: 0.125rem;
+  }
+  
+  #red:focus::-moz-range-thumb{
+	outline: 3px solid var(--redSliderColor);
+	outline-offset: 0.125rem;
+  }
+  
+  #green:focus::-webkit-slider-thumb {
+	outline: 3px solid var(--greenSliderColor);
+	outline-offset: 0.125rem;
+  }
+  
+  #green:focus::-moz-range-thumb{
+	outline: 3px solid var(--greenSliderColor);
+	outline-offset: 0.125rem;
+  }
+  
+  #blue:focus::-webkit-slider-thumb {
+	outline: 3px solid var(--blueSliderColor);
+	outline-offset: 0.125rem;
+  }
+  
+  #blue:focus::-moz-range-thumb{
+	outline: 3px solid var(--blueSliderColor);
+	outline-offset: 0.125rem;
+  }
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%; 
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: red;
-  cursor: pointer;
-}
-
-#red::-webkit-slider-thumb {
-	background: red;
-}
-#red::-moz-range-thumb {
-	background: red;
-}
-#green::-webkit-slider-thumb {
-	background: green;
-}
-#green::-moz-range-thumb {
-	background: green;
-}
-#blue::-webkit-slider-thumb {
-	background: blue;
-}
-#blue::-moz-range-thumb {
-	background: blue;
-}
+  /* divs that show slider values */
+  .colorNumber{
+	display: inline-block;
+	font-family: inherit;
+	width: 40px;
+	text-align:center;
+	background-color: white;
+	border-radius: 10px;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+  }
+  
+  #redVal{
+	background-color: var(--redSliderColor);
+	color: white;
+  }
+  
+  #greenVal{
+	background-color: var(--greenSliderColor);
+	color: white;
+  }
+  
+  #blueVal{
+	background-color: var(--blueSliderColor);
+	color: white;
+  }
+  
 
 /* buttons
 */
 .btn{
-	
-	background-color:rgb(247,148,31);
+	font-family:  inherit;
+	font-size: inherit;
+	background-color:#f79520;    /* change to  #E56700 when selected */
 	border-radius: 15px;
 	width: 200px;
 	padding: 15px;
 	display: inline-block;
-	font-size: 16px;
+	border: none;
+	color: white;
+	filter: drop-shadow(3px 3px 4px rgba(0,0,0,0.15));
+}
+
+.btnSmallText{
+	font-size: 12px;
 }
 
 .btn:focus{
@@ -151,10 +257,46 @@ body{
 
 .buttons{
 	text-align: center;
+	margin-top: 35px;
 }
 
 /* feedback box
 */
 #feedback{
 	padding: 20px;
+	text-align: center;
 }
+
+.helpBox{
+	background-color:rgb(247,149,32);
+	color: white;
+	position: absolute;
+	width: 400px;
+	top: 150px;
+	left: 500px;
+	padding: 20px;
+	border-radius: 20px;
+	display: none;
+  }
+  .header{
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 2;
+  }
+  
+  #questionMark{
+	width: 30px;
+	height: 30px;
+	font-size: 30px;
+	font-weight: normal;
+	text-align: center;
+	background-color: #60B358;
+	color: white;
+	padding: 5px 5px 5px 5px;
+	border-radius: 50%;
+	position: absolute;
+	left: 820px;
+	top: 150px;
+	cursor: pointer;
+	display: block;
+  }
