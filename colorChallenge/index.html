@@ -13,75 +13,77 @@
 
 	<div class="logoBox">
 		<img src="TinkRworks Logo.svg" class="logoImage">
-	  </div>
-
-	<div class="titleBox"><div class="titleText">Color Challenge</div></div>
-
-
-	<!-- left side of page is the user's color circle
-		 and sliders, check answer button, feedback box
-	-->
-	<div id="yourColor">
-		<p style="text-align:center;"> 
-			Your color
-		</p>
-		<div id="userCircle" class="colorCircle" style="background-color: rgb(0,0,0)"> 
-		</div>
-
-		<p>
-			<input type="range" class="slider" id="red" name="red" min="0" max="255" value="0" onchange="moveSlider('red')" oninput="updateUserColorCircle()">
-			<span id="redVal" class="colorNumber">0</span>
-		</p><p>
-			<input type="range" class="slider" id="green" name="green" min="0" max="255" value="0" onchange="moveSlider('green')" oninput="updateUserColorCircle()">
-			<span id="greenVal" class="colorNumber">0</span>
-		</p><p>
-			<input type="range" class="slider" id="blue" name="blue" min="0" max="255" value="0" onchange="moveSlider('blue')" oninput="updateUserColorCircle()">
-			<span id="blueVal" class="colorNumber">0</span>
-		</p>
-
-		<!-- buttons go in a div so they can be centered -->
-		<div class="buttons">
-			<input class="btn" type="button" value="Check Answer!" onclick="checkColor()">
-		</div>
-
-		<div id="feedback"></div>
 	</div>
+	<div class="titleBox">Color Challenge</div>
+	
 
 
-	<!-- right side of page is the challenge color circle,
-		buttons to generate challenges
-	-->
-	<div id="challengeColor">
-		<p style="text-align:center;"> 
-			Challenge color
-		</p>
-		<div id="challengeCircle" class="colorCircle" style="background-color: rgb(0,0,0)"> 
+	<div id="contentBox">
+		<!-- left side of content is the user's color circle
+			and sliders, check answer button, feedback box
+		-->
+		<div id="yourColor">
+			<p style="text-align:center;"> 
+				Your color
+			</p>
+			<div id="userCircle" class="colorCircle" style="background-color: rgb(0,0,0)"> 
+			</div>
+			<div class="sliderDiv">
+				<p>
+					<input type="range" class="slider" id="red" name="red" min="0" max="255" value="0" onkeyup="arrowKeyPressed('red', event.key);" onmouseup="moveSlider('red');" oninput="updateUserColorCircle();">
+					<span id="redVal" class="colorNumber">0</span>
+				</p><p>
+					<input type="range" class="slider" id="green" name="green" min="0" max="255" value="0" onkeyup="arrowKeyPressed('green', event.key);" onmouseup="moveSlider('green');" oninput="updateUserColorCircle();">
+					<span id="greenVal" class="colorNumber">0</span>
+				</p><p>
+					<input type="range" class="slider" id="blue" name="blue" min="0" max="255" value="0" onkeyup="arrowKeyPressed('blue', event.key);" onmouseup="moveSlider('blue');" oninput="updateUserColorCircle();">
+					<span id="blueVal" class="colorNumber">0</span>
+				</p>
+			</div>
+
+			<!-- buttons go in a div so they can be centered -->
+			<div class="buttons">
+				<input class="btn" type="button" value="Check Answer!" onclick="if (event.shiftKey){showState()}; checkColor()">
+			</div>
+
+			<div id="feedback"></div>
 		</div>
-		<!-- buttons go in a div so they can be centered -->
-		<div class="buttons">
-			<p>
-				<button class="btn" id="btn1" onclick="chooseButton(1); makeChallengeColor(1)">Easy Challenge<br><span class='btnSmallText'>8 Colors</span></button>
+
+		
+		<!-- right side of content is the challenge color circle,
+			buttons to generate challenges
+		-->
+		<div id="challengeColor">
+			<p style="text-align:center;"> 
+				Challenge color
 			</p>
-			<p>
-				<button class="btn" id="btn2" onclick="chooseButton(2); makeChallengeColor(2)">Medium Challenge<br><span class='btnSmallText'>27 Colors</span></button>
-			</p>
-			<p>
-				<button class="btn" id="btn3" onclick="chooseButton(3); makeChallengeColor(3)">Hard Challenge<br><span class='btnSmallText'>Millions of Colors</span></button>
-			</p>
-				
+			<div id="challengeCircle" class="colorCircle" style="background-color: rgb(0,0,0)"> 
+			</div>
+			<!-- buttons go in a div so they can be centered -->
+			<div class="buttons">
+				<p>
+					<button class="btn" id="btn1" onclick="chooseButton(1); makeChallengeColor(1)">Easy Challenge<br><span class='btnSmallText'>8 Colors</span></button>
+				</p>
+				<p>
+					<button class="btn" id="btn2" onclick="chooseButton(2); makeChallengeColor(2)">Medium Challenge<br><span class='btnSmallText'>27 Colors</span></button>
+				</p>
+				<p>
+					<button class="btn" id="btn3" onclick="chooseButton(3); makeChallengeColor(3)">Hard Challenge<br><span class='btnSmallText'>Millions of Colors</span></button>
+				</p>
+					
+			</div>
 		</div>
-	</div>
-
-	<div id="questionMark" onmousedown="showHelp()" onmouseup="hideHelp()">?</div>
-
-	<div id="helpBox" class="helpBox" onmouseup="hideHelp()" onmouseleave="hideHelp()">
-		<span class="header">Color Challenge</span><br>
-		Choose a challenge, then see if you can make your color match the challenge color by moving the color sliders. 
-		<br><br>
-		Click the "Check Answer!" button to see how close you are.
-		<br><br>
-		In the Hard Challenge, you can also click a slider and use the arrow keys to change the color one number at a time.
-	</div>
+		<div id="questionMark" onmousedown="showHelp()">?</div>
+		
+		<div id="helpBox" class="helpBox" onmouseleave="hideHelp()">
+			<span class="header">Color Challenge</span><br>
+			Choose a challenge, then see if you can make your color match the challenge color by moving the color sliders. 
+			<br><br>
+			Click the "Check Answer!" button to see how close you are.
+			<br><br>
+			In the Hard Challenge, you can also click a slider and use the arrow keys to change the color one number at a time.
+		</div>
+	</div> <!-- end content box -->
 	
 	<!--load javascript at end, after page loads-->
 	<script src="javascript.js"></script>

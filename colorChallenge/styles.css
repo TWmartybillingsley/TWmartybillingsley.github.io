@@ -8,13 +8,13 @@ body{
 	font-family:  "HelveticaNeue-Light", "Helvetica", sans-serif;
 	color:rgb(51,85,138);
 	background-color: #f3f0ea;
-	margin-left:50px;
-	margin-top:0px;
-	margin-bottom: 10px;
+	margin: 0px;
 	font-size: 18px;
-	width:800px;
+	width: 100vw;
+	min-width: 700px;
 }
 
+/* if removing logoBox, change margin of #contentBox to 120px auto 0px; */
 .logoBox{
 	position: absolute;
 	top: 0;
@@ -30,13 +30,14 @@ body{
 	margin-left:40px;
 }
 
+/* if removing logoBox and titleBox, change margin of #contentBox to 75px auto 0px; */
 .titleBox{
 	background-color: #3B5486;
 	color: white;
 	font-family: "Roboto", sans-serif;
 	font-size: 24px;
 	line-height: 2;
-	text-align: left;
+	text-align: center;
 	width: 100vw;  
 	height: 45px;
 	border-radius: 0px 0px 12px 12px;
@@ -46,28 +47,30 @@ body{
 	min-width: 700px;
   }
 
-  .titleText{
-	display: inline-block;
-	margin: 0px 0px 0px 425px; /* roughly centered on static content */
-  }
 
-
-
+#contentBox{
+	margin: 200px auto 0px;
+	width: 800px;
+	height: 610px;
+	position: relative;
+}
 #yourColor{
-	width:350x;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width:330px;
 	height:600px;
-	position:absolute;
-	left:100px;
-	top:200px;
+	margin: 0;
 }
 
 #challengeColor{
-	width:350px;
+	position: absolute;
+	top: 0px;
+	left: 430px;
+	width:330px;
 	height:600px;
-	position:absolute;
-	left:550px;
-	top:200px;
 }
+
 
 /* circle to be colored; there are two with different ids: userCircle and challengeCircle
 */
@@ -234,6 +237,10 @@ blue: #367AE4
 	background-color: var(--blueSliderColor);
 	color: white;
   }
+
+.sliderDiv{
+	margin-top: 30px;
+}
   
 
 /* buttons
@@ -271,13 +278,13 @@ blue: #367AE4
 	text-align: center;
 }
 
-.helpBox{
+.helpBox{     
+	position: absolute;  /* inside #contentBox */
+	top: 10px;
+	left: 360px;    /* pos of questionMark - width of helpBox */
 	background-color:rgb(247,149,32);
 	color: white;
-	position: absolute;
 	width: 400px;
-	top: 150px;
-	left: 500px;
 	padding: 20px;
 	border-radius: 20px;
 	display: none;
@@ -288,7 +295,8 @@ blue: #367AE4
 	line-height: 2;
   }
   
-  #questionMark{
+  #questionMark{  
+	position: absolute;  /* inside #contentBox */
 	width: 30px;
 	height: 30px;
 	font-size: 30px;
@@ -298,9 +306,8 @@ blue: #367AE4
 	color: white;
 	padding: 5px 5px 5px 5px;
 	border-radius: 50%;
-	position: absolute;
-	left: 820px;
-	top: 150px;
+	left: 760px;    /*pos based on width and pos of #yourColor and #challengeColor */
+	top: 10px;
 	cursor: pointer;
 	display: block;
   }

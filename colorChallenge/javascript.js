@@ -45,6 +45,9 @@ function updateUserColorCircle(){
 	r = redSlider.value
 	g = greenSlider.value
 	b = blueSlider.value
+	// error checking:
+	//console.log(`sliders: ${r}, ${g}, ${b}`)
+	//console.log(`numbers: ${redVal.innerHTML}, ${greenVal.innerHTML}, ${blueVal.innerHTML}`)
 	newColor = 'rgb(' + r + ',' + g + ',' + b + ')'
 	colorCircle.style.backgroundColor =  newColor
 	redVal.innerHTML = r
@@ -52,8 +55,60 @@ function updateUserColorCircle(){
 	blueVal.innerHTML = b
 }
 
-// executes onchange, not oninput
-// in modes 1 and 2, restricts the slider movement
+function arrowKeyPressed(c, key){
+	console.log(key);
+}
+// executes when arrow key pressed
+// in modes 1 and 2, moves slider to next/previous value
+// arrow key codes: up = '38', down = '40', left = '37', right = '39'
+function arrowKeyPressed(id, theKey){
+	//console.log(theKey)
+	clearFeedback()
+	sldr = document.getElementById(id)
+	val = sldr.value
+	//console.log('oldVal: ', val)
+	newVal = val  // just in case
+	switch(mode) {
+	  case 1: //0 or 255
+	    if (theKey=="ArrowLeft" || theKey=="ArrowDown"){  // left/down
+	    	newVal = 0
+	    }
+	    else if (theKey=="ArrowRight" || theKey=="ArrowUp"){  // right/up
+	    	newVal = 255
+	    }
+	    break;
+	  case 2: //0, 128, or 255
+	  
+	  	if (theKey=="ArrowLeft" || theKey=="ArrowDown"){  // left/down: moving smaller
+			//console.log('moving down', val)
+			if (val <= 128){
+				newVal = 0
+			} else if (val <= 255){
+				newVal = 128
+			} else {
+				newVal = 0
+			}
+		} else if (theKey=="ArrowRight" || theKey=="ArrowUp"){  // right/up: moving bigger
+			//console.log('moving up', val)
+			if (val < 128){
+				newVal = 128
+			} else if (val < 255){
+				newVal = 255
+			} else {
+				newVal = 255
+			}
+		}
+	    break;
+	  default:
+	    newVal = val
+	}
+	//console.log('newVal: ', newVal)
+	sldr.value = newVal
+	updateUserColorCircle()
+}
+
+// executes onmouseup
+// in modes 1 and 2, restricts the slider movement when dragged
 function moveSlider(id){
 	clearFeedback()
 	sldr = document.getElementById(id)
@@ -73,7 +128,7 @@ function moveSlider(id){
 	    } else if (val < 192){
 	    	newVal = 128
 	    } else {
-	    	newVal = 256
+	    	newVal = 255
 	    }
 	    break;
 	  default:
@@ -161,6 +216,7 @@ function checkColor(){
 	bChallenge = parseInt(challengeColor[2])
 
 	// parse the user color
+	userCircle = document.getElementById("userCircle")
 	userColor = userCircle.style.backgroundColor
 	userColor = userColor.replace(/[^\d,]/g, '').split(',');
 	rUser = parseInt(userColor[0])
@@ -226,3 +282,26 @@ function hideHelp(){
 var mode = 1
 makeChallengeColor(1);
 chooseButton(1);
+
+
+// for error checking
+function showState(){
+	// parse the challenge color
+	challengeCircle = document.getElementById("challengeCircle")
+	challengeColor = challengeCircle.style.backgroundColor
+	challengeColor = challengeColor.replace(/[^\d,]/g, '').split(',');
+	rChallenge = parseInt(challengeColor[0])
+	gChallenge = parseInt(challengeColor[1])
+	bChallenge = parseInt(challengeColor[2])
+	console.log(`challenge color: ${rChallenge}, ${gChallenge}, ${bChallenge}`)
+
+	// parse the user color
+	userCircle = document.getElementById("userCircle")
+	userColor = userCircle.style.backgroundColor
+	userColor = userColor.replace(/[^\d,]/g, '').split(',');
+	rUser = parseInt(userColor[0])
+	gUser = parseInt(userColor[1])
+	bUser = parseInt(userColor[2])
+	console.log(`user color: ${rUser}, ${gUser}, ${bUser}`)
+
+}
