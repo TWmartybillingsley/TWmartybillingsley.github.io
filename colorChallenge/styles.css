@@ -37,14 +37,18 @@ body{
 	font-size: 24px;
 	line-height: 2;
 	text-align: left;
-	padding-left: 450px; /* roughly centered on static content */
-	width: 100vw;
+	width: 100vw;  
 	height: 45px;
 	border-radius: 0px 0px 12px 12px;
 	position: absolute;
 	top:80px;  /* logo is 80px high*/
 	left: 0px;  
 	min-width: 700px;
+  }
+
+  .titleText{
+	display: inline-block;
+	margin: 0px 0px 0px 450px; /* roughly centered on static content */
   }
 
 
