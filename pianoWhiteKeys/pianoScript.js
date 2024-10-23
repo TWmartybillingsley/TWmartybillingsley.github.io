@@ -135,7 +135,6 @@ function initSound() {
 	osc.start();
 }
 
-
 // handle key press and release via mouse clicks and/or touch
 var keyCurrentlyPressed = false;	// used to detect multiple touches; only one key pressed at a time
 function keyPressed(keyName){

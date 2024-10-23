@@ -1,6 +1,6 @@
 body{
 	box-sizing: border-box;
-	
+	background-color: #F7941F;   /* TinkRworks orange */
 	margin: 0;
 	display: flex;
 	justify-content: center;
@@ -8,10 +8,43 @@ body{
 	font-family: Helvetica, sans-serif;
 }
 
+/* if removing logoBox, change top of .controls to calc(2vw+45px) and top of .piano to calc(17vw+45px)*/
+.logoBox{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 80px;
+	background-color: white;
+	text-align:left;
+	filter: drop-shadow(3px 3px 4px rgba(0,0,0,0.15));
+}
+.logoImage{
+	width: 220px; /* 220x66 */
+	margin-left:40px;
+}
+
+/* if removing logoBox and titleBox, change top of .controls to 2vw and top of .piano to 17vw */
+.titleBox{
+	background-color: #3B5486;
+	color: white;
+	font-family: "Roboto", sans-serif;
+	font-size: 24px;
+	line-height: 2;
+	text-align: center;
+	width: 100vw;  
+	height: 45px;
+	border-radius: 0px 0px 12px 12px;
+	position: absolute;
+	top:80px;  /* logo is 80px high*/
+	left: 0px;  
+	min-width: 700px;
+  }
+
 .piano{
 	display: flex;
 	position: absolute;
-	top: 25vw;
+	top: calc(17vw + 125px); /* 125 is the height of the two top banners */
 }
 
 .key{
@@ -49,10 +82,11 @@ body{
 	margin-top: 11.4vw;
 }
 
+/* controls above piano */
 .controls{
 	width: 45vw;
 	position: absolute;		/* dependent on window size */
-	top: 11vw;
+	top: calc(2vw + 125px);  /* 125 is the height of the two top banners */
 	z-index: 5;
 }
 
@@ -171,28 +205,8 @@ body{
 	font-size:1.5vw;
 }
 
-.logoBox{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 7vw;
-	background-color:white;
-	padding:0.5vw;
-	text-align:left;
-}
-.logoImage{
-	width: 20vw;
-	margin-left:4vw;
-}
 
-.colorBox{
-	position: absolute;
-	width: 100vw;
-	background-color: #F7941F;   /* TinkRworks orange */
-	height:58vw;
-	top: 7vw;
-	z-index:-1;
-}
+
+
 
 
