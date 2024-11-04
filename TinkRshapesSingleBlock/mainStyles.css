@@ -92,6 +92,10 @@
   --sharedTFTop2: 177;          /* triangle */
 
   --screenFactor: 2;
+
+  /* to remove banner with logo: hide/remove .logobox, change --top-banner-height to 45px   */
+  /* to also remove blue banner: hide/remove .titlebox, change --top-banner-height to 0px */
+  --top-banner-height: 125px;
 }
 
 body{
@@ -131,18 +135,6 @@ body{
   min-width: 700px;
 }
 
-.whiteBanner{  /*OLD*/
-  background-color: #FFFFFF;
-  border: 1px transparent solid;
-  width: 100%;
-  height: 100px;
-}
-
-.logo{  /*OLD*/
-  border: 1px transparent solid;
-  margin-left:50px;
-  margin-top: 10px;
-}
 
 
 .orangeMain{
@@ -168,7 +160,7 @@ input::-webkit-inner-spin-button {
   height: 515px;
   position: absolute;   /* position based on window */
   left:670px;
-  top:145px;
+  top: calc(var(--top-banner-height) + 20px);
   background-color: white;
   border-radius: 10px;
   box-shadow: 1px 1px 5px #808080;
@@ -188,7 +180,7 @@ input::-webkit-inner-spin-button {
   padding:20px;
   position: absolute;   /* position based on window */
   left:35px;
-  top:145px;
+  top: calc(var(--top-banner-height) + 20px);
   background-color: #FFFFFF;
   border-radius: 10px;
   box-shadow: 1px 1px 5px #808080;
@@ -337,7 +329,7 @@ input::-webkit-inner-spin-button {
   padding:20px;
   position: absolute;   /* position based on window */
   left:35px;
-  top:400px;
+  top: calc(var(--top-banner-height) + 275px);
   background-color: #FFFFFF;
   border-radius: 10px;
   box-shadow: 1px 1px 5px #808080;
