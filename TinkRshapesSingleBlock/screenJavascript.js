@@ -1,3 +1,6 @@
+//TO DO: add text wrap
+
+
 // for sizing the grid
 var factor = 2  // might be changed on load, depending on device
 var rawScreenWidth = 320
