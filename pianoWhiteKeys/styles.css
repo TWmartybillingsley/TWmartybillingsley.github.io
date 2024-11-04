@@ -1,3 +1,9 @@
+/* to remove banner with logo: hide/remove .logobox, change --top-banner-height to 45px   */
+/* to also remove blue banner: hide/remove .titlebox, change --top-banner-height to 0px */
+:root {
+	--top-banner-height: 125px;
+  }
+
 body{
 	box-sizing: border-box;
 	background-color: #F7941F;   /* TinkRworks orange */
@@ -44,7 +50,7 @@ body{
 .piano{
 	display: flex;
 	position: absolute;
-	top: calc(17vw + 125px); /* 125 is the height of the two top banners */
+	top: calc(17vw + var(--top-banner-height)); 
 }
 
 .key{
@@ -85,8 +91,8 @@ body{
 /* controls above piano */
 .controls{
 	width: 45vw;
-	position: absolute;		/* dependent on window size */
-	top: calc(2vw + 125px);  /* 125 is the height of the two top banners */
+	position: absolute;		/* dependent on window size */ 
+	top: calc(2vw + var(--top-banner-height)); 
 	z-index: 5;
 }
 
