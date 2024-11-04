@@ -1,6 +1,11 @@
 /* Roboto font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+/* to remove banner with logo: hide/remove .logobox, change --top-banner-height to 45px   */
+/* to also remove blue banner: hide/remove .titlebox, change --top-banner-height to 0px */
+:root {
+  --top-banner-height: 125px;
+}
 
 body{
   font-family:  "Helvetica", sans-serif;
@@ -17,7 +22,7 @@ body{
 	height: 80px;
 	background-color: white;
 	text-align:left;
-  filter: drop-shadow(0px 5px 5px #aaa);
+  
 }
 .logoImage{
 	width: 220px; /* 220x66 */
@@ -40,12 +45,12 @@ body{
   min-width: 700px;
 }
 
-/* to remove top banners: hide .titlebox and .logobox, change margin for .controlsDiv to 0 auto */
+
 .controlsDiv{
   width: 700px;
   height: 200px;
   position: relative;
-  margin: 150px auto 0px;  /* center right-left */
+  margin: calc(var(--top-banner-height) + 30px) auto 0px;  /* center right-left */
 }
 
 
