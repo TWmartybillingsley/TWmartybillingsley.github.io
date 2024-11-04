@@ -6,9 +6,12 @@
 	<link rel="stylesheet" href="styles.css">
 	<script src="pianoScript.js" defer></script>
 </head>
-<body>
-	<!-- this div shows up at start, forcing user to click to create an audio context-->
-	<div id="startButton" onclick="initSound(); this.style.display='none';">Start</div>
+<body onclick="if(!audioCtx){initSound();}">   <!-- audio context must be launched through a user click; will happen only once-->
+	
+	<div class="logoBox">
+		<img src="TinkRworks Logo.svg" class="logoImage">
+	</div>
+	<div class="titleBox">Piano</div>
 
 	<div class="piano" id="piano">
 		<!-- A4 + 1 octave (to Ab5) -->
@@ -148,10 +151,7 @@
 	</div>
 
 
-	
 
-	<div class="logoBox"><img src="website-logo-2022.png" class="logoImage"></div>
-	<div class="colorBox"></div>
 
 
 </body>
