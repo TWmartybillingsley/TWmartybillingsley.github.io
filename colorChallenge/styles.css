@@ -4,6 +4,12 @@
 /* tinkRworks orange: #f79520 */
 /* drop shadow: filter: drop-shadow(3px 3px 4px rgba(0,0,0,0.15)); */
 
+/* to remove banner with logo: hide/remove .logobox, change --top-banner-height to 45px   */
+/* to also remove blue banner: hide/remove .titlebox, change --top-banner-height to 0px */
+:root {
+	--top-banner-height: 125px;
+  }
+
 body{
 	font-family:  "HelveticaNeue-Light", "Helvetica", sans-serif;
 	color:rgb(51,85,138);
@@ -14,7 +20,7 @@ body{
 	min-width: 700px;
 }
 
-/* if removing logoBox, change margin of #contentBox to 120px auto 0px; */
+
 .logoBox{
 	position: absolute;
 	top: 0;
@@ -30,7 +36,7 @@ body{
 	margin-left:40px;
 }
 
-/* if removing logoBox and titleBox, change margin of #contentBox to 75px auto 0px; */
+
 .titleBox{
 	background-color: #3B5486;
 	color: white;
@@ -49,7 +55,7 @@ body{
 
 
 #contentBox{
-	margin: 200px auto 0px;
+	margin: calc(var(--top-banner-height) + 75px) auto 0px;
 	width: 800px;
 	height: 610px;
 	position: relative;
