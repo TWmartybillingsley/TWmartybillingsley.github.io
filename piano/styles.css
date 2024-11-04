@@ -6,7 +6,8 @@
 
 body{
 	box-sizing: border-box;
-	background-color: #F7941F;   /* TinkRworks orange */
+	/*background-color: #F7941F;   TinkRworks orange */
+	background-color: #f3f0ea;  /* background from style guide */
 	margin: 0;
 	display: flex;
 	justify-content: center;
