@@ -15,6 +15,8 @@ var yOffset = 10*factor
 var gridSpacing = 20  // factor taken into account when drawing/labeling grid
 var gridColor = "rgba(100,100,100,0.2)"
 
+var topBannerHeight = 125
+
 resizeGridVars()
 
 // global variables used to toggle state
@@ -53,7 +55,7 @@ function setScreenLoc(){
 
   // set the location of svgWhiteBox based on blockly div and width of box
   var box = document.getElementById("svgWhiteBox")
-  box.style.top = `110px`
+  box.style.top = `${topBannerHeight+10}px`    // branding at top plus 10px spacing
   box.style.right = `100px`
 
   drawStartingState()

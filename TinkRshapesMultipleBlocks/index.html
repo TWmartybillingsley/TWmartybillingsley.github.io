@@ -28,6 +28,8 @@
 
 	<!-- d3 library for drawing SVGs -->
 	<script src="d3.js"></script>
+	<!--<script src="d3plus-text/d3plus-text.js"></script>-->
+
 
 	<link rel="stylesheet" href="styles.css">
 
@@ -35,28 +37,15 @@
 </head>
 <body onload="setScreenLoc()">
 
-	<!-- top bar -->
-	<div id="site-topbar">
-		<div class="button-bar">
-			<img src="images/rocket.png" class="app-icon" id="rocket-icon">
-
-			<div class="app-title">
-				Background Builder
-			</div>
-			<!-- run the code -->
-			<div class="big-button" id="run-code" onclick="runCode()">
-				Run Code<br>
-				<img src="images/RunCode.png" class="app-icon, button-icon" id="runCode-button">
-			</div>
-
-			<!-- copy XML -->
-			<div class="big-button" id="copy-xml" onclick="copyXML()">
-				Copy XML<br>
-				<img src="images/CopyXML.png" class="app-icon, button-icon" id="copyXML-button">
-			</div>
-
-		</div>
+	 <!-- white banner at top -->
+    <!-- banners at top; can be removed or hidden-->
+	<div class="logoBox">
+		<img src="images/TinkRworks Logo.svg" class="logoImage">
 	</div>
+	<div class="titleBox">Background Builder</div>
+
+	
+	
 
 	<!-- blockly needs a fixed-sized div -->
 	<div id="blocklyDiv"></div>
@@ -78,6 +67,22 @@
 			</label>
 		</div>
 		<div id="svgDIV"></div>
+	</div>
+
+	<!-- buttons on side -->
+	<div id="button-box">
+		<!-- run the code -->
+		<div class="big-button" id="run-code" onclick="runCode()">
+			Run Code<br>
+			<img src="images/RunCode.png" class="app-icon id="runCode-button">
+		</div>
+
+		<!-- copy XML -->
+		<div class="big-button" id="copy-xml" onclick="copyXML()">
+			Copy XML<br>
+			<img src="images/CopyXML.png" class="app-icon" id="copyXML-button">
+		</div>
+
 	</div>
 
 
@@ -727,7 +732,13 @@
     		navigator.clipboard.writeText(xmlCompleteCode);
     	}
 
-    	
+    	// adjust the width of the button div to the width of the toolbox
+		toolboxWidth = document.getElementsByClassName('blocklyToolboxDiv')[0].offsetWidth;
+		document.getElementById('button-box').style.width = `${toolboxWidth}px`;
+
+		// also add a bit of top padding to the blockly toolbox
+		toolboxWidth = document.getElementsByClassName('blocklyToolboxDiv')[0].style.paddingTop = '20px';
+
 
 	</script>
 <!-- end of blockly blocks and scripts -->

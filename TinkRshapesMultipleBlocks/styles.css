@@ -1,92 +1,103 @@
 /* Roboto font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+
+/* to remove banner with logo: hide/remove .logobox, change --top-banner-height to 45px   */
+/* to also remove blue banner: hide/remove .titlebox, change --top-banner-height to 0px */
+/*  **** NEED TO ALSO CHANGE JAVASCRIPT: topBannerHeight */
+:root {
+  --top-banner-height: 125px;
+}
+
 body{
 	margin-left: 30px;
 }
 
-#site-topbar{
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100px;
-  min-width:600px;
-  color:#ffffff;
-  font-family: Roboto, sans-serif;
-  background-color: #2E5390;
+/                                               change #button-box top: 65px; height: calc(100vh - 65px); */
+.logoBox{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 80px;
+	background-color: white;
+	text-align:left;
+  
+}
+.logoImage{ 
+	width: 220px; /* 220x66 */
+	margin-left:40px;
 }
 
-.button-bar{
-  display: flex;
-  align-items: center; /* vertically centered */
-}
-
-.app-icon{
-  display: inline-block;
+.titleBox{
+  background-color: #3B5486;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  line-height: 2;
   text-align: center;
-  margin: 5px 10px 0 5px;
-  height: 80px;
-  padding: 2px;
-  border-radius: 44px;
-  background-color: #5079BE;
+  width: 100vw;
+  height: 45px;
+  border-radius: 0px 0px 12px 12px;
+  position: absolute;
+  top:80px;  /* logo is 80px high*/
+  left: 0px;  
 }
 
-.app-title {
-  color: #ffffff;
-  display: inline-block;
-  font-size: 22px;
-  margin: 10px;
-  width: 200px;
-  min-width: 180px;
-  background: transparent;
-  border: none;
-  text-overflow: ellipsis;
+
+#button-box{ 
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  position: absolute;
+  left: 0px;
+  top: calc(var(--top-banner-height) + 65px);
+  height: calc(100vh - var(--top-banner-height) - 65px); 
+  width: 87px;  /* will be resized dynamically to width of Blockly toolbox */
+  z-index: 999;  /* override Blockly so this sits on top of toolbox */
+  background-color: #B0BBCC;
+  padding-top: 20px;
 }
+
+.app-icon{  
+  width: 50px;
+  margin-top: 10px;
+  
+}
+
 
 .big-button {
-  font-size: 16px;
   color: #ffffff;
-  text-shadow: 1px 1px #000000;
-  display: inline-block;
-  position: relative;
   cursor: pointer;
   user-select: none;
-  width: 90px;
+  width: inherit;
   height: 90px;
-  min-width: 90px;
-  padding: 8px 0 0 0;
+  padding: 10px 0 0 0;
+  border-radius: 5px;
+  margin-top: 10px;
   text-align: center;
-  border-right: 1px solid;
-  border-left: 1px solid;
-  border-color: #5079be !important;
-  border-radius: 0px;
   transition: background-color 150ms;
 }
 
 .big-button:hover{
-  background-color: #5079BE;
+ /*background-color: #5079BE;*/
+ background-color: #A0AABB;
 }
 .big-button:active{
-  background-color: #E4EAF3;
-}
-
-.button-icon{
-  position: relative;
-  top:16px;
-  width: 50px;
+  background-color: #C0CCDD;
 }
 
 
 
 
 
+
+                /* branding at top is 125px high */
 #blocklyDiv{    /* these values also used in sketchJavascript.js when window is resized */
-	height: calc(100vh - 100px);  
+	height: calc(100vh - var(--top-banner-height));  
 	width: calc(100vw - 40px);
   position: absolute;
-  top:100px;
+  top: var(--top-banner-height);
   left:0;
 }
 
@@ -109,7 +120,7 @@ body{
   height: 240px;
   position: absolute;   /* position based on window */
   right: 100px; /* reset in JS on load */
-  top:110px;    /* reset in JS on load */
+  top: calc(var(--top-banner-height) + 10px);    /* reset in JS on load */
   background-color: white;
   border-radius: 10px;
   box-shadow: 1px 1px 5px #808080;
